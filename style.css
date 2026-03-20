@@ -38,6 +38,8 @@ body {
   background: var(--bg);
 }
 
+.header > * { max-width: 1200px; width: 100%; margin: 0 auto; }
+
 .logo {
   font-size: 16px;
   font-weight: 700;
@@ -88,6 +90,9 @@ body {
   display: grid;
   grid-template-columns: 240px minmax(0, 660px) 200px;
   align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .panel-left  { border-right: 1px solid var(--border); padding: 16px; }
