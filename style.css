@@ -27,10 +27,6 @@ body {
 /* ── Header ─────────────────────────────────────────── */
 .header {
   height: var(--header-h);
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 0 20px;
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
@@ -38,7 +34,16 @@ body {
   background: var(--bg);
 }
 
-.header > * { max-width: 1200px; width: 100%; margin: 0 auto; }
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 20px;
+}
+
 
 .logo {
   font-size: 16px;
