@@ -9,23 +9,38 @@
 <body>
   <div class="app">
 
-    <header>
+    <header class="header">
       <div class="logo">UltraHypo</div>
-      <div class="meta" id="meta">—</div>
+      <div class="header-meta" id="meta">—</div>
+      <div class="header-actions">
+        <button class="btn-generate" id="btn-generate">✦ Generate Hypotheses</button>
+        <button class="lang-toggle" id="lang-toggle">UA</button>
+      </div>
     </header>
 
-    <main id="card">
-      <div class="empty">
-        <p>No hypotheses found.</p>
-        <p class="hint">Run <code>npm run run-all</code> to generate hypotheses.</p>
-      </div>
-    </main>
+    <div class="layout" id="layout">
 
-    <footer>
-      <div class="counter" id="counter"></div>
-      <button id="btn-next" class="btn-next" disabled>Next hypothesis →</button>
-    </footer>
+      <!-- Left: Reference ads -->
+      <aside class="panel-left">
+        <div class="panel-label" data-i18n="based_on">Based on</div>
+        <div id="ref-ads"></div>
+      </aside>
 
+      <!-- Center: Hypothesis content -->
+      <main class="panel-center" id="panel-center">
+        <div class="empty-state" id="empty-state">
+          <p data-i18n="no_data">No hypotheses found.</p>
+          <p class="hint">Run <code>npm run run-all</code> to generate.</p>
+        </div>
+      </main>
+
+      <!-- Right: Navigation -->
+      <aside class="panel-right">
+        <div class="panel-label" data-i18n="all_hypotheses">All hypotheses</div>
+        <div id="nav-pills"></div>
+      </aside>
+
+    </div>
   </div>
   <script type="module" src="js/ui.js"></script>
 </body>

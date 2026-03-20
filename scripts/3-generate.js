@@ -5,70 +5,70 @@ import Anthropic from '@anthropic-ai/sdk';
 const SCORED_FILE = 'data/ads-scored.json';
 const NICHE_FILE  = 'config/niche.json';
 const OUT_FILE    = 'data/hypotheses.json';
-const HYPO_COUNT  = 10;
+const REFS_FILE   = 'data/ads-refs.json';
+const HYPO_COUNT  = 5;
 
 const client = new Anthropic();
 
-function buildPrompt(niche, ads) {
+// Remove lone surrogates and other problematic unicode that breaks JSON
+const clean = s => s ? s.replace(/[\uD800-\uDFFF]/g, '') : '';
+
+// ── Запит 1: структура гіпотез (без хуків і боді) ────────────────────────────
+function buildStep1Prompt(niche, ads) {
   const adSummaries = ads.map((ad, i) => {
     const img = ad._image_analysis;
-    return `
-AD #${i + 1}
-- Score: ${Math.round(ad._score)} | Reach: ${ad['EU Total Reach']?.toLocaleString()} | Days: ${ad['Active days']} | Dupes: ${(ad.duplicate_ads ?? []).length}
-- Status: ${ad.Status} | Platform: ${(ad.Platform ?? []).join(', ')}
-- Domain: ${ad.Domain}
-- Body: ${ad.Body ?? '—'}
-- Image analysis: ${img ? JSON.stringify(img) : 'not available'}
-`.trim();
+    return `AD #${i + 1} | Score:${Math.round(ad._score)} | Reach:${ad['EU Total Reach']?.toLocaleString()} | Days:${ad['Active days']} | Dupes:${(ad.duplicate_ads ?? []).length} | Domain:${ad.Domain}
+Body: ${clean(ad.Body ?? '—').slice(0, 150)}
+Image: ${img ? `${clean(img.visual_subject ?? '')}, ${clean(img.emotion ?? '')}` : 'n/a'}`;
   }).join('\n\n');
 
-  return `You are a performance marketing strategist specializing in direct response advertising.
+  return `Performance marketing strategist. Analyze top Facebook ads and generate ${HYPO_COUNT} creative hypotheses.
 
-## OUR NICHE
-Direction: ${niche.direction}
-Product type: ${niche.product_type || 'not specified'}
-Audience: ${JSON.stringify(niche.audience, null, 2)}
-Key messages: ${JSON.stringify(niche.key_messages)}
-Hooks that work: ${JSON.stringify(niche.hooks_that_work)}
-CTA patterns: ${JSON.stringify(niche.cta_patterns)}
-Visual patterns: ${JSON.stringify(niche.visual_patterns)}
-What we avoid: ${JSON.stringify(niche.what_we_avoid)}
-Research insights: ${JSON.stringify(niche.research_insights)}
+NICHE: ${niche.direction}
+Audience: Women 40-80, USA/Canada, postmenopause, wants to lose weight, feel younger, stay active
+Product: Printable Tai Chi plans, 28-day challenges, 7-10 min/day, no equipment, no jumping
+What works: age-specific targeting, printable format, date challenges, anti-running hooks, longevity angle
+Avoid: medical claims, intense fitness, men's exercises, equipment
 
-## TOP PERFORMING ADS IN THIS SPACE
+TOP ADS:
 ${adSummaries}
 
-## YOUR TASK
-Analyze the top ads above. Find patterns in:
-- Visual styles that dominate (ugc vs polished, colors, subjects)
-- Body/hook structures that repeat in high-performing ads
-- What emotional triggers they use
-- What makes certain creatives get duplicated many times (social proof = it's working)
+Generate ${HYPO_COUNT} hypotheses. ALL text in Ukrainian.
+reference_ad_numbers = 1-based indexes of 2-3 most relevant ads from the list above.
 
-Then generate ${HYPO_COUNT} CREATIVE HYPOTHESES for our ${niche.direction} direction.
+Return ONLY a JSON array, no other text:
+[{"id":1,"title":"...","hypothesis":"...","what_to_test":"...","based_on":"...","why_it_works":"...","priority":"high","creative_format":"video","reference_ad_numbers":[3,7]}]`;
+}
 
-Each hypothesis must:
-1. Be NEW — not copy existing creatives, but learn from their patterns
-2. Stay within our niche direction and audience
-3. Test ONE specific variable (visual, hook, emotion, format, CTA)
-4. Have a clear rationale based on the data
+// ── Запит 2: хуки і боді тексти для кожної гіпотези ──────────────────────────
+function buildStep2Prompt(hypotheses) {
+  const list = hypotheses.map(h =>
+    `ID ${h.id}: ${h.title}\nГіпотеза: ${h.hypothesis}\nФормат: ${h.creative_format}`
+  ).join('\n\n');
 
-IMPORTANT: Write ALL text fields (title, hypothesis, what_to_test, based_on, why_it_works, suggested_hook) in Ukrainian language.
+  return `Copywriter for Tai Chi programs for women 40+. Printable plans, 7-10 min/day, no equipment.
+Working hooks: age-specific ("TO MY LADIES OVER 60"), anti-running, longevity, UGC "I am [age]".
 
-Return a JSON array only:
-[
-  {
-    "id": 1,
-    "title": "Short catchy title of the hypothesis",
-    "hypothesis": "Clear one-sentence statement of what we believe",
-    "what_to_test": "Specific creative element or angle to test",
-    "based_on": "Specific patterns/data points from the analyzed ads",
-    "why_it_works": "Psychological or behavioral reason this could outperform",
-    "priority": "high / medium",
-    "creative_format": "video / image / ugc / carousel",
-    "suggested_hook": "Example opening line or visual concept"
-  }
-]`;
+For each hypothesis write 3 hooks and 3 body texts in Ukrainian.
+is_dialog=true → first-person ("Мені 62 роки, і я...")
+is_dialog=false → direct offer or statement
+
+${list}
+
+Return ONLY a JSON array with exactly ${hypotheses.length} objects, no other text:
+[{"id":1,"top_hooks":[{"format":"video","is_dialog":true,"text":"..."},{"format":"image","is_dialog":false,"text":"..."},{"format":"ugc","is_dialog":true,"text":"..."}],"top_body_texts":[{"format":"video","is_dialog":false,"text":"..."},{"format":"image","is_dialog":false,"text":"..."},{"format":"ugc","is_dialog":true,"text":"..."}]}]`;
+}
+
+async function callClaude(prompt) {
+  const msg = await client.messages.create({
+    model:    'claude-opus-4-6',
+    max_tokens: 8192,
+    messages: [{ role: 'user', content: prompt }]
+  });
+  const text = msg.content[0].text.trim();
+  const match = text.match(/\[[\s\S]*\]/);
+  if (!match) throw new Error(`No JSON array in response:\n${text.slice(0, 400)}`);
+  return JSON.parse(match[0]);
 }
 
 async function run() {
@@ -80,34 +80,45 @@ async function run() {
   const ads   = JSON.parse(fs.readFileSync(SCORED_FILE, 'utf8'));
   const niche = JSON.parse(fs.readFileSync(NICHE_FILE, 'utf8'));
 
-  console.log(`Generating ${HYPO_COUNT} hypotheses for "${niche.direction}"...`);
+  console.log(`[1/2] Generating ${HYPO_COUNT} hypothesis structures...`);
+  const hypotheses = await callClaude(buildStep1Prompt(niche, ads));
+  console.log(`      ✓ ${hypotheses.length} hypotheses`);
 
-  const msg = await client.messages.create({
-    model: 'claude-opus-4-6',
-    max_tokens: 8192,
-    messages: [{
-      role: 'user',
-      content: buildPrompt(niche, ads)
-    }]
+  console.log(`[2/2] Generating hooks & body texts...`);
+  const creatives = await callClaude(buildStep2Prompt(hypotheses));
+  console.log(`      ✓ creatives for ${creatives.length} hypotheses`);
+
+  // Merge
+  const creativeMap = Object.fromEntries(creatives.map(c => [c.id, c]));
+  const merged = hypotheses.map(h => ({
+    ...h,
+    top_hooks:      creativeMap[h.id]?.top_hooks      ?? [],
+    top_body_texts: creativeMap[h.id]?.top_body_texts ?? [],
+  }));
+
+  // Build ads-refs.json
+  const refs = {};
+  merged.forEach(h => {
+    (h.reference_ad_numbers ?? []).forEach(num => {
+      const ad = ads[num - 1];
+      if (ad && !refs[num]) {
+        refs[num] = {
+          ad_id:       ad.ID,
+          image_url:   ad.Image?.[0]?.url ?? null,
+          reach:       ad['EU Total Reach'] ?? 0,
+          active_days: ad['Active days'] ?? 0,
+          status:      ad.Status,
+          domain:      ad.Domain ?? null,
+        };
+      }
+    });
   });
 
-  const text = msg.content[0].text.trim();
-  const jsonMatch = text.match(/\[[\s\S]*\]/);
-  if (!jsonMatch) {
-    console.error('Could not parse JSON from response:', text);
-    process.exit(1);
-  }
+  fs.mkdirSync('data', { recursive: true });
+  fs.writeFileSync(OUT_FILE,  JSON.stringify({ generated_at: new Date().toISOString(), direction: niche.direction, based_on_ads: ads.length, hypotheses: merged }, null, 2));
+  fs.writeFileSync(REFS_FILE, JSON.stringify(refs, null, 2));
 
-  const hypotheses = JSON.parse(jsonMatch[0]);
-  const output = {
-    generated_at: new Date().toISOString(),
-    direction: niche.direction,
-    based_on_ads: ads.length,
-    hypotheses
-  };
-
-  fs.writeFileSync(OUT_FILE, JSON.stringify(output, null, 2));
-  console.log(`Done. ${hypotheses.length} hypotheses saved → ${OUT_FILE}`);
+  console.log(`Done → ${OUT_FILE}`);
 }
 
-run().catch(err => { console.error(err); process.exit(1); });
+run().catch(err => { console.error(err.message); process.exit(1); });
