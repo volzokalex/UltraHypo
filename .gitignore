@@ -1,0 +1,4 @@
+node_modules/
+.env
+data/ads-raw.json
+data/ads-scored.json

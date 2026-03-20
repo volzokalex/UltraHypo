@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UltraHypo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <header>
+      <div class="logo">UltraHypo</div>
+      <div class="meta" id="meta">—</div>
+    </header>
+
+    <main id="card">
+      <div class="empty">
+        <p>No hypotheses found.</p>
+        <p class="hint">Run <code>npm run run-all</code> to generate hypotheses.</p>
+      </div>
+    </main>
+
+    <footer>
+      <div class="counter" id="counter"></div>
+      <button id="btn-next" class="btn-next" disabled>Next hypothesis →</button>
+    </footer>
+
+  </div>
+  <script type="module" src="js/ui.js"></script>
+</body>
+</html>

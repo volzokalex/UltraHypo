@@ -1,0 +1,168 @@
+{
+  "direction": "Tai Chi Training for Women 40+",
+  "product_type": "Printable Plan / App / 28-Day Challenge",
+  "funnel": "Tai Chi Funnel",
+
+  "product_is": [
+    "Tai Chi",
+    "Tai Chi Walking",
+    "Printable Plan",
+    "28-day challenges",
+    "Chair Tai Chi",
+    "Science-based movement plan",
+    "Daily standing stability drills",
+    "Mind-body connection exercises",
+    "Functional real-life movements",
+    "Weight Loss Hacks",
+    "Personal training / Coach lifehacks"
+  ],
+
+  "product_is_not": [
+    "Rehab after surgery",
+    "Intense fitness",
+    "Medical treatment",
+    "Training with equipment",
+    "Jump exercises",
+    "Men's exercises"
+  ],
+
+  "audience": {
+    "age_segments": ["40+", "50+", "60+", "70+"],
+    "gender": "Women only",
+    "countries": ["USA", "Canada"],
+    "life_stage": "Postmenopause / early signs of aging / hormonal shift",
+    "pain_points": [
+      "Low energy",
+      "Chronic pain (joints, back, neck, knees)",
+      "Hormonal imbalance / menopause",
+      "Weak muscles",
+      "Belly fat",
+      "Hip instability",
+      "Limited activity",
+      "Poor posture",
+      "Sagging skin",
+      "Loss of confidence",
+      "Shame about aging or being overweight",
+      "Emotional eating",
+      "Avoidance of movement",
+      "Stress"
+    ],
+    "desires": [
+      "Lose weight / burn belly fat",
+      "Look and feel younger",
+      "Transform their body",
+      "Reverse or slow aging",
+      "Build muscle strength",
+      "Boost energy",
+      "Be flexible",
+      "Live to 100 / stay active at any age",
+      "Look sexy for her husband",
+      "Look beautiful in a bikini",
+      "Impress everyone",
+      "Be independent"
+    ],
+    "problem_zones": ["Belly", "Arms", "Legs & Knees", "Back & Neck"]
+  },
+
+  "transformation": {
+    "before": [
+      "Avoids certain movements",
+      "Feels fragile and old",
+      "Moves cautiously",
+      "Excess fat on belly and legs",
+      "Bad posture",
+      "Poor stretching",
+      "Sagging skin",
+      "Looks older than her age"
+    ],
+    "after": [
+      "Toned body",
+      "Stands steady",
+      "Moves confidently and fluidly",
+      "Trusts her body again",
+      "Lives independently",
+      "Looks younger",
+      "Good flexibility",
+      "Tight skin"
+    ]
+  },
+
+  "tone_of_voice": {
+    "is": ["Respectful", "Empowering", "Calm authority", "Direct", "Warm"],
+    "is_not": ["Patronizing", "Medical-heavy", "Fitness-bro", "Aggressive", "Fear-based"]
+  },
+
+  "key_messages": [
+    "Just 7–10 minutes a day",
+    "No equipment, no gym, no jumping",
+    "Low-impact but effective",
+    "Specifically for women your age",
+    "Science-based",
+    "Printable — no app needed",
+    "Start on a specific date (creates urgency & community)",
+    "Results in 1 week / 2 weeks / 1 month progression"
+  ],
+
+  "hooks_that_work": [
+    "F*CK RUNNING — try our printable Tai Chi Walking Plan",
+    "Running makes you old. Tai Chi makes you young.",
+    "I'm [age]. I have zero equipment, zero gym, zero excuses. I do Tai Chi 7 minutes a day.",
+    "TO MY LADIES OVER 60 who haven't exercised in years",
+    "TAI CHI WALKING FOR BEGINNERS OVER [age]",
+    "10 MINUTES DAILY TO TRANSFORM THE BODY",
+    "PRINTABLE CHAIR TAI CHI TO GO FROM XL TO M IN 4 WEEKS",
+    "OK, LADIES — we're kicking off the 28-Day Printable Tai Chi Challenge"
+  ],
+
+  "cta_patterns": [
+    "GET YOUR PRINTABLE",
+    "JUST PRINT IT NOW",
+    "You in?",
+    "Start [date]. You in?",
+    "Open the app, breathe, and follow the flow"
+  ],
+
+  "visual_patterns": [
+    "Before/after body transformation",
+    "Woman doing Tai Chi at home",
+    "Printable plan shown on paper",
+    "Text-heavy graphic with bold claims",
+    "Real women (not models) in casual clothes",
+    "Age-specific targeting text on the image",
+    "Calendar / date-specific challenge start"
+  ],
+
+  "progression_promise": {
+    "week_1": "You'll feel it — lighter, more mobile, more energy",
+    "week_2": "You'll see it — posture, waistline, stamina changing",
+    "month_1": "You won't recognize yourself in the mirror"
+  },
+
+  "social_proof_angles": [
+    "Up to 23 pounds of belly fat",
+    "Women just like you are doing this",
+    "No gym needed — thousands doing it at home"
+  ],
+
+  "what_we_avoid": [
+    "Before/after with medical claims",
+    "Anything that implies surgery or rehab",
+    "Intense or sweaty workout imagery",
+    "Equipment or gym settings",
+    "Men in the creative",
+    "Jumping or high-impact movement",
+    "Aggressive or intimidating tone"
+  ],
+
+  "research_insights": [
+    "Audience responds strongly to age-specific targeting (60+, 70+)",
+    "Printable format reduces friction vs app downloads",
+    "Date-specific challenge start creates urgency and community feeling",
+    "Anti-running messaging ('F*ck Running') resonates as pattern interrupt",
+    "Chair Tai Chi opens up audience who feel they can't stand long",
+    "Mind-body connection angle differentiates from typical fitness ads",
+    "Longevity angle ('live to 100', 'stay active at any age') performs well",
+    "Specific numbers ('7 minutes', '23 pounds', '28 days') increase credibility",
+    "UGC-style 'I am [age]' hooks create immediate identification"
+  ]
+}
