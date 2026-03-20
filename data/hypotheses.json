@@ -1,116 +1,19 @@
 {
-  "generated_at": "2026-03-20T17:50:33.092Z",
+  "generated_at": "2026-03-20T18:41:58.692Z",
   "direction": "Tai Chi Training for Women 40+",
   "based_on_ads": 30,
   "hypotheses": [
     {
       "id": 1,
-      "title": "28-денний челендж Тай Чі для схуднення вдома",
-      "hypothesis": "Якщо ми поєднаємо перевірену структуру '28-денного челенджу для схуднення вдома' з конкретикою Тай Чі (7-10 хв/день, без стрибків, без обладнання), то отримаємо високу конверсію серед жінок 40+, які шукають м'яку альтернативу інтенсивним тренуванням. Формат дати-челенджу створює терміновість і чітку структуру.",
-      "what_to_test": "Протестувати рекламу з заголовком '28-денний челендж Тай Чі — скиньте вагу вдома' з покроковою структурою: 1️⃣ Оберіть ціль, 2️⃣ Отримайте друкований план, 3️⃣ 7 хвилин на день — без стрибків, без бігу, 4️⃣ Побачте результат через 28 днів. Відео з жінкою 50+ у вітальні, що виконує плавні рухи Тай Чі. Порівняти з варіантом без покрокової нумерації.",
-      "based_on": "Оголошення #2, #3 (28-денний челендж для схуднення вдома — Score 56K+, Reach 400K+, 563 дні активності = вічнозелений формат) та #27 (аналогічний англомовний варіант з Reach 2.7M). Структура челенджу з датою — найуспішніший патерн у всій вибірці.",
-      "why_it_works": "28-денний челендж — це доведений психологічний тригер: конкретний термін знижує страх зобов'язання ('це лише 28 днів'), створює відчуття досяжності результату, а формулювання 'вдома' знімає бар'єр походу в зал. Для жінок 40+ це критично — вони не хочуть зобов'язуватись на місяці, але готові спробувати 4 тижні. Друкований формат додає відчуття контролю.",
+      "title": "28-Day Tai Chi Challenge — Print & Start Today",
+      "hypothesis": "Статичне зображення з великим заголовком «28-денний челендж Тай Чі» + зображення роздрукованого плану на столі поруч із чашкою чаю приверне увагу жінок 40+, які шукають простий старт без додатків і обладнання.",
+      "what_to_test": "Формат «роздрукований план на фото» проти цифрового мокапу додатка. Заголовок із конкретною датою старту («Почніть у понеділок») проти загального «Почніть сьогодні».",
+      "based_on": "Реклами #4 (image, Score 54605, 18 дублів — тренування-челендж із конкретним роком), #19 (image, Score 33309, «Just 7 minutes 3 times a week»), #20 (image, Score 31746, «6-8 minutes 3 times a week»). Усі використовують конкретні часові обіцянки + низький поріг входу.",
+      "why_it_works": "28-денний челендж — найпоширеніший патерн серед топ-реклам (AD #2, #3, #10, #15, #27). Формат для друку виділяє продукт серед конкурентів-додатків. Жінки 40+ цінують тактильність і простоту: роздрукувала → повісила на холодильник → робиш щодня. 7-10 хв/день знижує бар'єр до мінімуму.",
       "priority": "high",
-      "creative_format": "video",
-      "reference_ad_numbers": [
-        2,
-        3,
-        27
-      ],
-      "top_hooks": [
-        {
-          "format": "video",
-          "is_dialog": true,
-          "text": "Мені 54 роки, і я скинула 6 кг за 28 днів — без бігу, без тренажерів, просто 10 хвилин Тай Чі вранці."
-        },
-        {
-          "format": "image",
-          "is_dialog": false,
-          "text": "28-денний челендж Тай Чі для схуднення вдома: 7-10 хв/день, жодних стрибків, жодного обладнання. Старт — завтра."
-        },
-        {
-          "format": "ugc",
-          "is_dialog": true,
-          "text": "Мені 62 роки, і я ніколи не думала, що зможу схуднути без дієт. А потім спробувала цей 28-денний челендж Тай Чі..."
-        }
-      ],
-      "top_body_texts": [
-        {
-          "format": "video",
-          "is_dialog": false,
-          "text": "28 днів. 7-10 хвилин щоранку. Друкований план, який ви просто вішаєте на холодильник.\n\nЖодних стрибків — ваші коліна скажуть «дякую». Жодного обладнання — лише ви і ваше тіло.\n\nТай Чі м'яко спалює калорії, зменшує кортизол і запускає метаболізм — саме те, що потрібно жінкам після 40.\n\nПонад 12 000 жінок вже пройшли цей челендж. Тепер ваша черга.\n\nНатисніть, щоб отримати свій друкований план і почати завтра вранці."
-        },
-        {
-          "format": "image",
-          "is_dialog": false,
-          "text": "Ви не повинні стрибати, бігати чи виснажувати себе, щоб побачити зміни.\n\n28-денний челендж Тай Чі — це м'який, але ефективний спосіб схуднути вдома. 7-10 хвилин на день за друкованим планом. Без обладнання. Без болю в суглобах.\n\nОтримайте свій план безкоштовно — посилання в описі."
-        },
-        {
-          "format": "ugc",
-          "is_dialog": true,
-          "text": "Я завжди думала, що схуднення — це біг, піт і страждання. Мені 58, коліна болять, енергії ледь вистачає на вечір.\n\nА потім подруга скинула мені цей 28-денний план Тай Чі. Я подивилась — 10 хвилин на день? Серйозно?\n\nАле я спробувала. Перший тиждень — просто стало легше вставати. Другий — одяг став вільнішим. Через 28 днів — мінус 4 кг і жодного зірваного колінного суглоба.\n\nДівчата, це працює. Натисніть і спробуйте самі."
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "title": "Анти-біговий гак: Тай Чі замість бігової доріжки",
-      "hypothesis": "Якщо ми протиставимо Тай Чі бігу та тренажерам ('Забудьте про бігову доріжку — Тай Чі працює краще після 50'), ми перехопимо аудиторію, яка вже цікавиться схудненням через ходьбу/біг, але має проблеми з суглобами чи мотивацією. Антагоністичний гак створює когнітивний дисонанс і зупиняє скролінг.",
-      "what_to_test": "Тестувати статичне зображення та відео з хуком 'Тренування на біговій доріжці у 2026? Є кращий спосіб для жінок після 50 🙅‍♀️'. Далі — список переваг з емодзі: ✅ Без навантаження на коліна, ✅ Лише 7 хвилин на день, ✅ Друкований план — тренуйтесь без телефону, ✅ Прискорює метаболізм м'яко. Порівняти прямий анти-біговий гак vs м'який ('Якщо біг — не для вас, спробуйте це').",
-      "based_on": "Оголошення #4 (Weight Loss Treadmill Workouts 2026 — Score 54.6K, 18 дублів = активне масштабування) та #13 (Tai Chi Walking після 50 — прямий конкурент з longevity-ракурсом). Біг/ходьба — головний конкурент за увагу нашої ЦА.",
-      "why_it_works": "Жінки 40-80, які хочуть схуднути, спочатку думають про ходьбу або біг — це 'за замовчуванням'. Але багато з них мають біль у колінах, спині або просто ненавидять кардіо. Анти-біговий гак ловить їх у момент пошуку альтернативи. Когнітивний контраст ('тренажер vs м'який Тай Чі') підсилює привабливість продукту. 18 дублів у #4 доводять, що тема тренажерів активно масштабується — ми перехоплюємо цю аудиторію.",
-      "priority": "high",
-      "creative_format": "static",
+      "creative_format": "image",
       "reference_ad_numbers": [
         4,
-        13
-      ],
-      "top_hooks": [
-        {
-          "format": "video",
-          "is_dialog": true,
-          "text": "Мені 57 років, і я продала свою бігову доріжку. Тай Чі зробив для мого тіла більше за 3 місяці, ніж біг за 3 роки."
-        },
-        {
-          "format": "image",
-          "is_dialog": false,
-          "text": "Забудьте про бігову доріжку. Після 50 ваші суглоби заслуговують на краще — Тай Чі спалює калорії БЕЗ ударного навантаження."
-        },
-        {
-          "format": "ugc",
-          "is_dialog": true,
-          "text": "Мені 63, і я хочу вибачитись перед своїми колінами за 10 років бігової доріжки. Тай Чі — це те, з чого мені треба було почати."
-        }
-      ],
-      "top_body_texts": [
-        {
-          "format": "video",
-          "is_dialog": false,
-          "text": "Біг після 50 — це удар по суглобах, виснаження і часто травми. Але фітнес-індустрія продовжує казати вам бігати більше.\n\nА тепер факт: дослідження показують, що повільні плавні рухи Тай Чі знижують кортизол, покращують баланс і підтримують здорову вагу — без жодного удару по колінах.\n\n7-10 хвилин на день. Друкований план. Без обладнання.\n\nПеревірте самі — натисніть і отримайте свій план Тай Чі."
-        },
-        {
-          "format": "image",
-          "is_dialog": false,
-          "text": "Бігова доріжка вбиває ваші коліна. Тренажерний зал забирає годину часу. А результату — як не було, так і нема.\n\nТай Чі працює інакше: м'які рухи по 7-10 хв/день активують глибокі м'язи, покращують метаболізм і знижують стрес.\n\nБез стрибків. Без обладнання. Друкований план на кожен день.\n\nОтримайте свій план — посилання нижче."
-        },
-        {
-          "format": "ugc",
-          "is_dialog": true,
-          "text": "Я 8 років ходила на бігову доріжку. Результат? Стерті коліна і ненависть до тренувань. Мені 55, і я думала, що проблема в мені.\n\nА потім я знайшла Тай Чі. 10 хвилин вранці за друкованим планом. Перший місяць — коліна перестали хрустіти. Другий — я стала спати як немовля. Третій — знайомі питають, чи я схудла.\n\nЯ навіть не потіла. Просто рухалась повільно й усвідомлено.\n\nСпробуйте — натисніть на посилання."
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "title": "Мікро-час як головний гак: 7 хвилин 3 рази на тиждень",
-      "hypothesis": "Якщо ми зробимо акцент на мінімальному часі ('Лише 7 хвилин 3 рази на тиждень — і ваше тіло подякує через 30 днів'), це зніме головний бар'єр для жінок 40+: відчуття, що на тренування потрібно багато часу та енергії. Конкретна цифра '7 хвилин' звучить настільки мало, що стає неможливо відмовитись.",
-      "what_to_test": "Відео-реклама з жінкою 55+, яка дивиться на годинник (таймер 7:00), потім виконує м'які рухи Тай Чі у вітальні. Текст: 'Лише 7 хвилин Тай Чі 3 рази на тиждень — і ви не впізнаєте себе через місяць. Це реально! 🧘‍♀️ ✅ Прискорює метаболізм для легшого спалювання жиру ✅ Зміцнює м'язи без стрибків ✅ Знижує стрес ✅ Покращує баланс і поставу 📋 Отримайте друкований план — тренуйтесь без екрану'. Тестувати '7 хвилин' vs '10 хвилин' vs 'менше 10 хвилин'.",
-      "based_on": "Оголошення #16 і #20 (BetterMe — 'Exercise for just 6-8 minutes 3 times a week' — Score 33.8K та 31.7K, Reach до 455K, 128 днів активності) та #19 ('Just 7 minutes 3 times a week' — Score 33.3K, 63 дні). Три різних оголошення з однаковою формулою часу — це системний патерн успіху.",
-      "why_it_works": "Три окремих топових оголошення використовують формулу '6-8 хвилин / 3 рази на тиждень / результат через місяць' — це не випадковість, а перевірений фреймворк. Для жінок 40-80 час — найцінніший ресурс, а страх фізичного навантаження — головний бар'єр. Коли вони бачать '7 хвилин' — це ламає стереотип 'тренування = важко і довго'. Додавання 'друкованого плану' посилює конверсію, бо ця аудиторія надає перевагу фізичним матеріалам перед екраном.",
-      "priority": "high",
-      "creative_format": "video",
-      "reference_ad_numbers": [
-        16,
         19,
         20
       ],
@@ -118,134 +21,237 @@
         {
           "format": "video",
           "is_dialog": true,
-          "text": "Мені 48 років, і я не вірила, що 7 хвилин 3 рази на тиждень можуть щось змінити. Через 30 днів я вірю."
+          "text": "I'm 55 and I printed this Tai Chi plan on Day 1 — by Day 28 my whole body felt different."
         },
         {
           "format": "image",
           "is_dialog": false,
-          "text": "7 хвилин. 3 рази на тиждень. Через 30 днів ваше тіло подякує. Тай Чі — друкований план для жінок 40+."
+          "text": "The 28-Day Tai Chi Challenge you can print right now and start in your living room today."
         },
         {
           "format": "ugc",
           "is_dialog": true,
-          "text": "Мені 66, і я знайшла 7 вільних хвилин між ранковою кавою і душем. Цього виявилось достатньо, щоб змінити все."
+          "text": "I taped the printout to my fridge and did 7 minutes every morning — here's what 28 days did."
         }
       ],
       "top_body_texts": [
         {
           "format": "video",
           "is_dialog": false,
-          "text": "Вам не потрібна година. Не потрібні 30 хвилин. Навіть 15 — забагато.\n\n7 хвилин Тай Чі, 3 рази на тиждень — ось вся формула.\n\nЦе менше, ніж один ролик у стрічці. Але за 30 днів ваше тіло відчує різницю: більше енергії, менше болю, легший рух.\n\nДрукований план на кожен день — повісьте на стіну і просто слідуйте.\n\nБез обладнання. Без стрибків. Без виправдань.\n\nОтримайте план — натисніть зараз."
+          "text": "A simple 28-day Tai Chi plan designed for women over 40.\n• Print your daily schedule — no app needed\n• Just 7-10 minutes a day, zero equipment\n• Gentle flows that build balance, calm & flexibility\nStart Day 1 right now — tap below to get your printable plan."
         },
         {
           "format": "image",
           "is_dialog": false,
-          "text": "Головна відмовка жінок після 40: «Немає часу». І ми це розуміємо.\n\nТому цей план Тай Чі — лише 7 хвилин, 3 рази на тиждень. Друкуєте, вішаєте на холодильник, робите між ранковою кавою та душем.\n\nЧерез 30 днів — легше встаєте, краще спите, одяг сидить вільніше.\n\nОтримайте безкоштовний друкований план — посилання нижче."
+          "text": "No gym. No gadgets. Just a printed page and 7 minutes.\n• Each day has a clear, easy-to-follow Tai Chi routine\n• Designed for beginners 40+ who want to move pain-free\n• Thousands of women have already finished all 28 days\nPrint your challenge today — link below."
         },
         {
           "format": "ugc",
           "is_dialog": true,
-          "text": "Я вічно казала собі: «Немає часу на спорт». Мені 52, троє дітей, робота, дім — коли?\n\nА тут — 7 хвилин. Три рази на тиждень. Я подумала: це ж несерйозно.\n\nАле роздрукувала план, повісила на дзеркало. Перший тиждень — просто приємно. Другий — зникла біль у попереку, з якою я жила роки. Через місяць чоловік сказав: «Ти якась інша стала».\n\n7 хвилин. Це менше, ніж скролити стрічку. Натисніть і спробуйте."
+          "text": "I wasn't sure 7 minutes could change anything. But I printed Day 1 and just… started.\n• By Day 7 my morning stiffness was fading\n• By Day 14 I was sleeping deeper than I had in years\n• By Day 28 my daughter said I looked lighter somehow\nGet the same printable plan I used — tap below."
         }
-      ]
+      ],
+      "visual_prompt": "Realistic photo of a 58-year-old Caucasian woman standing in a sunlit living room holding a printed sheet of paper in one hand while performing a gentle Tai Chi pose with the other arm extended, soft morning light streaming through sheer curtains, cozy modern home interior with a yoga mat on the floor, warm golden tones, calm and empowered mood, shot at eye level with a 50mm lens, shallow depth of field, lifestyle photography style, soft shadows, natural skin texture, no makeup filter"
     },
     {
-      "id": 4,
-      "title": "Тай Чі для довголіття: вікова специфіка 50+",
-      "hypothesis": "Якщо ми поєднаємо longevity-позиціонування ('Старійте з силою. Рухайтесь з мудрістю') з конкретними віковими болями (біль у колінах, втрата енергії, погана рухливість суглобів), то виділимось серед generic фітнес-реклами і створимо емоційний зв'язок з жінками, які відчувають себе 'забутими' фітнес-індустрією.",
-      "what_to_test": "Карусель або відео з гаком 'Після 50? Тай Чі — ваша ідеальна вправа ☯️'. Кадри: спокійна жінка 60+ на природі, плавні рухи, усмішка. Текст: '☯️ Тай Чі — м'яке мистецтво, яке: ✅ Покращує загальне самопочуття ✅ Прибирає біль у колінах ✅ Дає заряд енергії ✅ Покращує рухливість суглобів ✅ Підтримує довголіття 📋 Отримайте друкований 28-денний план — 7 хв/день, без обладнання'. Тестувати 'Після 50' vs 'Після 40' vs 'Після 60' для визначення оптимального вікового тригеру.",
-      "based_on": "Оголошення #13 (Tai Chi Walking після 50 — 'Age with strength. Move with wisdom' — Score 36.2K, longevity-ракурс) та #5 (Walking — 'Keine Knieschmerzen mehr / Erhalte einen Energieschub' — Score 54.5K, 18 дублів, список болей). Комбінація вікового таргетування + списку конкретних переваг.",
-      "why_it_works": "Жінки 50+ постійно бачать рекламу фітнесу з молодими моделями і відчувають відчуження. Пряме звернення 'Після 50?' створює миттєве впізнавання — 'це про мене'. Longevity-фрейм трансформує мотивацію зі 'схуднути' (короткострокова, часто з відчуттям провини) на 'жити довше і активніше' (позитивна, довгострокова). Список конкретних болей (коліна, енергія, суглоби) від #5 має 18 дублів — доведена ефективність цієї структури для нашої ЦА.",
-      "priority": "medium",
-      "creative_format": "carousel",
+      "id": 2,
+      "title": "Anti-Running Hook: Gentle Tai Chi Beats Jogging After 50",
+      "hypothesis": "Зображення зі split-screen: зліва — перекреслена жінка, що біжить (з іконкою болю в колінах), справа — спокійна жінка в позі Тай Чі з посмішкою. Хук «Hate running? You're not alone.» створить сильну ідентифікацію з аудиторією.",
+      "what_to_test": "Anti-running хук проти anti-gym хука. Варіант із переліком «Без бігу ✅ Без стрибків ✅ Без обладнання ✅» проти варіанту з єдиним фокусом на протиставленні бігу.",
+      "based_on": "Реклами #18 (image, Score 33645, wall Pilates для жінок — м'який підхід), #25 (image, Score 28614, покроковий фітнес-шлях), #26 (image, Score 28387, персоналізований програмний підхід). Усі позиціонують м'які вправи як альтернативу інтенсивним.",
+      "why_it_works": "Анти-біговий хук — перевірений прийом для ніші (з брифу «what works»). Жінки 40-80 часто мають проблеми з суглобами й шукають безпечну альтернативу. Split-screen формат миттєво передає меседж «це НЕ те, чого ви боїтесь». Контраст біль/спокій — потужний візуальний тригер.",
+      "priority": "high",
+      "creative_format": "image",
       "reference_ad_numbers": [
-        5,
+        18,
+        25,
+        26
+      ],
+      "top_hooks": [
+        {
+          "format": "video",
+          "is_dialog": true,
+          "text": "I'm 52 and I quit running — this 7-minute Tai Chi routine did more for my body than jogging ever did."
+        },
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "After 50, jogging wrecks your knees. Tai Chi rebuilds your whole body in 7 minutes flat."
+        },
+        {
+          "format": "ugc",
+          "is_dialog": true,
+          "text": "I used to force myself to jog 3 miles — now I do gentle Tai Chi and my knees finally forgave me."
+        }
+      ],
+      "top_body_texts": [
+        {
+          "format": "video",
+          "is_dialog": false,
+          "text": "Running after 50 can punish your joints. Tai Chi strengthens them instead.\n• Low-impact moves that protect knees, hips & ankles\n• Improves balance and flexibility without the pounding\n• Only 7-10 min/day — printable plan, no equipment\nSwitch to the smarter workout — get your plan below."
+        },
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "Science says gentle Tai Chi beats jogging for women over 50.\n• Burns stress without burning out your joints\n• Builds deep core stability and fall-proof balance\n• Printable daily routines — 7 minutes, your living room\nYour knees will thank you. Tap below to start."
+        },
+        {
+          "format": "ugc",
+          "is_dialog": true,
+          "text": "I ran for 20 years and my doctor said my knees were paying the price.\n• I switched to this 7-min Tai Chi plan — no equipment needed\n• Within weeks my knee pain dropped and my balance improved\n• I printed each day's routine and kept it on my nightstand\nIf running hurts, try this instead — link below."
+        }
+      ],
+      "visual_prompt": "Realistic photo of a 54-year-old woman outdoors in a peaceful suburban backyard at sunrise, mid-Tai Chi pose with arms flowing gracefully, wearing comfortable athleisure clothes, a pair of old running shoes abandoned on the grass beside her, soft diffused golden hour light, lush green lawn and a wooden fence in the background, serene and relieved facial expression, medium shot from a slightly low angle, natural color grading, editorial lifestyle photography, Canon EOS R5 aesthetic"
+    },
+    {
+      "id": 3,
+      "title": "Longevity & Balance: Tai Chi as the Secret of Women Who Age Gracefully",
+      "hypothesis": "Відео у форматі UGC: жінка 55-65 років розповідає, як 7 хвилин Тай Чі щоранку змінили її рівновагу, сон і енергію. Фінальний кадр — роздрукований план у руках. Longevity-фрейм замість фітнес-фрейму резонуватиме з аудиторією, яка не ідентифікує себе з «фітнес-людьми».",
+      "what_to_test": "UGC-відео з однією жінкою 55+ проти монтажу з кількома жінками різного віку (45, 55, 70). Хук «I stopped trying to lose weight — and found something better» проти «My doctor said keep doing this».",
+      "based_on": "Реклами #13 (video, Score 36206, Tai Chi Walking для 50+, «Age with strength. Move with wisdom»), #16 (video, Score 33823, «6-8 minutes 3 times a week — won't recognize yourself»), #23 (video, Score 30740, «Boost muscle strength, Increase flexibility, Improve balance»).",
+      "why_it_works": "Longevity-кут (з брифу) — потужний мотиватор для жінок у постменопаузі. AD #13 прямо доводить, що Тай Чі + вікове таргетування працює. UGC-формат створює довіру: «ця жінка — як я». Акцент на балансі й енергії замість схуднення уникає медичних клеймів і резонує з реальними болями аудиторії.",
+      "priority": "high",
+      "creative_format": "ugc",
+      "reference_ad_numbers": [
         13,
+        16,
         23
       ],
       "top_hooks": [
         {
           "format": "video",
           "is_dialog": true,
-          "text": "Мені 71 рік, і лікар сказав, що мої суглоби у кращому стані, ніж у більшості 55-річних. Мій секрет — Тай Чі по 10 хвилин на день."
+          "text": "I'm 62 and people keep asking what I changed — it's just 7 minutes of Tai Chi every morning."
         },
         {
           "format": "image",
           "is_dialog": false,
-          "text": "ДО МОЇХ ЖІНОК ПІСЛЯ 50: Старійте з силою. Рухайтесь з мудрістю. Тай Чі — друкований план для вашого тіла і вашого віку."
+          "text": "Women who age gracefully have one thing in common — and it's not expensive skincare."
         },
         {
           "format": "ugc",
           "is_dialog": true,
-          "text": "Мені 64. Мої подруги бояться сходів. А я щоранку роблю Тай Чі і відчуваю себе на 50. Хочу розповісти, як."
+          "text": "I'm 60 and my secret to feeling 45 is a printable Tai Chi plan I do before coffee every day."
         }
       ],
       "top_body_texts": [
         {
           "format": "video",
           "is_dialog": false,
-          "text": "Фітнес-індустрія забула про жінок після 50. Усюди стрибки, швидкість, молоді тіла.\n\nАле ваше тіло не потребує HIIT. Воно потребує мудрого руху.\n\nТай Чі — це практика довголіття, якій понад 2000 років. Вона зміцнює суглоби замість того, щоб їх руйнувати. Покращує баланс, щоб ви не боялись впасти. Повертає енергію, яку ви думали вже не повернути.\n\n7-10 хвилин на день. Друкований план для кожного рівня.\n\nОтримайте свій — натисніть зараз."
+          "text": "The women who look and feel younger after 50 share one quiet habit: daily Tai Chi.\n• Improves posture, balance, and natural energy\n• Reduces cortisol — the hormone that accelerates aging\n• Just 7-10 min/day from a simple printable plan\nAge on your own terms — get the plan below."
         },
         {
           "format": "image",
           "is_dialog": false,
-          "text": "Після 50 тіло змінюється. Коліна нагадують про себе. Енергія тане до обіду. Баланс вже не той.\n\nТай Чі створений саме для цього етапу життя:\n🫶 Зміцнює суглоби без навантаження\n🫶 Повертає гнучкість і баланс\n🫶 Знижує стрес та покращує сон\n\n7-10 хв/день. Друкований план. Без обладнання.\n\nСтарійте з силою — отримайте план у каруселі ⬇️"
+          "text": "Graceful aging isn't luck. It's movement.\n• Tai Chi boosts circulation for healthier skin and joints\n• Strengthens the deep stabilizer muscles that prevent falls\n• No equipment, no gym — just a printed guide and 7 minutes\nJoin thousands of women 40+ who chose the gentle path. Tap below."
         },
         {
           "format": "ugc",
           "is_dialog": true,
-          "text": "Мені 68 років. Рік тому я боялась вийти взимку — слизько, ноги не тримають, баланс нульовий.\n\nДочка роздрукувала мені план Тай Чі. Сказала: «Мамо, 10 хвилин на день, просто спробуй».\n\nЧерез 3 місяці я ходжу по льоду і не хапаюсь за поручні. Коліна перестали скрипіти. Сусідка питає, що я роблю — каже, я помолодшала.\n\nДівчата, нам не пізно. Натисніть і отримайте такий самий план."
+          "text": "My friends joke that I'm aging backwards. Here's my actual secret:\n• I follow a printable Tai Chi plan — 7 minutes every morning\n• No equipment, I do it barefoot in my kitchen\n• My balance, sleep, and even my posture completely changed\nI'm not special — I just found the right routine. Link below."
         }
-      ]
+      ],
+      "visual_prompt": "UGC-style smartphone selfie video still of a radiant 63-year-old woman with silver hair and a warm genuine smile, standing in a bright modern kitchen wearing a soft linen top, morning light hitting her face naturally, slight lens distortion typical of a front-facing phone camera, relaxed and joyful expression, a printed Tai Chi schedule visible on the refrigerator behind her held by magnets, candid authentic feel, slightly grainy quality, warm white balance, eye-level framing, portrait orientation"
     },
     {
-      "id": 5,
-      "title": "Квіз-воронка: персоналізований план Тай Чі",
-      "hypothesis": "Якщо ми використаємо квіз-воронку ('Пройдіть 2-хвилинний тест → Отримайте персональний друкований план Тай Чі'), це підвищить залученість і конверсію, оскільки жінки 40+ цінують індивідуальний підхід і відчуття, що план створений саме для них. Квіз знижує тертя на вході та збирає дані для сегментації.",
-      "what_to_test": "Статичне зображення з нумерованими кроками: '🧘‍♀️ Персональний план Тай Чі для жінок 40+ 1️⃣ Пройдіть 2-хвилинний тест 2️⃣ Отримайте друкований план під ваші цілі 3️⃣ Тренуйтесь лише 7 хв/день — без стрибків 4️⃣ Побачте видимі зміни за 28 днів ✅ Спалювання жиру через м'які рухи ✅ Зміцнення без навантаження на суглоби ✅ Підходить для будь-якого рівня підготовки'. Тестувати '2-хвилинний тест' vs '1-хвилинний тест' vs 'Швидкий тест'. Тестувати 3-крокову vs 4-крокову структуру.",
-      "based_on": "Оголошення #7 (Pilates at Home Challenge з метаболізм-ракурсом — Score 50.1K, Reach 471K, 16 дублів) та #17 (Walking.yoga — покрокова квіз-воронка 'Mach ein 2-minütiges Quiz → personalisierten Plan' — Score 33.7K, Reach 2.9M — найбільший Reach у вибірці). Квіз-формат домінує серед довготривалих кампаній.",
-      "why_it_works": "Квіз-воронка — найуспішніший формат у вибірці за показником Reach (#17 — 2.9M). Для жінок 40+ 'персоналізований план' вирішує ключовий страх: 'А чи підійде це мені у моєму віці?'. Покрокова нумерація (1-2-3-4) візуально спрощує процес і знижує когнітивне навантаження. Слово 'друкований' — унікальна перевага, якої немає у конкурентів з аппами, і яка резонує з аудиторією, що надає перевагу офлайн-матеріалам. 16 дублів у #7 та масштаб #17 підтверджують масштабованість формату.",
-      "priority": "high",
-      "creative_format": "static",
+      "id": 4,
+      "title": "Visible Transformation in 28 Days — Tai Chi Edition for Women 40+",
+      "hypothesis": "Статичне зображення з before/after-стилем (не тіло, а спосіб життя): зліва — хаотичний ранок, справа — спокійний ранок із Тай Чі. Текст: «Get a VISIBLE body transformation in 28 DAYS with Tai Chi — just 7 min/day, printable plan». Комбінація трансформаційної обіцянки з Тай Чі та роздрукованого формату.",
+      "what_to_test": "Lifestyle before/after проти числового прогрес-трекера (Day 1 → Day 28 із позначками). Заголовок «Visible transformation» проти «Feel 10 years younger in 28 days».",
+      "based_on": "Реклами #15 (image, Score 34906, «TRASFORMAZIONE VISIBILE del corpo in 28 GIORNI con il Tai Chi»), #4 (image, Score 54605, тренувальний челендж із конкретним терміном), #11 (image, Score 36831, побудова сили та витривалості з чітким CTA).",
+      "why_it_works": "AD #15 — пряме підтвердження, що «видима трансформація + Тай Чі + 28 днів» працює як рекламний меседж (Score 34906). Фрейм трансформації стилю життя замість фото тіла уникає агресивного фітнес-позиціонування. Роздрукований формат — УТП, якого немає в жодного конкурента з топ-реклам. 7 хв/день — найнижчий поріг серед усіх аналогів.",
+      "priority": "medium",
+      "creative_format": "image",
       "reference_ad_numbers": [
-        7,
-        17,
-        29
+        15,
+        4,
+        11
       ],
       "top_hooks": [
         {
           "format": "video",
           "is_dialog": true,
-          "text": "Мені 59 років, я пройшла 2-хвилинний тест і отримала план Тай Чі саме для мого рівня. Вперше відчула — це зроблено ДЛЯ МЕНЕ."
+          "text": "I'm 48 and after 28 days of Tai Chi my posture, sleep, and energy were completely unrecognizable."
         },
         {
           "format": "image",
           "is_dialog": false,
-          "text": "Пройдіть 2-хвилинний тест — і отримайте персональний друкований план Тай Чі, створений для вашого віку, рівня та цілей."
+          "text": "28 days. 7 minutes a day. Zero equipment. The Tai Chi transformation women 40+ can't stop sharing."
         },
         {
           "format": "ugc",
           "is_dialog": true,
-          "text": "Мені 63, і я завжди думала, що фітнес-плани — це для молодих. А потім пройшла короткий тест і отримала план, який нарешті підходить МЕНІ."
+          "text": "I didn't believe 7 minutes could change my body at 53 — this is me on Day 1 vs. Day 28."
         }
       ],
       "top_body_texts": [
         {
           "format": "video",
           "is_dialog": false,
-          "text": "Не всі жінки після 40 однакові. У вас свій вік, свої суглоби, свій рівень енергії.\n\nТому ми створили 2-хвилинний тест, який враховує саме ВАШІ потреби:\n→ Ваш вік і фізичний стан\n→ Чи є біль у суглобах\n→ Скільки часу ви готові виділити\n\nРезультат — персональний друкований план Тай Чі: 7-10 хв/день, без обладнання, без стрибків.\n\nНатисніть, пройдіть тест і отримайте план, створений саме для вас."
+          "text": "Real transformation doesn't require hours at the gym. It takes 7 focused minutes.\n• Day 1-7: Release tension and learn to breathe deeply\n• Day 8-21: Build balance, flexibility, and calm\n• Day 22-28: Feel the visible shift in posture and energy\nPrint your 28-day Tai Chi plan now — tap below."
         },
         {
           "format": "image",
           "is_dialog": false,
-          "text": "Універсальні плани не працюють. Тіло у 42 і у 65 — це різні тіла з різними потребами.\n\n📋 Пройдіть швидкий тест (2 хв)\n📋 Отримайте друкований план Тай Чі під ваш вік та рівень\n📋 7-10 хвилин на день, без обладнання\n\nВаш план вже чекає — натисніть і пройдіть тест."
+          "text": "What can change in 28 days of gentle Tai Chi?\n• Straighter posture you can see in the mirror\n• Deeper sleep starting in the first week\n• Calmer mind and fewer aches — no equipment needed\nDesigned for women 40+ who want results without strain.\nGet your printable plan below."
         },
         {
           "format": "ugc",
           "is_dialog": true,
-          "text": "Я перепробувала все: йогу, пілатес, ходьбу. Все було або занадто складно, або занадто нудно. Мені 56, і я вже не вірила, що знайду своє.\n\nА тут побачила тест — 2 хвилини, кілька запитань про вік, суглоби, час. І мені видали друкований план Тай Чі саме під мене.\n\n10 хвилин вранці. Рухи, які я реально можу робити. Вперше я не кинула через тиждень.\n\nДівчата, пройдіть тест — це безкоштовно і це змінює підхід. Натисніть нижче."
+          "text": "I took a photo on Day 1 just in case. I'm so glad I did.\n• My shoulders were rounded and I looked exhausted\n• By Day 28 my posture was straighter and I stood taller\n• All I did was 7 minutes of Tai Chi from a printed sheet\nSee the difference for yourself — grab the plan below."
         }
-      ]
+      ],
+      "visual_prompt": "Realistic split-image photo showing a before-and-after concept of a 50-year-old woman, left side she has slightly rounded shoulders and a tired expression wearing a gray t-shirt in dim indoor lighting, right side same woman standing tall with open posture and a confident soft smile in warm bright natural light wearing a clean white top, same living room background, subtle visual contrast between dull and vibrant tones, clean editorial layout feel, front-facing camera angle, full upper-body framing, natural skin detail, motivational mood, magazine-quality lifestyle photography"
+    },
+    {
+      "id": 5,
+      "title": "3-Step Quiz Funnel: Personalized Tai Chi Plan for Your Age & Goals",
+      "hypothesis": "Статичне зображення з 3-кроковою інфографікою: 1️⃣ Оберіть свій вік і мету → 2️⃣ Отримайте персональний план Тай Чі для друку → 3️⃣ 7 хвилин щодня — відчуйте різницю за 28 днів. Квіз-воронка з вікової персоналізацією підвищить CTR завдяки ефекту «це створено саме для мене».",
+      "what_to_test": "3-кроковий квіз-формат проти прямого CTA «Download your printable plan». Персоналізація за віком (40-55 / 55-70 / 70+) проти персоналізації за метою (баланс / енергія / гнучкість).",
+      "based_on": "Реклами #26 (image, Score 28387, 871K reach, 3-кроковий квіз: «Répondez à un test → Obtenez un programme → Suivez vos progrès»), #22 (image, Score 31101, digestiplan — простий візуал із мінімальним текстом), #6 (image, Score 52004, digestiplan — чистий формат із високим Score).",
+      "why_it_works": "3-кроковий квіз-патерн домінує серед топ-реклам: AD #10, #17, #21, #24, #26, #30 — усі використовують формулу «Quiz → Plan → Track». AD #26 доводить це для image-формату з reach 871K. Вікова персоналізація — ключовий фактор (з брифу «age-specific targeting works»). Квіз знижує когнітивне навантаження: замість вибору — простий перший крок.",
+      "priority": "medium",
+      "creative_format": "image",
+      "reference_ad_numbers": [
+        26,
+        6,
+        22
+      ],
+      "top_hooks": [
+        {
+          "format": "video",
+          "is_dialog": true,
+          "text": "I'm 57 and a 3-question quiz gave me a Tai Chi plan that actually fits my body and my schedule."
+        },
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "Answer 3 quick questions and get a personalized Tai Chi plan matched to your age and goals."
+        },
+        {
+          "format": "ugc",
+          "is_dialog": true,
+          "text": "I took a 30-second quiz and got a Tai Chi plan made for my age — I've never stuck with anything this long."
+        }
+      ],
+      "top_body_texts": [
+        {
+          "format": "video",
+          "is_dialog": false,
+          "text": "Not every Tai Chi plan works for every body. That's why we built a 3-step quiz.\n• Step 1: Tell us your age and fitness level\n• Step 2: Choose your goal — balance, calm, flexibility, or all three\n• Step 3: Get a printable plan tailored to you — 7 min/day\nTake the free quiz now — tap below."
+        },
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "Your Tai Chi plan should fit YOUR life — not the other way around.\n• Quick 3-step quiz takes under 30 seconds\n• Personalized for your age, goals & experience level\n• Get a printable daily plan — 7-10 min, no equipment\nOver 10,000 women 40+ have found their perfect routine.\nTake the quiz below."
+        },
+        {
+          "format": "ugc",
+          "is_dialog": true,
+          "text": "I've tried yoga apps, walking plans, you name it. Nothing stuck until this quiz.\n• It asked my age, my biggest struggle, and my goal\n• I got a printable Tai Chi plan customized just for me\n• 7 minutes a day and I actually look forward to it now\nFind your perfect plan — take the free quiz below."
+        }
+      ],
+      "visual_prompt": "Realistic photo of a 55-year-old woman sitting on a couch in a cozy well-lit living room, smiling warmly while looking at her smartphone screen which shows a colorful quiz interface, a freshly printed Tai Chi plan resting on the coffee table beside a cup of herbal tea, soft natural window light with warm afternoon tones, comfortable casual clothing, relaxed and curious expression, medium shot from a slightly elevated angle, shallow depth of field focused on her face and phone, lifestyle editorial photography, inviting and approachable mood, natural color palette"
     }
   ]
 }

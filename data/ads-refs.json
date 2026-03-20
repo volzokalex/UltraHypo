@@ -1,20 +1,4 @@
 {
-  "2": {
-    "ad_id": "526455886571587",
-    "image_url": "https://scontent-ord5-2.xx.fbcdn.net/v/t39.35426-6/457212707_1305210253774347_1168479089934120815_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=v_vxwBkQ6HwQ7kNvwEqRjum&_nc_oc=AdphFtMN83jR1FHLwLB4UYzO5PIX2gI3_PKPHuUfsUlxrQPjqpuUUjNACNgGXK1gkoM&_nc_zt=14&_nc_ht=scontent-ord5-2.xx&_nc_gid=7aCunDmn9nGXIma_2JBioQ&_nc_ss=7a30f&oh=00_AfxMQo3WjAHK4pu6NLElPIpfhIkmMpUGQF4CTptP5VRjcg&oe=69C25D80",
-    "reach": 424529,
-    "active_days": 563,
-    "status": "ACTIVE",
-    "domain": "itunes.apple.com"
-  },
-  "3": {
-    "ad_id": "2797076573803023",
-    "image_url": "https://scontent-ord5-3.xx.fbcdn.net/v/t39.35426-6/457721793_1025333729060612_2330251120857334661_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=jLiYBYT89KgQ7kNvwGQtC5b&_nc_oc=AdpK7MrRKRLrqzOHABQTxAsrH-FlD8wIgazwd2D0bOWJ5iM_F7q8QaQ3FDOUzwJ9QHE&_nc_zt=14&_nc_ht=scontent-ord5-3.xx&_nc_gid=if2IpjCJkRTaRm38THpG8Q&_nc_ss=7a30f&oh=00_AfywUu_1DnM9rIpHoK3Ak8gO9qHlHMZgSjFhmSuaCiT-SQ&oe=69C260F2",
-    "reach": 387178,
-    "active_days": 563,
-    "status": "ACTIVE",
-    "domain": "itunes.apple.com"
-  },
   "4": {
     "ad_id": "2337507450069092",
     "image_url": "https://scontent-ord5-3.xx.fbcdn.net/v/t39.35426-6/646824233_1425466359067574_8253033306797886154_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=hRDlLXKdVoAQ7kNvwH2gdb9&_nc_oc=AdoMW9fHO0S8zAM3AF9Dr1jyItfyKPV6DhU5hS4WEP_fcs4jpv-7SYhnMT8NZOPva8o&_nc_zt=14&_nc_ht=scontent-ord5-3.xx&_nc_gid=YctS-D1KiLDpmqE2Um1UCA&_nc_ss=7a30f&oh=00_Afxg5mx7CVentV-mFZyBekskSDMFy48OWn5NcgmlgY4j3w&oe=69C2634E",
@@ -23,21 +7,21 @@
     "status": "INACTIVE",
     "domain": "slimkit.health"
   },
-  "5": {
-    "ad_id": "1528893845275965",
-    "image_url": "https://scontent-ord5-2.xx.fbcdn.net/v/t39.35426-6/650674382_770638502548954_4581926200312642481_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=fNHNG4OFujYQ7kNvwFy8beJ&_nc_oc=AdoUGZ0OV7AZGrphbz764If83gCvJHj3nn4KVQj_tY85PypPD0Tanmrf4lrsqSXaUSA&_nc_zt=14&_nc_ht=scontent-ord5-2.xx&_nc_gid=82ZW2CKzAWLAXtO3oOOdWg&_nc_ss=7a30f&oh=00_AfxQjTIss2eY35QUOx0Rzx6O3iFi8PgU1Oi0tQp0KhtM8w&oe=69C2876D",
-    "reach": 223896,
-    "active_days": 5,
+  "6": {
+    "ad_id": "1492185569165340",
+    "image_url": "https://scontent-ord5-1.xx.fbcdn.net/v/t39.35426-6/648635585_1554629245602604_6156005167058750684_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=a1XuWMtYuiEQ7kNvwHcKn65&_nc_oc=AdrhbJl8NlBlrQXD749E5e6kCaxL4tf-5yrAM0jWn1zcBd3LDMFDpwG64MNChLsgrHs&_nc_zt=14&_nc_ht=scontent-ord5-1.xx&_nc_gid=oe4h5ArjMfNNi0wOTHHtpg&_nc_ss=7a30f&oh=00_AfzwzMmp6_qHhRjPXBGq1EXsDlx2-OVg4d-jMAiWYxz8lw&oe=69C27D39",
+    "reach": 37833,
+    "active_days": 10,
     "status": "INACTIVE",
-    "domain": "walking.harnafit.com"
+    "domain": "digestiplan.com"
   },
-  "7": {
-    "ad_id": "885426604306517",
-    "image_url": "https://scontent-ord5-1.xx.fbcdn.net/v/t39.35426-6/640147697_1640969783769648_7953261515552407737_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=hn3OnYO1-S4Q7kNvwFfuHly&_nc_oc=AdqGJ2_aQ4XRsntcfQFzuS9jOEVeUFYst1Gw6nnOBROk8hphBySwYbvzxD7puE2ut40&_nc_zt=14&_nc_ht=scontent-ord5-1.xx&_nc_gid=YJpVJXC3w9L7V-KhqfxuxA&_nc_ss=7a30f&oh=00_AfzGHTpKSXNLxlPJz1xaKsgofceXraB8iYM7TrqG9UI8AA&oe=69C29217",
-    "reach": 471797,
-    "active_days": 21,
+  "11": {
+    "ad_id": "1993640124699598",
+    "image_url": "https://scontent-ord5-3.xx.fbcdn.net/v/t39.35426-6/646924718_1729189751382784_2649874952456878464_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=jSUsGNAJbhYQ7kNvwGJpUn3&_nc_oc=AdpeoqR0FPci1MOz4VkB6V50nuIMkx0K0uoU72nSmWE473IVBnTrZ0m8Rvenmn3z8hs&_nc_zt=14&_nc_ht=scontent-ord5-3.xx&_nc_gid=30iPPzEz0_g_milkd0pfdA&_nc_ss=7a30f&oh=00_AfydQbgURcQ4B2fzOTpss2fQ4orWrmYZP59lp_WWZSCozA&oe=69C268CB",
+    "reach": 306336,
+    "active_days": 8,
     "status": "INACTIVE",
-    "domain": "quiz.organic-fit-mealplan.com"
+    "domain": "fit4me.io"
   },
   "13": {
     "ad_id": "1438989174584445",
@@ -47,6 +31,14 @@
     "status": "INACTIVE",
     "domain": "easy-quiz.walkup.fit"
   },
+  "15": {
+    "ad_id": "1682905506216849",
+    "image_url": "https://scontent-ord5-1.xx.fbcdn.net/v/t39.35426-6/641407295_1275108324539523_4992277335120812941_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=6fj_S80BhDYQ7kNvwFjmwfx&_nc_oc=AdrffRMimtD1vz-fnK7PJLO8_BUeRX1-PR1ttXc0bCLirX8w2wJU7lXlItxC1am9Yug&_nc_zt=14&_nc_ht=scontent-ord5-1.xx&_nc_gid=U8ZHBQOVtId8FCEtcwSPzw&_nc_ss=7a30f&oh=00_AfxtfKanV6-OmoMJP4MlmY0om6wcjwJTY24E5p9NNJ_CKQ&oe=69C27064",
+    "reach": 63887,
+    "active_days": 19,
+    "status": "INACTIVE",
+    "domain": "bodybooster.app"
+  },
   "16": {
     "ad_id": "794169923618510",
     "image_url": "https://scontent-ord5-3.xx.fbcdn.net/v/t39.35426-6/577899583_2013297645878300_9050207512277690783_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=RiVhKXyutoQQ7kNvwGbHLya&_nc_oc=AdqORzMYncLDw3_XmfxAdGVPYd4F2Fu97kCo6lNm6pp5vuSxEHo8RDvBDcW9_gT_sr4&_nc_zt=14&_nc_ht=scontent-ord5-3.xx&_nc_gid=nlIX5LrKqhAJ_-cuzEjLAA&_nc_ss=7a30f&oh=00_AfyV7ZUdv1Cx_AXmjQEXJrKZc-An53YwLYRRIa6P-gpaPw&oe=69C27B93",
@@ -55,13 +47,13 @@
     "status": "INACTIVE",
     "domain": "betterme-home-yoga.com"
   },
-  "17": {
-    "ad_id": "26219758267654320",
-    "image_url": "https://scontent-ord5-3.xx.fbcdn.net/v/t39.35426-6/632298616_1912572289467075_7782892670046125381_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=yWLtyf37rucQ7kNvwG0Pxch&_nc_oc=AdoF2EgAjQfpcLCJaFw_ANZSk0DNBoiYAsJBBtYWq07mxilCXVeA0NvBU7s-n11vofE&_nc_zt=14&_nc_ht=scontent-ord5-3.xx&_nc_gid=NsToI7TXoZ89kCFDFxVPNQ&_nc_ss=7a30f&oh=00_AfxBHeNKYdBjRdjcPAIbnbzkY6W796f1Wk5lfE1cUDtXPA&oe=69C263F0",
-    "reach": 2906038,
-    "active_days": 34,
-    "status": "ACTIVE",
-    "domain": "walking.yoga"
+  "18": {
+    "ad_id": "1444962070634760",
+    "image_url": "https://scontent-ord5-1.xx.fbcdn.net/v/t39.35426-6/650643809_1725722005064575_5313314460671240815_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=-krNGxXPMc8Q7kNvwHL81mq&_nc_oc=AdrAKiemntlQwEl9IKXnBfJ2MTvaq3SZRkOydfuMBl8f7O2Z9F5h-Iw4omJBGHaKVu4&_nc_zt=14&_nc_ht=scontent-ord5-1.xx&_nc_gid=eS4058VceZNcQJwiLlN8sw&_nc_ss=7a30f&oh=00_AfwKKJek0NNiD45OUVerPBCg6yy9Gq87dZpmyMsoYijOHA&oe=69C27590",
+    "reach": 453383,
+    "active_days": 6,
+    "status": "INACTIVE",
+    "domain": "pilates.harnafit.com"
   },
   "19": {
     "ad_id": "3826286847675567",
@@ -79,6 +71,14 @@
     "status": "INACTIVE",
     "domain": "betterme-home-yoga.com"
   },
+  "22": {
+    "ad_id": "1517582973708891",
+    "image_url": "https://scontent-ord5-3.xx.fbcdn.net/v/t39.35426-6/647046964_25916572248037747_7281369023216939126_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=UB6YAcxbqk4Q7kNvwHI6_jP&_nc_oc=AdryP0Z4yzUWxf4tSZ_H1wFjxndKoozs-1ETck6ZcCI6eH5TjPvqPHedjhc0LT3FiNY&_nc_zt=14&_nc_ht=scontent-ord5-3.xx&_nc_gid=3IbM33Yozg6rKid6ECYgfQ&_nc_ss=7a30f&oh=00_AfzayPVaJZJc_pqsL30Jtd8p4RHnW5hpkzVCj7Ma9mca6g&oe=69C27BF3",
+    "reach": 5174,
+    "active_days": 11,
+    "status": "INACTIVE",
+    "domain": "digestiplan.com"
+  },
   "23": {
     "ad_id": "874994171562088",
     "image_url": "https://scontent-ord5-2.xx.fbcdn.net/v/t39.35426-6/612990682_2747605378914505_429945259357723458_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=_nPkWd2Ex9YQ7kNvwEIpPxa&_nc_oc=Adr4e7qC_CM6vVm43wvbGuCY6G5JPvJUeoelRnBgOojWZ9nHVJI6L1u-QB_gsVnqsSs&_nc_zt=14&_nc_ht=scontent-ord5-2.xx&_nc_gid=1HL86hBI8cMlaY68nmvaUg&_nc_ss=7a30f&oh=00_AfxXI2gFWzdN6tnCwXEld-LYm4dv_L-yBojXz0qMyzYXWA&oe=69C2773A",
@@ -87,20 +87,20 @@
     "status": "INACTIVE",
     "domain": "betterme-home-yoga.com"
   },
-  "27": {
-    "ad_id": "4039537153043050",
-    "image_url": "https://scontent-ord5-3.xx.fbcdn.net/v/t39.35426-6/533033093_980999337418523_8561615834067787925_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=n5zUIWOg2-MQ7kNvwFv64s0&_nc_oc=AdrHC9-l8JqRJsBRKAdCv5UVyabmhN7LuXpmWVLkEHnZl24tg8ZfXOco5BpQo8MbwjI&_nc_zt=14&_nc_ht=scontent-ord5-3.xx&_nc_gid=IpxN7I3v9G540Oq_SQDWxg&_nc_ss=7a30f&oh=00_Afx4IAjLC6K1Lou4s3eTT0xfQLwqfjFStKZUJvBjHm8ZUQ&oe=69C274BB",
-    "reach": 2698773,
-    "active_days": 217,
+  "25": {
+    "ad_id": "1881043922589298",
+    "image_url": "https://scontent-ord5-2.xx.fbcdn.net/v/t39.35426-6/644924565_2043326213261399_5089980513729351815_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=yt9YQgt0G2UQ7kNvwFWLCtW&_nc_oc=Ado9FiTub-KarMcdMzJMU7VyJewwbS1ajP62pSNtZD2c1j42QD776bTetYq9rEL8tjw&_nc_zt=14&_nc_ht=scontent-ord5-2.xx&_nc_gid=NyxUaeKsbseZQAizC66M5A&_nc_ss=7a30f&oh=00_Afzeoff-Deh-h1iLMmbnxJNwft0BF3y8FAyY1gOpY2txBw&oe=69C280B2",
+    "reach": 142983,
+    "active_days": 16,
     "status": "ACTIVE",
-    "domain": "itunes.apple.com"
+    "domain": "pilates.harnafit.com"
   },
-  "29": {
-    "ad_id": "1577414150139160",
-    "image_url": "https://scontent-ord5-3.xx.fbcdn.net/v/t39.35426-6/634142373_1389628562426891_1882189131623577270_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=EnC7r7maO0wQ7kNvwF6_JlG&_nc_oc=AdpVSCapYPtYhO-9GX1TjjsLG6Vs-8zgeYKUW04aIHEyfQ0UT6cHeG6ujd9UTd0MMag&_nc_zt=14&_nc_ht=scontent-ord5-3.xx&_nc_gid=7fuxEfnRAqDP_r5zZOaucA&_nc_ss=7a30f&oh=00_Afwup1Cs_hYwY4CY8ORmkllvx5alAP78_30piwJRTzoBuQ&oe=69C267EE",
-    "reach": 13295,
-    "active_days": 30,
+  "26": {
+    "ad_id": "1699393648139529",
+    "image_url": "https://scontent-ord5-1.xx.fbcdn.net/v/t39.35426-6/646277554_1495948935290169_328087014613015319_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=JUIwpghkjwwQ7kNvwHFjYsc&_nc_oc=Adqp88kRrzz8tRfOKZYftoPwDSg6KMsxM2Mlmxvtbv0cu_Q-u48hh874OqXPmA7R_nU&_nc_zt=14&_nc_ht=scontent-ord5-1.xx&_nc_gid=vdMueRhZUF76RaQ79KXG7Q&_nc_ss=7a30f&oh=00_AfxNFf3BO3AgntYHFJVKXROIQ-zKo0aJY4njgVoegl-Luw&oe=69C2942C",
+    "reach": 871349,
+    "active_days": 13,
     "status": "ACTIVE",
-    "domain": "quiz.lotusflow.com"
+    "domain": "betterme-pilates-plan.com"
   }
 }
