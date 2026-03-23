@@ -15,6 +15,9 @@ const i18n = {
     days:           'Active days',
     active:         'Active',
     inactive:       'Inactive',
+    generating:     'Generating...',
+    history:        'History',
+    latest:         'Latest',
   },
   ua: {
     based_on:       'На чому базується',
@@ -31,6 +34,9 @@ const i18n = {
     days:           'Активних днів',
     active:         'Активний',
     inactive:       'Неактивний',
+    generating:     'Генерую...',
+    history:        'Історія',
+    latest:         'Поточні',
   }
 };
 
@@ -232,6 +238,136 @@ function renderAll() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// ── Load hypothesis data ──────────────────────────────────────────────────────
+async function loadData(url = 'data/hypotheses.json', refsUrl = 'data/ads-refs.json') {
+  const [hypoRes, refsRes] = await Promise.all([
+    fetch(url),
+    fetch(refsUrl).catch(() => null)
+  ]);
+  if (!hypoRes.ok) throw new Error('Failed to load hypotheses');
+
+  const data = await hypoRes.json();
+  hypotheses = data.hypotheses ?? [];
+
+  if (refsRes?.ok) adsRefs = await refsRes.json();
+
+  const date = new Date(data.generated_at).toLocaleDateString('en-GB');
+  metaEl.textContent = `${data.direction} · ${data.based_on_ads} ads · ${date}`;
+
+  current = 0;
+  emptyEl?.remove();
+  renderAll();
+  return data;
+}
+
+// ── History selector ──────────────────────────────────────────────────────────
+async function buildHistorySelect() {
+  const res = await fetch('data/history-index.json').catch(() => null);
+  if (!res?.ok) return;
+  const files = await res.json();
+  if (!files.length) return;
+
+  const wrap = document.createElement('div');
+  wrap.style.cssText = 'display:flex;align-items:center;gap:6px';
+
+  const label = document.createElement('span');
+  label.style.cssText = 'font-size:11px;color:var(--muted)';
+  label.textContent = t('history') + ':';
+
+  const sel = document.createElement('select');
+  sel.className = 'history-select';
+  sel.innerHTML = `<option value="">${t('latest')}</option>` +
+    files.map(f => {
+      // hypotheses-2026-03-23_10-00-00.json → readable date
+      const m = f.match(/hypotheses-(\d{4}-\d{2}-\d{2})_(\d{2}-\d{2})/);
+      const label = m ? `${m[1]} ${m[2].replace('-', ':')}` : f;
+      return `<option value="data/history/${f}">${label}</option>`;
+    }).join('');
+
+  sel.addEventListener('change', async () => {
+    if (!sel.value) {
+      await loadData();
+    } else {
+      await loadData(sel.value, 'data/ads-refs.json');
+    }
+  });
+
+  wrap.appendChild(label);
+  wrap.appendChild(sel);
+  document.querySelector('.header-actions').prepend(wrap);
+}
+
+// ── Generate button ───────────────────────────────────────────────────────────
+let generating = false;
+
+function setButtonLoading(on) {
+  if (on) {
+    btnGenerate.disabled = true;
+    btnGenerate.innerHTML = `<span class="btn-spinner"></span>Cooking hypotheses...`;
+  } else {
+    btnGenerate.disabled = false;
+    btnGenerate.textContent = t('generate');
+  }
+}
+
+btnGenerate.addEventListener('click', async () => {
+  if (generating) return;
+
+  const ping = await fetch('/api/generate', { method: 'OPTIONS' }).catch(() => null);
+  if (!ping || !ping.ok) {
+    alert('Generation requires the local server.\n\nRun: npm run serve');
+    return;
+  }
+
+  generating = true;
+  setButtonLoading(true);
+
+  try {
+    const resp = await fetch('/api/generate', { method: 'POST' });
+    if (!resp.ok) throw new Error('Server error');
+
+    const reader  = resp.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    outer: while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+
+      const events = buffer.split('\n\n');
+      buffer = events.pop();
+
+      for (const raw of events) {
+        const lines    = raw.split('\n');
+        const evtLine  = lines.find(l => l.startsWith('event:'));
+        const dataLine = lines.find(l => l.startsWith('data:'));
+        if (!dataLine) continue;
+
+        const eventType = evtLine ? evtLine.slice(7).trim() : 'log';
+        const payload   = JSON.parse(dataLine.slice(5).trim());
+
+        if (eventType === 'error') {
+          alert('Error: ' + payload.msg);
+          break outer;
+        }
+        if (eventType === 'done') {
+          document.querySelector('.history-select')?.parentElement?.remove();
+          await loadData();
+          await buildHistorySelect();
+          break outer;
+        }
+      }
+    }
+  } catch (e) {
+    console.error(e);
+    alert('Generation failed: ' + e.message);
+  } finally {
+    generating = false;
+    setButtonLoading(false);
+  }
+});
+
 // ── Language toggle ───────────────────────────────────────────────────────────
 langToggle.addEventListener('click', () => {
   lang = lang === 'en' ? 'ua' : 'en';
@@ -251,23 +387,8 @@ async function init() {
   document.body.appendChild(lb);
 
   try {
-    const [hypoRes, refsRes] = await Promise.all([
-      fetch('data/hypotheses.json'),
-      fetch('data/ads-refs.json').catch(() => null)
-    ]);
-    if (!hypoRes.ok) return;
-
-    const data = await hypoRes.json();
-    hypotheses = data.hypotheses ?? [];
-    if (!hypotheses.length) return;
-
-    if (refsRes?.ok) adsRefs = await refsRes.json();
-
-    const date = new Date(data.generated_at).toLocaleDateString('en-GB');
-    metaEl.textContent = `${data.direction} · ${data.based_on_ads} ads · ${date}`;
-
-    emptyEl?.remove();
-    renderAll();
+    await loadData();
+    await buildHistorySelect();
   } catch(e) {
     console.error(e);
   }

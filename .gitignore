@@ -2,4 +2,4 @@ node_modules/
 .env
 data/ads-raw.json
 data/ads-scored.json
-# data/hypotheses.json and data/ads-refs.json are tracked
+# data/hypotheses.json, data/ads-refs.json, data/history/, data/history-index.json are tracked

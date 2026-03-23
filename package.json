@@ -6,7 +6,8 @@
     "fetch":    "node scripts/1-fetch.js",
     "analyze":  "node scripts/2-analyze.js",
     "generate": "node scripts/3-generate.js",
-    "run-all":  "npm run fetch && npm run analyze && npm run generate"
+    "run-all":  "npm run fetch && npm run analyze && npm run generate",
+    "serve":    "node server.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",

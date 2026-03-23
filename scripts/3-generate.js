@@ -187,13 +187,33 @@ async function run() {
   });
 
   fs.mkdirSync('data', { recursive: true });
-  fs.writeFileSync(OUT_FILE,  JSON.stringify({
+  fs.mkdirSync('data/history', { recursive: true });
+
+  const payload = {
     generated_at: new Date().toISOString(),
     direction:    niche.direction,
     based_on_ads: ads.length,
     pattern_freq: patternFreq,
     hypotheses:   merged
-  }, null, 2));
+  };
+
+  // Archive previous hypotheses before overwriting
+  if (fs.existsSync(OUT_FILE)) {
+    const prev = JSON.parse(fs.readFileSync(OUT_FILE, 'utf8'));
+    if (prev.generated_at) {
+      const stamp = prev.generated_at.replace(/[:.]/g, '-').replace('T', '_').slice(0, 19);
+      fs.writeFileSync(`data/history/hypotheses-${stamp}.json`, JSON.stringify(prev, null, 2));
+      console.log(`Archived previous → data/history/hypotheses-${stamp}.json`);
+    }
+  }
+
+  // Update history index
+  const historyFiles = fs.readdirSync('data/history')
+    .filter(f => f.startsWith('hypotheses-') && f.endsWith('.json'))
+    .sort().reverse();
+  fs.writeFileSync('data/history-index.json', JSON.stringify(historyFiles, null, 2));
+
+  fs.writeFileSync(OUT_FILE,  JSON.stringify(payload, null, 2));
   fs.writeFileSync(REFS_FILE, JSON.stringify(refs, null, 2));
 
   console.log(`Done → ${OUT_FILE}`);
