@@ -1,257 +1,293 @@
 {
-  "generated_at": "2026-03-20T18:41:58.692Z",
+  "generated_at": "2026-03-23T19:37:07.103Z",
   "direction": "Tai Chi Training for Women 40+",
-  "based_on_ads": 30,
+  "based_on_ads": 60,
+  "pattern_freq": {
+    "hook_type": [
+      "direct_offer: 67%",
+      "challenge_date: 10%",
+      "pattern_interrupt: 10%",
+      "question: 5%",
+      "ugc_dialog: 5%",
+      "age_specific: 3%"
+    ],
+    "body_structure": [
+      "numbered_list: 40%",
+      "simple_offer: 23%",
+      "story: 18%",
+      "bullets: 17%",
+      "transformation_timeline: 2%"
+    ],
+    "cta_type": [
+      "take_quiz: 53%",
+      "start_challenge: 27%",
+      "learn_more: 13%",
+      "get_printable: 5%",
+      "buy: 2%"
+    ],
+    "emotional_trigger": [
+      "aspiration_youth: 62%",
+      "fear_aging: 13%",
+      "urgency: 10%",
+      "identity: 8%",
+      "social_proof: 5%",
+      "authority: 2%"
+    ],
+    "behavior": [
+      "evergreen: 43%",
+      "hype: 42%",
+      "weak: 15%"
+    ],
+    "creative_format": [
+      "video: 85%",
+      "image: 15%"
+    ]
+  },
   "hypotheses": [
     {
       "id": 1,
-      "title": "28-Day Tai Chi Challenge — Print & Start Today",
-      "hypothesis": "Статичне зображення з великим заголовком «28-денний челендж Тай Чі» + зображення роздрукованого плану на столі поруч із чашкою чаю приверне увагу жінок 40+, які шукають простий старт без додатків і обладнання.",
-      "what_to_test": "Формат «роздрукований план на фото» проти цифрового мокапу додатка. Заголовок із конкретною датою старту («Почніть у понеділок») проти загального «Почніть сьогодні».",
-      "based_on": "Реклами #4 (image, Score 54605, 18 дублів — тренування-челендж із конкретним роком), #19 (image, Score 33309, «Just 7 minutes 3 times a week»), #20 (image, Score 31746, «6-8 minutes 3 times a week»). Усі використовують конкретні часові обіцянки + низький поріг входу.",
-      "why_it_works": "28-денний челендж — найпоширеніший патерн серед топ-реклам (AD #2, #3, #10, #15, #27). Формат для друку виділяє продукт серед конкурентів-додатків. Жінки 40+ цінують тактильність і простоту: роздрукувала → повісила на холодильник → робиш щодня. 7-10 хв/день знижує бар'єр до мінімуму.",
+      "title": "The 'Doctor Said Stop Exercising' Reversal Hook",
+      "hypothesis": "Більшість конкурентів використовують хук прямої пропозиції (67%) або виклику з датою (10%). Жоден не використовує хук-провокацію від третьої особи — лікаря. Гіпотеза: хук 'Мій лікар сказав мені припинити займатися спортом. Тоді я відкрила Тай Чі.' створить набагато сильнішу ідентифікацію у жінок 40+, які вже отримували подібні поради, і викличе цікавість щодо розв'язки історії. Формат — статичне зображення з текстовим оверлеєм у стилі особистого щоденника/записки, що різко контрастує з типовими фітнес-візуалами.",
+      "what_to_test": "Хук від третьої особи (лікар/авторитет) у форматі 'заборона → відкриття альтернативи' проти стандартних прямих пропозицій. Тестуємо narrative-based статичне зображення (рукописний стиль на фоні кухонного столу з чашкою чаю) замість типових фітнес-візуалів. Тіло — коротка історія з поворотом: 'Через 28 днів Тай Чі мій лікар запитав, ЩО я роблю'. CTA: 'Завантаж друкований план'.",
+      "based_on": "Рекламі #6 та #10 — вони використовують елемент авторитету (Тай Чі майстер, традиційна медицина), але жодна не ставить жінку в центр розповіді від першої особи. Також рекламі #9 — vagus nerve ad використовує медичний контекст, але через питання, а не через провокативну історію.",
+      "why_it_works": "1) Story-формат тіла використовується лише у 18% реклам — це недонасичений формат. 2) Емоційний тригер 'identity' лише 8% — історія від першої особи створює миттєву ідентифікацію. 3) CTA 'get_printable' лише 5% — це наша USP, яку ніхто не просуває активно. 4) Жінки 40+ часто мають обмеження від лікарів — це реальний больовий досвід, який ніхто з конкурентів не артикулює. 5) Формат 'записки' замість фітнес-фото — pattern interrupt на рівні візуалу серед 85% відео та типових фітнес-зображень.",
       "priority": "high",
       "creative_format": "image",
       "reference_ad_numbers": [
-        4,
-        19,
-        20
+        6,
+        9
       ],
       "top_hooks": [
         {
-          "format": "video",
+          "format": "image",
+          "is_dialog": false,
+          "text": "Her doctor said stop exercising. Then she found what he couldn't argue with."
+        },
+        {
+          "format": "image",
           "is_dialog": true,
-          "text": "I'm 55 and I printed this Tai Chi plan on Day 1 — by Day 28 my whole body felt different."
+          "text": "I'm 58 and my doctor told me to quit the gym. What happened next changed everything."
         },
         {
           "format": "image",
           "is_dialog": false,
-          "text": "The 28-Day Tai Chi Challenge you can print right now and start in your living room today."
-        },
-        {
-          "format": "ugc",
-          "is_dialog": true,
-          "text": "I taped the printout to my fridge and did 7 minutes every morning — here's what 28 days did."
+          "text": "When your doctor says 'no more exercise' — there's one thing he won't stop you doing."
         }
       ],
       "top_body_texts": [
         {
-          "format": "video",
+          "format": "image",
           "is_dialog": false,
-          "text": "A simple 28-day Tai Chi plan designed for women over 40.\n• Print your daily schedule — no app needed\n• Just 7-10 minutes a day, zero equipment\n• Gentle flows that build balance, calm & flexibility\nStart Day 1 right now — tap below to get your printable plan."
+          "text": "She had bad knees, a bad back, and a doctor\nwho said 'stop pushing your body.'\n\nSo she tried gentle Tai Chi at home.\n\n• 7 minutes a morning\n• No jumping, no strain\n• Just slow, guided movements from a printed plan\n\n28 days later her doctor asked:\n'What are you doing? Keep doing it.'\n\n→ Download the free printable 28-day plan"
         },
         {
           "format": "image",
           "is_dialog": false,
-          "text": "No gym. No gadgets. Just a printed page and 7 minutes.\n• Each day has a clear, easy-to-follow Tai Chi routine\n• Designed for beginners 40+ who want to move pain-free\n• Thousands of women have already finished all 28 days\nPrint your challenge today — link below."
+          "text": "Her physician banned exercise.\nHer joints were too inflamed.\n\nThen a friend handed her a printed Tai Chi plan.\n\n• Day 1: She could barely stand 5 minutes\n• Day 14: Morning stiffness cut in half\n• Day 28: Her doctor couldn't believe the labs\n\nGentle. Printable. Doctor-approved.\n\n→ Get your free printed Tai Chi plan today"
         },
         {
-          "format": "ugc",
+          "format": "image",
           "is_dialog": true,
-          "text": "I wasn't sure 7 minutes could change anything. But I printed Day 1 and just… started.\n• By Day 7 my morning stiffness was fading\n• By Day 14 I was sleeping deeper than I had in years\n• By Day 28 my daughter said I looked lighter somehow\nGet the same printable plan I used — tap below."
+          "text": "I'm 61 and my doctor said no more workouts.\nMy knees just couldn't take it anymore.\n\nA neighbor gave me a simple printed Tai Chi plan.\n\n• 7 min each morning with my tea\n• No equipment, no gym\n• Just gentle movements by the kitchen window\n\n28 days later my doctor asked what I was doing.\n\n→ Download the same printable plan — free"
         }
       ],
-      "visual_prompt": "Realistic photo of a 58-year-old Caucasian woman standing in a sunlit living room holding a printed sheet of paper in one hand while performing a gentle Tai Chi pose with the other arm extended, soft morning light streaming through sheer curtains, cozy modern home interior with a yoga mat on the floor, warm golden tones, calm and empowered mood, shot at eye level with a 50mm lens, shallow depth of field, lifestyle photography style, soft shadows, natural skin texture, no makeup filter"
+      "visual_prompt": "Overhead photo of a warm kitchen table, morning light streaming in. A handwritten-style printed Tai Chi 28-day plan sits next to a steaming cup of herbal tea, reading glasses resting on the paper. A woman's hand gently touches the page. Soft linen napkin, small potted plant in corner. Text overlay in handwritten cursive font reads 'My doctor said stop exercising…' Cozy, authentic, editorial lifestyle photography style, shallow depth of field, warm golden tones, 4K --ar 4:5 --style raw"
     },
     {
       "id": 2,
-      "title": "Anti-Running Hook: Gentle Tai Chi Beats Jogging After 50",
-      "hypothesis": "Зображення зі split-screen: зліва — перекреслена жінка, що біжить (з іконкою болю в колінах), справа — спокійна жінка в позі Тай Чі з посмішкою. Хук «Hate running? You're not alone.» створить сильну ідентифікацію з аудиторією.",
-      "what_to_test": "Anti-running хук проти anti-gym хука. Варіант із переліком «Без бігу ✅ Без стрибків ✅ Без обладнання ✅» проти варіанту з єдиним фокусом на протиставленні бігу.",
-      "based_on": "Реклами #18 (image, Score 33645, wall Pilates для жінок — м'який підхід), #25 (image, Score 28614, покроковий фітнес-шлях), #26 (image, Score 28387, персоналізований програмний підхід). Усі позиціонують м'які вправи як альтернативу інтенсивним.",
-      "why_it_works": "Анти-біговий хук — перевірений прийом для ніші (з брифу «what works»). Жінки 40-80 часто мають проблеми з суглобами й шукають безпечну альтернативу. Split-screen формат миттєво передає меседж «це НЕ те, чого ви боїтесь». Контраст біль/спокій — потужний візуальний тригер.",
+      "title": "Granddaughter's Wedding Countdown — Milestone Motivation",
+      "hypothesis": "62% реклам використовують тригер 'aspiration_youth' — абстрактне бажання виглядати молодше. Жоден конкурент не прив'язує мотивацію до конкретної життєвої події. Гіпотеза: прив'язка до реальних milestone-подій жінок 40-70+ (весілля онучки, зустріч випускників, відпустка з подругами, сімейне фото на ювілей) створить набагато конкретнішу та емоційнішу мотивацію, ніж абстрактне 'виглядай молодше'. Візуал — розділений кадр: зліва — красиве плаття на вішалці з датою на календарі, справа — друкований план Тай Чі на 28 днів.",
+      "what_to_test": "Емоційний тригер 'milestone/deadline' замість 'aspiration_youth'. Тестуємо конкретну подію як мотиватор: 'Через 2 місяці весілля моєї онучки. Я хочу танцювати на ньому без болю в колінах.' Формат — карусель зображень (milestone + план + результат). CTA: 'Почни 28-денний виклик сьогодні' з емоцією anticipation замість типової motivation.",
+      "based_on": "Реклами #1, #8, #13 використовують urgency через '28 days challenge', але це штучний дедлайн. Реклама #3 використовує 'тіло мрії' — абстрактну аспірацію. Жодна реклама не створює urgency через РЕАЛЬНУ подію в житті аудиторії.",
+      "why_it_works": "1) Конкретна подія створює природний urgency без штучного тиску — це відсутній тригер у всій вибірці. 2) Жінки 40+ мотивуються не 'бікіні', а реальними соціальними моментами — весілля, ювілеї, зустрічі. 3) Image-формат (15% ринку) менш конкурентний за увагу. 4) Карусель дозволяє показати 'мрію → план → шлях' без відео. 5) Тригер 'не хочу бути тією бабусею, що сидить у куточку' — страх, який ніхто не артикулює, але який дуже реальний.",
       "priority": "high",
       "creative_format": "image",
       "reference_ad_numbers": [
-        18,
-        25,
-        26
+        1,
+        3
       ],
       "top_hooks": [
         {
-          "format": "video",
+          "format": "image",
           "is_dialog": true,
-          "text": "I'm 52 and I quit running — this 7-minute Tai Chi routine did more for my body than jogging ever did."
+          "text": "I'm 59 and my granddaughter's wedding is in 2 months. I want to dance without knee pain."
         },
         {
           "format": "image",
           "is_dialog": false,
-          "text": "After 50, jogging wrecks your knees. Tai Chi rebuilds your whole body in 7 minutes flat."
+          "text": "She had 60 days before the wedding. She needed her knees to last one dance."
         },
         {
-          "format": "ugc",
+          "format": "image",
           "is_dialog": true,
-          "text": "I used to force myself to jog 3 miles — now I do gentle Tai Chi and my knees finally forgave me."
+          "text": "I'm not missing my granddaughter's first dance. 28 days of Tai Chi — that's my plan."
         }
       ],
       "top_body_texts": [
         {
-          "format": "video",
+          "format": "image",
           "is_dialog": false,
-          "text": "Running after 50 can punish your joints. Tai Chi strengthens them instead.\n• Low-impact moves that protect knees, hips & ankles\n• Improves balance and flexibility without the pounding\n• Only 7-10 min/day — printable plan, no equipment\nSwitch to the smarter workout — get your plan below."
+          "text": "The wedding is 2 months away.\nShe can picture the dress, the flowers, the music.\n\nBut one thought keeps her up at night:\n'Will I be able to stand… to dance… to keep up?'\n\n• 28-day gentle Tai Chi plan — printable\n• 7 minutes a morning, no equipment\n• Built for stiff joints and real women\n\nDon't just attend. Dance.\n\n→ Start your 28-day challenge today"
+        },
+        {
+          "format": "image",
+          "is_dialog": true,
+          "text": "I'm 62 and the wedding invitation is on my fridge.\n\nEvery time I see it I think —\ncan my knees survive one slow dance?\n\n• Day 1: I printed the Tai Chi plan\n• Day 14: I stood longer without wincing\n• Day 28: I danced in my kitchen and cried\n\nYour milestone is waiting.\n\n→ Start the free 28-day printable plan now"
         },
         {
           "format": "image",
           "is_dialog": false,
-          "text": "Science says gentle Tai Chi beats jogging for women over 50.\n• Burns stress without burning out your joints\n• Builds deep core stability and fall-proof balance\n• Printable daily routines — 7 minutes, your living room\nYour knees will thank you. Tap below to start."
-        },
-        {
-          "format": "ugc",
-          "is_dialog": true,
-          "text": "I ran for 20 years and my doctor said my knees were paying the price.\n• I switched to this 7-min Tai Chi plan — no equipment needed\n• Within weeks my knee pain dropped and my balance improved\n• I printed each day's routine and kept it on my nightstand\nIf running hurts, try this instead — link below."
+          "text": "Every woman over 55 has that ONE event coming up.\n\nA wedding. A reunion. A grandbaby's birthday.\n\nAnd a quiet fear: 'Will my body let me enjoy it?'\n\n• Gentle Tai Chi — 7 min/day\n• Printable 28-day plan for home\n• No gym, no equipment, no pressure\n\nGive your body 28 days.\nGive yourself that dance.\n\n→ Download the free plan today"
         }
       ],
-      "visual_prompt": "Realistic photo of a 54-year-old woman outdoors in a peaceful suburban backyard at sunrise, mid-Tai Chi pose with arms flowing gracefully, wearing comfortable athleisure clothes, a pair of old running shoes abandoned on the grass beside her, soft diffused golden hour light, lush green lawn and a wooden fence in the background, serene and relieved facial expression, medium shot from a slightly low angle, natural color grading, editorial lifestyle photography, Canon EOS R5 aesthetic"
+      "visual_prompt": "Bright, emotional static image of a grandmother's hand holding a beautiful wedding invitation next to a printed 28-day Tai Chi plan on a kitchen counter. In soft focus background: a pair of elegant low-heeled shoes ready for dancing. Refrigerator with family photos visible. Warm afternoon light. Romantic, hopeful mood. Small calendar on the wall with a date circled in red. Soft pastel color palette, lifestyle editorial photography, shallow depth of field, 4K --ar 4:5 --style raw"
     },
     {
       "id": 3,
-      "title": "Longevity & Balance: Tai Chi as the Secret of Women Who Age Gracefully",
-      "hypothesis": "Відео у форматі UGC: жінка 55-65 років розповідає, як 7 хвилин Тай Чі щоранку змінили її рівновагу, сон і енергію. Фінальний кадр — роздрукований план у руках. Longevity-фрейм замість фітнес-фрейму резонуватиме з аудиторією, яка не ідентифікує себе з «фітнес-людьми».",
-      "what_to_test": "UGC-відео з однією жінкою 55+ проти монтажу з кількома жінками різного віку (45, 55, 70). Хук «I stopped trying to lose weight — and found something better» проти «My doctor said keep doing this».",
-      "based_on": "Реклами #13 (video, Score 36206, Tai Chi Walking для 50+, «Age with strength. Move with wisdom»), #16 (video, Score 33823, «6-8 minutes 3 times a week — won't recognize yourself»), #23 (video, Score 30740, «Boost muscle strength, Increase flexibility, Improve balance»).",
-      "why_it_works": "Longevity-кут (з брифу) — потужний мотиватор для жінок у постменопаузі. AD #13 прямо доводить, що Тай Чі + вікове таргетування працює. UGC-формат створює довіру: «ця жінка — як я». Акцент на балансі й енергії замість схуднення уникає медичних клеймів і резонує з реальними болями аудиторії.",
+      "title": "The Anti-List: 'What You'll STOP Doing After 28 Days'",
+      "hypothesis": "40% конкурентів використовують numbered_list у тілі, і 100% з них перераховують ПОЗИТИВНІ результати (отримаєш, досягнеш, покращиш). Жоден не використовує інверсію — список того, що жінка ПЕРЕСТАНЕ робити. Гіпотеза: 'Через 28 днів Тай Чі ви перестанете: ❌ Прокидатися з болем у спині ❌ Тримати перила, щоб піднятися сходами ❌ Відмовлятися від прогулянок з подругами ❌ Ховати тіло під вільним одягом' — цей формат 'loss of negatives' буде емоційно сильнішим, бо описує щоденну реальність аудиторії.",
+      "what_to_test": "Інвертований список (що перестанеш робити) проти стандартного позитивного списку (що отримаєш). Візуал — зображення у стилі 'перекреслений список' на папері (відсилка до printable формату), де кожен пункт — конкретна больова ситуація з життя жінки 40+. Тестуємо негативний фреймінг як primary hook з позитивним resolution у CTA.",
+      "based_on": "Реклами #17 та #7 використовують bullet-формат із позитивними результатами ('boost muscle strength', 'increase flexibility'). Реклама #6 та #10 зачіпають негативний стан ('Stiff. Swollen. Heavy. Exhausted'), але переходять на абстрактну історію, а не на конкретний список звільнення від болю.",
+      "why_it_works": "1) Loss aversion — психологічно люди сильніше реагують на уникнення втрат, ніж на отримання вигод; жоден конкурент не використовує цей принцип у структурі списку. 2) Конкретні побутові ситуації ('триматися за перила') створюють миттєву ідентифікацію — це те, що жінка переживає ЩОДНЯ, на відміну від абстрактного 'flexibility'. 3) Візуал 'перекресленого списку' нативно відсилає до printable формату продукту. 4) Емоційний тригер 'relief/звільнення' повністю відсутній у вибірці — це новий емоційний простір.",
       "priority": "high",
-      "creative_format": "ugc",
+      "creative_format": "image",
       "reference_ad_numbers": [
-        13,
-        16,
-        23
+        17,
+        6
       ],
       "top_hooks": [
         {
-          "format": "video",
-          "is_dialog": true,
-          "text": "I'm 62 and people keep asking what I changed — it's just 7 minutes of Tai Chi every morning."
+          "format": "image",
+          "is_dialog": false,
+          "text": "After 28 days of Tai Chi — here's what you'll STOP doing. (The list surprised me.)"
         },
         {
           "format": "image",
           "is_dialog": false,
-          "text": "Women who age gracefully have one thing in common — and it's not expensive skincare."
+          "text": "You won't gain flexibility. You'll stop gripping the stair railing like it owes you money."
         },
         {
-          "format": "ugc",
+          "format": "image",
           "is_dialog": true,
-          "text": "I'm 60 and my secret to feeling 45 is a printable Tai Chi plan I do before coffee every day."
+          "text": "I'm 56 and here's what I STOPPED doing after 28 days of gentle Tai Chi at home."
         }
       ],
       "top_body_texts": [
         {
-          "format": "video",
+          "format": "image",
           "is_dialog": false,
-          "text": "The women who look and feel younger after 50 share one quiet habit: daily Tai Chi.\n• Improves posture, balance, and natural energy\n• Reduces cortisol — the hormone that accelerates aging\n• Just 7-10 min/day from a simple printable plan\nAge on your own terms — get the plan below."
+          "text": "After 28 days of gentle Tai Chi you'll STOP:\n\n✕ Gripping the railing going downstairs\n✕ Grunting every time you stand up\n✕ Canceling plans because 'my back is acting up'\n✕ Dreading mornings because of stiff joints\n✕ Saying 'I used to be active'\n\nJust 7 minutes a day. A printable plan. Your home.\n\n→ Download the free 28-day printable plan"
         },
         {
           "format": "image",
           "is_dialog": false,
-          "text": "Graceful aging isn't luck. It's movement.\n• Tai Chi boosts circulation for healthier skin and joints\n• Strengthens the deep stabilizer muscles that prevent falls\n• No equipment, no gym — just a printed guide and 7 minutes\nJoin thousands of women 40+ who chose the gentle path. Tap below."
+          "text": "This isn't a list of what you'll gain.\nIt's what you'll finally STOP:\n\n✕ Stop avoiding stairs\n✕ Stop waking up stiff and frustrated\n✕ Stop sitting out when others are moving\n✕ Stop saying 'I'm too old for that'\n\n28 days. 7 min/morning. One printed page.\n\n→ Get the free printable Tai Chi plan"
         },
         {
-          "format": "ugc",
+          "format": "image",
           "is_dialog": true,
-          "text": "My friends joke that I'm aging backwards. Here's my actual secret:\n• I follow a printable Tai Chi plan — 7 minutes every morning\n• No equipment, I do it barefoot in my kitchen\n• My balance, sleep, and even my posture completely changed\nI'm not special — I just found the right routine. Link below."
+          "text": "I'm 60 and here's my anti-list after 28 days:\n\n✕ Stopped taking the elevator for 1 floor\n✕ Stopped asking my husband to open jars\n✕ Stopped dreading Monday morning stiffness\n✕ Stopped saying 'my body can't do that anymore'\n\nAll from a printed Tai Chi plan on my fridge.\n7 min a day. No gym. No equipment.\n\n→ Download the same free plan"
         }
       ],
-      "visual_prompt": "UGC-style smartphone selfie video still of a radiant 63-year-old woman with silver hair and a warm genuine smile, standing in a bright modern kitchen wearing a soft linen top, morning light hitting her face naturally, slight lens distortion typical of a front-facing phone camera, relaxed and joyful expression, a printed Tai Chi schedule visible on the refrigerator behind her held by magnets, candid authentic feel, slightly grainy quality, warm white balance, eye-level framing, portrait orientation"
+      "visual_prompt": "Top-down photo of a slightly crumpled lined notebook page on a wooden desk. A woman's hand with a red pen is crossing out items on a handwritten list. Each crossed-out line is legible: 'gripping stair railing', 'canceling plans', 'grunting when standing', 'morning stiffness'. Red strikethrough lines through each item. A cup of tea and reading glasses sit beside the notebook. Warm, cozy kitchen lighting. Authentic, relatable, analog feel. Editorial lifestyle photography, 4K, high detail --ar 4:5 --style raw"
     },
     {
       "id": 4,
-      "title": "Visible Transformation in 28 Days — Tai Chi Edition for Women 40+",
-      "hypothesis": "Статичне зображення з before/after-стилем (не тіло, а спосіб життя): зліва — хаотичний ранок, справа — спокійний ранок із Тай Чі. Текст: «Get a VISIBLE body transformation in 28 DAYS with Tai Chi — just 7 min/day, printable plan». Комбінація трансформаційної обіцянки з Тай Чі та роздрукованого формату.",
-      "what_to_test": "Lifestyle before/after проти числового прогрес-трекера (Day 1 → Day 28 із позначками). Заголовок «Visible transformation» проти «Feel 10 years younger in 28 days».",
-      "based_on": "Реклами #15 (image, Score 34906, «TRASFORMAZIONE VISIBILE del corpo in 28 GIORNI con il Tai Chi»), #4 (image, Score 54605, тренувальний челендж із конкретним терміном), #11 (image, Score 36831, побудова сили та витривалості з чітким CTA).",
-      "why_it_works": "AD #15 — пряме підтвердження, що «видима трансформація + Тай Чі + 28 днів» працює як рекламний меседж (Score 34906). Фрейм трансформації стилю життя замість фото тіла уникає агресивного фітнес-позиціонування. Роздрукований формат — УТП, якого немає в жодного конкурента з топ-реклам. 7 хв/день — найнижчий поріг серед усіх аналогів.",
+      "title": "Morning Routine Integration — Tai Chi as Your New Coffee",
+      "hypothesis": "Усі конкуренти фреймують продукт як 'challenge' або 'workout program' — щось ДОДАТКОВЕ до рутини. Жоден не позиціонує Тай Чі як ЗАМІНУ існуючої звички. Гіпотеза: фреймінг 'Замініть 7 хвилин скролінгу телефону на 7 хвилин Тай Чі — і ваш ранок зміниться назавжди' знизить психологічний бар'єр входу, бо не додає нове зобов'язання, а замінює вже існуючу шкідливу звичку. Візуал: split-screen — зліва жінка в ліжку зі смартфоном (сірий, холодний тон), справа та сама жінка біля вікна в позі Тай Чі (теплий, золотистий ранковий світ).",
+      "what_to_test": "Позиціонування 'заміна звички' проти 'додай challenge'. Тестуємо хук порівняння ('7 хвилин скролінгу → 7 хвилин Тай Чі'), body у форматі 'день 1 vs день 28 ранку' — мікро-наратив трансформації через зміну ранкової рутини. CTA: 'Завантаж друкований ранковий план'. Формат — одне статичне зображення зі split-screen.",
+      "based_on": "Реклама #4 використовує мінімальний час ('6-8 хвилин 3 рази на тиждень'), але фреймує це як workout, а не як заміну звички. Реклама #2 показує жінку на дивані — 'casual' контекст, але без контрасту з новою звичкою.",
+      "why_it_works": "1) Habit-substitution — найефективніша стратегія поведінкових змін за дослідженнями BJ Fogg; ніхто з конкурентів її не використовує. 2) 'Скролінг телефону вранці' — universal guilt moment для жінок 40+ — це створює instant recognition. 3) Split-screen візуал — сильний pattern interrupt серед одиночних фото та відео. 4) Прив'язка до 'ранку' додає конкретний trigger moment — не абстрактне 'занятися собою', а чіткий час дня. 5) Дослідження показують що '7 хвилин' резонує з аудиторією — ми підсилюємо це контекстом заміни.",
       "priority": "medium",
       "creative_format": "image",
       "reference_ad_numbers": [
-        15,
         4,
-        11
+        2
       ],
       "top_hooks": [
         {
-          "format": "video",
+          "format": "image",
+          "is_dialog": false,
+          "text": "You already spend 7 minutes scrolling in bed. What if those 7 minutes changed your body?"
+        },
+        {
+          "format": "image",
           "is_dialog": true,
-          "text": "I'm 48 and after 28 days of Tai Chi my posture, sleep, and energy were completely unrecognizable."
+          "text": "I'm 54 and I swapped 7 minutes of morning scrolling for Tai Chi. Day 28 was unreal."
         },
         {
           "format": "image",
           "is_dialog": false,
-          "text": "28 days. 7 minutes a day. Zero equipment. The Tai Chi transformation women 40+ can't stop sharing."
-        },
-        {
-          "format": "ugc",
-          "is_dialog": true,
-          "text": "I didn't believe 7 minutes could change my body at 53 — this is me on Day 1 vs. Day 28."
+          "text": "7 minutes of scrolling vs 7 minutes of Tai Chi. Same time. Wildly different mornings."
         }
       ],
       "top_body_texts": [
         {
-          "format": "video",
+          "format": "image",
           "is_dialog": false,
-          "text": "Real transformation doesn't require hours at the gym. It takes 7 focused minutes.\n• Day 1-7: Release tension and learn to breathe deeply\n• Day 8-21: Build balance, flexibility, and calm\n• Day 22-28: Feel the visible shift in posture and energy\nPrint your 28-day Tai Chi plan now — tap below."
+          "text": "LEFT SIDE — Your morning now:\n☐ Alarm → phone → scroll → stiff → rush → tired\n\nRIGHT SIDE — Your morning in 28 days:\n☐ Alarm → 7 min Tai Chi → loose → calm → energized\n\n• Same 7 minutes. Different woman.\n• Printable plan — tape it by your bed\n• No equipment. No app. No gym.\n\n→ Download the free printable morning plan"
         },
         {
           "format": "image",
           "is_dialog": false,
-          "text": "What can change in 28 days of gentle Tai Chi?\n• Straighter posture you can see in the mirror\n• Deeper sleep starting in the first week\n• Calmer mind and fewer aches — no equipment needed\nDesigned for women 40+ who want results without strain.\nGet your printable plan below."
+          "text": "Day 1: You roll over, grab your phone,\nscroll for 7 minutes, feel nothing.\n\nDay 28: You roll over, stand up,\nmove gently for 7 minutes, feel everything.\n\n• Same time slot. Replaced, not added.\n• Printable Tai Chi morning plan\n• Designed for stiff joints and real mornings\n\nYour new coffee is movement.\n\n→ Get the free printable plan today"
         },
         {
-          "format": "ugc",
+          "format": "image",
           "is_dialog": true,
-          "text": "I took a photo on Day 1 just in case. I'm so glad I did.\n• My shoulders were rounded and I looked exhausted\n• By Day 28 my posture was straighter and I stood taller\n• All I did was 7 minutes of Tai Chi from a printed sheet\nSee the difference for yourself — grab the plan below."
+          "text": "I'm 57 and I didn't 'add' Tai Chi to my life.\nI swapped it.\n\n• Morning scroll → 7 min Tai Chi\n• Same time, same pajamas, same kitchen\n• Just gentle movement instead of doom-scrolling\n\nBy day 14 I stopped needing coffee to feel awake.\nBy day 28 my husband asked what was different.\n\nIt's a printable plan. Tape it to your wall.\n\n→ Download it free now"
         }
       ],
-      "visual_prompt": "Realistic split-image photo showing a before-and-after concept of a 50-year-old woman, left side she has slightly rounded shoulders and a tired expression wearing a gray t-shirt in dim indoor lighting, right side same woman standing tall with open posture and a confident soft smile in warm bright natural light wearing a clean white top, same living room background, subtle visual contrast between dull and vibrant tones, clean editorial layout feel, front-facing camera angle, full upper-body framing, natural skin detail, motivational mood, magazine-quality lifestyle photography"
+      "visual_prompt": "Clean split-screen static image. LEFT SIDE: dimly lit bedroom, a woman's hand holding a phone in bed, blue screen glow on tired face, messy sheets, dark moody tones, alarm clock showing 6:47am. RIGHT SIDE: same bedroom but bright morning light, same woman standing in pajamas by the window doing a gentle Tai Chi pose, a printed plan taped to the wall, warm golden tones, calm expression. A clear vertical divider line between both sides. Text overlay space at top. Lifestyle editorial photography, 4K, photorealistic --ar 4:5 --style raw"
     },
     {
       "id": 5,
-      "title": "3-Step Quiz Funnel: Personalized Tai Chi Plan for Your Age & Goals",
-      "hypothesis": "Статичне зображення з 3-кроковою інфографікою: 1️⃣ Оберіть свій вік і мету → 2️⃣ Отримайте персональний план Тай Чі для друку → 3️⃣ 7 хвилин щодня — відчуйте різницю за 28 днів. Квіз-воронка з вікової персоналізацією підвищить CTR завдяки ефекту «це створено саме для мене».",
-      "what_to_test": "3-кроковий квіз-формат проти прямого CTA «Download your printable plan». Персоналізація за віком (40-55 / 55-70 / 70+) проти персоналізації за метою (баланс / енергія / гнучкість).",
-      "based_on": "Реклами #26 (image, Score 28387, 871K reach, 3-кроковий квіз: «Répondez à un test → Obtenez un programme → Suivez vos progrès»), #22 (image, Score 31101, digestiplan — простий візуал із мінімальним текстом), #6 (image, Score 52004, digestiplan — чистий формат із високим Score).",
-      "why_it_works": "3-кроковий квіз-патерн домінує серед топ-реклам: AD #10, #17, #21, #24, #26, #30 — усі використовують формулу «Quiz → Plan → Track». AD #26 доводить це для image-формату з reach 871K. Вікова персоналізація — ключовий фактор (з брифу «age-specific targeting works»). Квіз знижує когнітивне навантаження: замість вибору — простий перший крок.",
-      "priority": "medium",
+      "title": "The Printed Page on the Fridge — Product-as-Hero Visual",
+      "hypothesis": "53% CTA ведуть на quiz, 27% на challenge. Лише 5% просувають printable формат — хоча дослідження показують, що printable знижує тертя. Жоден конкурент не показує ФІЗИЧНИЙ продукт у реальному контексті використання. Гіпотеза: візуал, де друкований план Тай Чі прикріплений магнітом до холодильника на реальній кухні жінки (з чашкою чаю, окулярами, олівцем з позначками виконання) — створить відчуття 'це вже моє, я можу це собі уявити' і різко підвищить конверсію. Хук: 'Роздрукуй. Повісь на холодильник. 7 хвилин щоранку. Через 28 днів ти себе не впізнаєш.'",
+      "what_to_test": "Візуальний формат 'product-in-context' (друкований план у домашньому оточенні) проти абстрактних фітнес-візуалів. Хук — імперативний ланцюжок дій (роздрукуй → повісь → займайся). Body — мінімалістичне: лише 3 рядки тексту з конкретними кроками. CTA: 'Отримай друкований план безкоштовно'. Тестуємо чи tangible product visualization конвертує краще за aspirational body imagery.",
+      "based_on": "Реклами #1, #8, #13 показують інтерфейс додатку як візуал — це працює для app. Але для printable продукту ніхто не показує фізичний артефакт. Реклама #15 використовує 'feminine aesthetic' (рожеві вишні) — ми беремо ідею естетичного візуалу, але замінюємо абстрактну естетику на реальний домашній контекст.",
+      "why_it_works": "1) Endowment effect — коли людина бачить продукт у СВОЄМУ контексті (кухня, холодильник), вона вже психологічно 'володіє' ним. 2) Printable — наша ключова USP, але лише 5% ринку просувають цей CTA — величезний незайнятий простір. 3) Олівцеві позначки на плані створюють social proof одного — 'хтось це вже робить і відзначає прогрес'. 4) Відсутність людини на фото — це антитеза 85% відео з людьми; curiosity gap: 'чий це план?'. 5) Ланцюжок мікро-дій у хуку ('роздрукуй, повісь') знижує сприйняту складність до мінімуму.",
+      "priority": "high",
       "creative_format": "image",
       "reference_ad_numbers": [
-        26,
-        6,
-        22
+        1,
+        15
       ],
       "top_hooks": [
         {
-          "format": "video",
-          "is_dialog": true,
-          "text": "I'm 57 and a 3-question quiz gave me a Tai Chi plan that actually fits my body and my schedule."
+          "format": "image",
+          "is_dialog": false,
+          "text": "Print it. Stick it on your fridge. Do 7 minutes a day. That's the whole program."
         },
         {
           "format": "image",
           "is_dialog": false,
-          "text": "Answer 3 quick questions and get a personalized Tai Chi plan matched to your age and goals."
+          "text": "This one page on your fridge could change how your body feels in 28 days."
         },
         {
-          "format": "ugc",
+          "format": "image",
           "is_dialog": true,
-          "text": "I took a 30-second quiz and got a Tai Chi plan made for my age — I've never stuck with anything this long."
+          "text": "I'm 60 and the best thing on my fridge isn't a photo — it's my Tai Chi plan."
         }
       ],
       "top_body_texts": [
         {
-          "format": "video",
+          "format": "image",
           "is_dialog": false,
-          "text": "Not every Tai Chi plan works for every body. That's why we built a 3-step quiz.\n• Step 1: Tell us your age and fitness level\n• Step 2: Choose your goal — balance, calm, flexibility, or all three\n• Step 3: Get a printable plan tailored to you — 7 min/day\nTake the free quiz now — tap below."
+          "text": "Step 1: Download the plan\nStep 2: Print one page\nStep 3: Stick it on your fridge\n\nThat's it. No app to learn. No video to follow.\nJust a simple printed Tai Chi plan that says:\n'Today: do THIS for 7 minutes.'\n\n• 28 days of gentle guided movement\n• Designed for women 40+ with stiff joints\n\n→ Get the free printable plan now"
         },
         {
           "format": "image",
           "is_dialog": false,
-          "text": "Your Tai Chi plan should fit YOUR life — not the other way around.\n• Quick 3-step quiz takes under 30 seconds\n• Personalized for your age, goals & experience level\n• Get a printable daily plan — 7-10 min, no equipment\nOver 10,000 women 40+ have found their perfect routine.\nTake the quiz below."
+          "text": "It's not a course.\nIt's not a subscription.\nIt's not an app.\n\nIt's one printed page on your fridge.\n\n• 28 days mapped out\n• 7 minutes a morning\n• Gentle Tai Chi for real bodies\n\nEvery morning you walk to the kitchen,\nsee the plan, and move.\n\nSimple beats complicated. Always.\n\n→ Download your free printable plan"
         },
         {
-          "format": "ugc",
+          "format": "image",
           "is_dialog": true,
-          "text": "I've tried yoga apps, walking plans, you name it. Nothing stuck until this quiz.\n• It asked my age, my biggest struggle, and my goal\n• I got a printable Tai Chi plan customized just for me\n• 7 minutes a day and I actually look forward to it now\nFind your perfect plan — take the free quiz below."
+          "text": "I'm 63 and I've tried apps, YouTube, classes.\nNone of it stuck.\n\nThen I printed ONE page and put it on my fridge.\n\n• I see it every morning when I grab my coffee\n• 7 minutes of Tai Chi right there in the kitchen\n• I check off each day with a pen\n\n28 days later the page is full of checkmarks\nand my knees finally feel like mine again.\n\n→ Get the same free plan"
         }
       ],
-      "visual_prompt": "Realistic photo of a 55-year-old woman sitting on a couch in a cozy well-lit living room, smiling warmly while looking at her smartphone screen which shows a colorful quiz interface, a freshly printed Tai Chi plan resting on the coffee table beside a cup of herbal tea, soft natural window light with warm afternoon tones, comfortable casual clothing, relaxed and curious expression, medium shot from a slightly elevated angle, shallow depth of field focused on her face and phone, lifestyle editorial photography, inviting and approachable mood, natural color palette"
+      "visual_prompt": "Close-up photo of a printed Tai Chi 28-day plan attached to a white refrigerator with a colorful magnet. The plan is clean, readable, with checkmarks in pen next to the first 12 days. A woman's hand is placing a checkmark on day 13. Family photos and a child's drawing visible on the fridge around it. Kitchen background softly blurred — coffee maker, fruit bowl, morning light through window. Warm, lived-in, authentic home atmosphere. The printed plan is the clear hero of the image. Lifestyle editorial photography, high detail, 4K --ar 4:5 --style raw"
     }
   ]
 }

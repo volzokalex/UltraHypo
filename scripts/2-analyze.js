@@ -4,95 +4,168 @@ import Anthropic from '@anthropic-ai/sdk';
 
 const RAW_FILE    = 'data/ads-raw.json';
 const SCORED_FILE = 'data/ads-scored.json';
-const TOP_N       = 30;
+const NICHE_FILE  = 'config/niche.json';
+
+const TOP_TEXT   = 60;  // text pattern analysis
+const TOP_IMAGE  = 15;  // image analysis (most expensive)
 
 const client = new Anthropic();
+const clean  = s => s ? s.replace(/[\uD800-\uDFFF]/g, '') : '';
 
-// Score formula: duplicates carry the most weight (copied = proven),
-// then active days (longevity = profitable), then reach (scale)
-function scoreAd(ad) {
-  const dupes   = (ad.duplicate_ads ?? []).length;
-  const days    = ad['Active days'] ?? 0;
-  const reach   = ad['EU Total Reach'] ?? 0;
-  return dupes * 3000 + days * 100 + reach / 10000;
+// ── 1. Дедупликація ───────────────────────────────────────────────────────────
+// Залишаємо тільки оригінали, виключаємо всі дублікати
+function deduplicateAds(ads) {
+  const seen = new Set();
+  const unique = [];
+  for (const ad of ads) {
+    if (seen.has(ad.ID)) continue;
+    seen.add(ad.ID);
+    (ad.duplicate_ads ?? []).forEach(id => seen.add(id));
+    unique.push(ad);
+  }
+  return unique;
 }
 
-async function analyzeImage(imageUrl) {
+// ── 2. Тег поведінки ──────────────────────────────────────────────────────────
+// hype: великий охоплення за короткий час → щось спрацювало швидко
+// evergreen: великий охоплення + довго активний → стабільний переможець
+// slow_burn: живе довго але не масштабується
+// weak: не показало результату
+function tagBehavior(ad) {
+  const reach  = ad['EU Total Reach'] ?? 0;
+  const days   = ad['Active days']    ?? 0;
+  if (reach > 500000 && days < 30)  return 'hype';
+  if (reach > 150000 && days >= 60) return 'evergreen';
+  if (days >= 60)                   return 'slow_burn';
+  return 'weak';
+}
+
+// ── 3. Скоринг ────────────────────────────────────────────────────────────────
+// reach × log(days) → враховує і швидкість і довголіття
+// активні оголошення отримують буст ×1.5 — вони ще витрачають бюджет = прибуткові
+function scoreAd(ad) {
+  const reach       = ad['EU Total Reach'] ?? 0;
+  const days        = ad['Active days']    ?? 1;
+  const activeBoost = ad.Status === 'ACTIVE' ? 1.5 : 1.0;
+  return (reach / 1000) * Math.log10(days + 2) * activeBoost;
+}
+
+// ── 4. Аналіз текстових паттернів (батч, 1 запит до Claude) ──────────────────
+async function analyzeTextPatterns(ads) {
+  const list = ads.map((ad, i) =>
+    `#${i + 1}: ${clean(ad.Body ?? '—').slice(0, 200)}`
+  ).join('\n\n');
+
+  const msg = await client.messages.create({
+    model:      'claude-opus-4-6',
+    max_tokens: 4096,
+    messages: [{
+      role: 'user',
+      content: `Classify text patterns for ${ads.length} health/fitness Facebook ads (Women 40+, weight loss, Tai Chi, printable plans).
+
+For each ad return its index (1-based) and:
+- hook_type: "age_specific"|"ugc_dialog"|"direct_offer"|"pattern_interrupt"|"challenge_date"|"before_after"|"question"
+- body_structure: "numbered_list"|"story"|"transformation_timeline"|"bullets"|"simple_offer"|"social_proof"
+- cta_type: "get_printable"|"start_challenge"|"take_quiz"|"download"|"buy"|"learn_more"
+- emotional_trigger: "fear_aging"|"aspiration_youth"|"identity"|"social_proof"|"urgency"|"authority"
+
+ADS:
+${list}
+
+Return ONLY JSON array with exactly ${ads.length} objects:
+[{"index":1,"hook_type":"...","body_structure":"...","cta_type":"...","emotional_trigger":"..."}]`
+    }]
+  });
+
+  const match = msg.content[0].text.match(/\[[\s\S]*\]/);
+  if (!match) return [];
+  const patterns = JSON.parse(match[0]);
+  // Map by index position back to ad
+  return patterns;
+}
+
+// ── 5. Аналіз зображень з контекстом ніші ────────────────────────────────────
+async function analyzeImage(imageUrl, niche) {
   try {
     const res = await fetch(imageUrl);
     if (!res.ok) return null;
-    const buffer = await res.arrayBuffer();
-    const base64 = Buffer.from(buffer).toString('base64');
-    const contentType = res.headers.get('content-type') ?? 'image/jpeg';
+    const base64 = Buffer.from(await res.arrayBuffer()).toString('base64');
+    const mime   = res.headers.get('content-type') ?? 'image/jpeg';
 
     const msg = await client.messages.create({
-      model: 'claude-opus-4-6',
-      max_tokens: 512,
+      model:      'claude-opus-4-6',
+      max_tokens: 256,
       messages: [{
         role: 'user',
         content: [
-          {
-            type: 'image',
-            source: { type: 'base64', media_type: contentType, data: base64 }
-          },
+          { type: 'image', source: { type: 'base64', media_type: mime, data: base64 } },
           {
             type: 'text',
-            text: `Analyze this Facebook ad image. Return JSON only:
-{
-  "visual_subject": "what is shown (person, product, scene)",
-  "visual_hook": "the main attention-grabbing element",
-  "text_on_image": "any text visible on the image",
-  "emotion": "dominant emotion evoked",
-  "style": "photo / illustration / ugc / animation / talking_head",
-  "color_palette": "dominant colors",
-  "cta_visible": "visible CTA if any"
-}`
+            text: `Niche: ${niche.direction}. Target audience: Women 40-80, postmenopause, wants to lose weight and feel younger.
+Analyze this Facebook ad image. Return JSON only:
+{"visual_subject":"what is shown","style":"photo|illustration|ugc|text_heavy","emotion":"dominant emotion","has_text_overlay":true,"text_on_image":"text if visible","fits_niche":true}`
           }
         ]
       }]
     });
 
-    const text = msg.content[0].text.trim();
-    const jsonMatch = text.match(/\{[\s\S]*\}/);
-    return jsonMatch ? JSON.parse(jsonMatch[0]) : null;
-  } catch (e) {
-    console.error(`  Image analysis failed: ${e.message}`);
+    const match = msg.content[0].text.match(/\{[\s\S]*\}/);
+    return match ? JSON.parse(match[0]) : null;
+  } catch {
     return null;
   }
 }
 
+// ── Main ──────────────────────────────────────────────────────────────────────
 async function run() {
   if (!fs.existsSync(RAW_FILE)) {
     console.error(`Missing ${RAW_FILE}. Run 1-fetch.js first.`);
     process.exit(1);
   }
 
-  const ads = JSON.parse(fs.readFileSync(RAW_FILE, 'utf8'));
-  console.log(`Loaded ${ads.length} ads. Scoring...`);
+  const rawAds = JSON.parse(fs.readFileSync(RAW_FILE, 'utf8'));
+  const niche  = JSON.parse(fs.readFileSync(NICHE_FILE, 'utf8'));
 
-  const scored = ads
-    .map(ad => ({ ...ad, _score: scoreAd(ad) }))
-    .sort((a, b) => b._score - a._score)
-    .slice(0, TOP_N);
+  // Deduplicate
+  const unique = deduplicateAds(rawAds);
+  console.log(`Deduplicated: ${rawAds.length} → ${unique.length} unique ads`);
 
-  console.log(`Top ${TOP_N} selected. Analyzing images with Claude Vision...`);
+  // Tag + score + sort
+  const enriched = unique
+    .map(ad => ({ ...ad, _behavior: tagBehavior(ad), _score: scoreAd(ad) }))
+    .sort((a, b) => b._score - a._score);
 
-  for (let i = 0; i < scored.length; i++) {
-    const ad = scored[i];
-    const imageUrl = ad.Image?.[0]?.url;
-    process.stdout.write(`\r[${i + 1}/${TOP_N}] Analyzing ad ${ad.ID}...`);
+  // Behavior summary
+  const behaviors = enriched.reduce((acc, ad) => {
+    acc[ad._behavior] = (acc[ad._behavior] ?? 0) + 1;
+    return acc;
+  }, {});
+  console.log('Behavior breakdown:', behaviors);
 
-    if (imageUrl) {
-      ad._image_analysis = await analyzeImage(imageUrl);
-    } else {
-      ad._image_analysis = null;
-    }
+  const topAds = enriched.slice(0, TOP_TEXT);
+
+  // Text pattern analysis
+  console.log(`[1/2] Text pattern analysis for top ${topAds.length} ads...`);
+  const patterns = await analyzeTextPatterns(topAds);
+  patterns.forEach(p => {
+    const ad = topAds[p.index - 1];
+    if (ad) ad._text_pattern = p;
+  });
+  console.log(`      ✓ ${patterns.length} patterns classified`);
+
+  // Image analysis (top 15 with images)
+  const withImages = topAds.filter(ad => ad.Image?.[0]?.url).slice(0, TOP_IMAGE);
+  console.log(`[2/2] Image analysis for top ${withImages.length} ads...`);
+  for (let i = 0; i < withImages.length; i++) {
+    process.stdout.write(`\r  [${i + 1}/${withImages.length}]`);
+    withImages[i]._image_analysis = await analyzeImage(withImages[i].Image[0].url, niche);
     await new Promise(r => setTimeout(r, 300));
   }
+  console.log('\n      ✓ Done');
 
-  console.log('\nDone.');
-  fs.writeFileSync(SCORED_FILE, JSON.stringify(scored, null, 2));
+  fs.mkdirSync('data', { recursive: true });
+  fs.writeFileSync(SCORED_FILE, JSON.stringify(topAds, null, 2));
   console.log(`Saved → ${SCORED_FILE}`);
 }
 
-run().catch(err => { console.error(err); process.exit(1); });
+run().catch(err => { console.error(err.message); process.exit(1); });
