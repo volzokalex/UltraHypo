@@ -93,10 +93,28 @@ function handleGenerate(res) {
 // ── Hypotheses endpoint ───────────────────────────────────────────────────────
 async function handleHypotheses(req, res) {
   const niche = JSON.parse(fs.readFileSync(path.join(__dirname, 'config/niche.json'), 'utf8'));
-  const [hypoRes, adsRes] = await Promise.all([
+  const [hypoRes, adsRes, allAdsRes] = await Promise.all([
     pool.query('SELECT * FROM hypotheses ORDER BY generated_at DESC'),
     pool.query('SELECT COUNT(*) FROM ads_analysis'),
+    pool.query('SELECT data FROM ads_analysis ORDER BY (data->>\'_score\')::float DESC NULLS LAST'),
   ]);
+
+  // Build refs map from sorted ads
+  const sortedAds = allAdsRes.rows.map(r => r.data);
+  const refs = {};
+  sortedAds.forEach((ad, i) => {
+    const num = i + 1;
+    if (ad.Image?.[0]?.url) {
+      refs[num] = {
+        ad_id:       ad.ID,
+        image_url:   ad.Image[0].url,
+        reach:       ad['EU Total Reach'] ?? 0,
+        active_days: ad['Active days']    ?? 0,
+        status:      ad.Status,
+        behavior:    ad._behavior ?? null,
+      };
+    }
+  });
 
   const hypotheses = hypoRes.rows.map(r => ({
     id:                   r.hypo_id,
@@ -122,6 +140,7 @@ async function handleHypotheses(req, res) {
     direction:    niche.direction,
     based_on_ads: parseInt(adsRes.rows[0].count),
     hypotheses,
+    refs,
   };
 
   res.writeHead(200, { 'Content-Type': 'application/json' });

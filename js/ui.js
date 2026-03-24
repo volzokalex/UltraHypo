@@ -296,10 +296,7 @@ async function loadData() {
 
   const data = await res.json();
   hypotheses = data.hypotheses ?? [];
-
-  // Load ref ads from static file (still used for images)
-  const refsRes = await fetch('data/ads-refs.json').catch(() => null);
-  if (refsRes?.ok) adsRefs = await refsRes.json();
+  adsRefs    = data.refs ?? {};
 
   const date = new Date(data.generated_at).toLocaleDateString('en-GB');
   metaEl.textContent = `${data.direction} · ${data.based_on_ads} ads · ${date}`;
