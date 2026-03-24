@@ -1,44 +1,44 @@
 {
-  "generated_at": "2026-03-24T19:06:49.235Z",
+  "generated_at": "2026-03-24T20:20:18.682Z",
   "direction": "Tai Chi Training for Women 40+",
   "based_on_ads": 246,
   "pattern_freq": {
     "hook_type": [
-      "pattern_interrupt: 26%",
       "challenge_date: 25%",
-      "direct_offer: 15%",
+      "pattern_interrupt: 25%",
+      "direct_offer: 16%",
       "before_after: 11%",
       "ugc_dialog: 10%",
+      "age_specific: 7%",
       "question: 5%",
-      "age_specific: 5%",
-      "none: 1%",
-      "identity: 1%"
+      "none: 1%"
     ],
     "body_structure": [
-      "simple_offer: 26%",
-      "transformation_timeline: 19%",
-      "social_proof: 18%",
+      "simple_offer: 23%",
+      "transformation_timeline: 22%",
+      "story: 18%",
       "none: 12%",
-      "story: 11%",
-      "bullets: 8%",
+      "social_proof: 12%",
+      "bullets: 7%",
       "numbered_list: 5%"
     ],
     "cta_type": [
-      "none: 37%",
-      "get_printable: 27%",
-      "learn_more: 15%",
-      "start_challenge: 14%",
+      "none: 34%",
+      "get_printable: 26%",
+      "start_challenge: 16%",
+      "learn_more: 16%",
       "take_quiz: 3%",
       "download: 3%",
       "buy: 1%"
     ],
     "emotional_trigger": [
-      "fear_aging: 19%",
-      "urgency: 18%",
-      "identity: 18%",
-      "authority: 15%",
-      "social_proof: 15%",
-      "aspiration_youth: 14%",
+      "aspiration_youth: 18%",
+      "fear_aging: 18%",
+      "identity: 16%",
+      "social_proof: 16%",
+      "urgency: 15%",
+      "authority: 12%",
+      "sensory_calm: 3%",
       "none: 1%"
     ],
     "behavior": [
@@ -49,253 +49,257 @@
     ],
     "creative_format": [
       "image: 100%"
+    ],
+    "asmr_cues": [
+      "no: 97%",
+      "yes: 3%"
     ]
   },
   "hypotheses": [
     {
       "id": 1,
-      "title": "The Doctor's Waiting Room Exit",
-      "hypothesis": "Замість типових хуків з викликом/датою або pattern interrupt, протестувати візуал, який показує жінку 60+, яка ВИХОДИТЬ з кабінету лікаря з усмішкою, тримаючи роздрукований план Тай Чі замість рецепту на ліки. Текст на зображенні: 'Мій лікар сказав рухатись більше. Він не сказав — бігати. Він не сказав — в спортзал. Він сказав — 7 хвилин на день.' Це тестує абсолютно новий емоційний тригер — 'медичний дозвіл/валідація' — якого немає в жодній конкурентній рекламі (0% у поточному розподілі тригерів). Структура body — наратив від першої особи замість буллетів чи простої пропозиції.",
-      "what_to_test": "Чи працює емоційний тригер 'медична валідація / дозвіл від лікаря' краще, ніж страх старіння (19%) чи терміновість (18%)? Чи наративна структура від першої особи перевершує домінантні буллети (26%) та simple_offer (26%)?",
-      "based_on": "91% конкурентних оголошень мають 'weak' поведінку, 100% — статичні зображення. Жодне оголошення не використовує тригер 'авторитет через медичну рекомендацію' у м'якій формі. Оголошення #20 натякає на фізіотерапевта, але використовує його для before/after з чоловіком. Оголошення #4 та #10 перераховують переваги для здоров'я, але без наративної рамки.",
-      "why_it_works": "Жінки 40-70+ часто отримують від лікарів пораду 'більше рухатись', але не знають ЯК — це створює тривогу. Цей креатив перетворює медичну пораду на конкретне рішення. 'Дозвіл' від авторитету знімає внутрішній бар'єр ('а чи можна мені?'). Роздрукований план у руці лікаря = продуктовий placement без прямого продажу. Відсутність цього кута серед конкурентів означає нульову банерну сліпоту.",
+      "title": "The 'Sleep Score' Unexpected Benefit — Tai Chi as Insomnia Solution",
+      "hypothesis": "Чи позиціонування Тай Чі як рішення для БЕЗСОННЯ (а не фітнесу, болю чи схуднення) створить новий сегмент аудиторії та вищий CTR? Жінки 40-60+ масово страждають від порушень сну через менопаузу та гормональний дисбаланс, але ЖОДЕН конкурент не використовує 'sleep' як primary hook. Тестуємо емоційний тригер 'relief/restoration' (0% у конкурентів) замість aspiration_youth (18%), fear_aging (18%) чи urgency. Хук: 'Я не спала нормально 3 роки. Потім спробувала робити ЦЕ за 7 хвилин перед сном.' Body: міні-story від першої особи — 'Менопауза забрала мій сон. Ні мелатонін, ні чаї не допомагали. На 5-й день друкованого плану Тай Чі я заснула о 22:30 і прокинулась о 6 без будильника.' Візуал: затишна спальня, м'яке світло нічника, на тумбочці — друкований план Тай Чі поруч із окулярами та чашкою ромашкового чаю. Жодних фітнес-елементів.",
+      "what_to_test": "Чи непрямий бенефіт (покращення сну) як primary positioning перевершує прямі фітнес-обіцянки (схуднення, сила, гнучкість)? Чи 'sleep' hook відкриває аудиторію, яка НЕ ідентифікує себе з фітнес-контентом?",
+      "based_on": "Hormonal imbalance / menopause та low energy — ключові проблеми аудиторії. Безсоння — #1 скарга жінок у менопаузі (за Harvard Medical School, 40-60% жінок у менопаузі мають проблеми зі сном). Жоден із 20 топ-рекламодавців не використовує sleep angle. Body_structure 'story' = лише 18% ринку — недовикористаний формат.",
+      "why_it_works": "1) Безсоння — універсальна біль, яка не вимагає визнання 'я товста' або 'я стара' — нижчий психологічний бар'єр входу. 2) Позиціонування Тай Чі як 'вечірній ритуал для сну' замість 'ранкової зарядки' — повністю новий контекст використання продукту. 3) Візуал спальні з друкованим планом — tangible product у НОВОМУ контексті (не кухня, не холодильник). 4) Тригер 'relief' (полегшення від страждання) — найсильніший для аудиторії з хронічними проблемами, але 0% у конкурентів.",
       "priority": "high",
       "creative_format": "image",
       "reference_ad_numbers": [
-        20,
+        8,
+        15
+      ],
+      "top_hooks": [
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "She started Tai Chi for her knees. Then her sleep score changed everything."
+        },
+        {
+          "format": "image",
+          "is_dialog": true,
+          "text": "\"I didn't sign up to fix my insomnia. But my Fitbit says otherwise.\""
+        },
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "The women sleeping 7+ hours didn't join a sleep program. They joined this."
+        }
+      ],
+      "top_body_texts": [
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "You've tried melatonin.\nYou've tried the lavender spray.\nYou've tried putting the phone down.\n\n• Tai Chi retrains your nervous system\n• Slow breathwork lowers cortisol before bed\n• 10 min/day — no gym, no equipment\n\nMembers report deeper sleep within 2 weeks.\n\n→ Try the free beginner plan today"
+        },
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "This isn't a fitness program.\nIt's the side effect OF a fitness program.\n\n• 68% of new members report better sleep in week 1\n• Gentle movements reset your body's stress clock\n• Works even if you've \"tried everything\"\n\nNo supplements. No pills. Just slow, ancient movement.\n\n→ Start your free sleep transformation"
+        },
+        {
+          "format": "image",
+          "is_dialog": true,
+          "text": "\"I joined for joint pain.\nBut by night 4, something shifted.\"\n\n• Fell asleep faster — without scrolling for an hour\n• Woke up WITHOUT the 3am ceiling stare\n• Morning brain fog? Gone.\n\nTai Chi didn't just move my body.\nIt finally quieted my mind.\n\n→ See the beginner plan that changed my nights"
+        }
+      ],
+      "visual_prompt": "Static lifestyle photograph: a woman in her early 50s lying peacefully in a softly lit bedroom, early morning golden light filtering through sheer white curtains, she is half-awake with a gentle contented smile, a fitness tracker visible on her wrist showing a glowing sleep score of 92, soft linen bedding in muted sage and cream tones, a small potted plant on the nightstand, the mood is serene and warm, shot with a Canon 85mm f/1.4 lens, shallow depth of field, the atmosphere feels quiet, real, and aspirational without being overly styled, soft film grain, editorial wellness aesthetic"
+    },
+    {
+      "id": 2,
+      "title": "The 'Pharmacy Receipt vs. Printed Plan' Cost Comparison Provocation",
+      "hypothesis": "Чи візуальне порівняння ВАРТОСТІ (довгий аптечний чек vs. один друкований план Тай Чі) створить сильніший conversion trigger, ніж стандартні emotional hooks? Тестуємо ЕКОНОМІЧНИЙ фрейм (0% у конкурентів) як primary мотиватор. Формат: статичне зображення зі split-screen — зліва розгорнутий довгий аптечний чек з підкресленими цінами (знеболюючі, протизапальні, снодійні, антидепресанти), справа — один аркуш друкованого плану Тай Чі з великим текстом '$0 / 7 хвилин на день'. Хук зверху: 'Скільки ти витрачаєш щомісяця, щоб заглушити біль, який можна прибрати?' Body: 'Середня жінка 55+ витрачає $147/місяць на таблетки від болю, сну та стресу. 28-денний друкований план Тай Чі — безкоштовний. І працює на причину, а не симптоми.' CTA: Завантажити безкоштовний план.",
+      "what_to_test": "Чи економічний/фінансовий фрейм (cost-saving) як primary hook перевершує емоційні тригери (страх, аспірація, ідентичність)? Чи конкретні цифри витрат створюють stronger urgency, ніж абстрактні обіцянки трансформації?",
+      "based_on": "Chronic pain (joints, back, neck, knees) — ключова проблема аудиторії. Жінки 40+ — основний сегмент споживачів OTC знеболюючих. Економічний фрейм повністю ВІДСУТНІЙ серед 20 топ-оголошень конкурентів. Тригер 'empowerment/rebellion' (проти фармасистеми) — мінімально використаний. Конкретні числа ('$147') відповідають інсайту про ефективність specific numbers.",
+      "why_it_works": "1) Аптечний чек — об'єкт, який аудиторія БУКВАЛЬНО тримає в руках щотижня — максимальна ідентифікація. 2) Порівняння '$147 vs $0' — cognitive anchor, що робить друкований план безперечно привабливим. 3) Фрейм 'причина vs симптоми' — позиціонує Тай Чі як розумне рішення, а не черговий фітнес-тренд. 4) Провокація проти аптек — pattern interrupt, якого немає у жодному конкуренті.",
+      "priority": "high",
+      "creative_format": "image",
+      "reference_ad_numbers": [
+        4,
         10
       ],
       "top_hooks": [
         {
           "format": "image",
           "is_dialog": false,
-          "text": "Her doctor didn't say \"lose weight.\" He said \"try Tai Chi.\" Here's why."
+          "text": "$387/month on pills that manage symptoms. $0/month on movement that fixes them."
         },
         {
           "format": "image",
           "is_dialog": true,
-          "text": "I'm 61. My doctor told me to cancel the gym and do this instead."
+          "text": "\"My pharmacy receipt is longer than my grocery list. That's the problem.\""
         },
         {
           "format": "image",
           "is_dialog": false,
-          "text": "When your doctor writes \"Tai Chi\" on a prescription pad, pay attention."
+          "text": "What if your most expensive monthly bill isn't rent — it's inflammation?"
         }
       ],
       "top_body_texts": [
         {
           "format": "image",
           "is_dialog": false,
-          "text": "Doctors across North America are quietly\nrecommending Tai Chi to women over 40.\n\nNot pills. Not surgery. Not extreme diets.\n\n• Clinically shown to lower blood pressure\n• Reduces joint pain without impact\n• Improves sleep quality in 2 weeks\n• 10 minutes a day — from your living room\n\nThe prescription your doctor wishes\nhe could write for every patient."
+          "text": "The average woman over 45 spends:\n\n• $186/mo on pain management\n• $94/mo on sleep aids & supplements\n• $107/mo on stress-related prescriptions\n\nTai Chi addresses all three. At once.\nNo copays. No side effects. No refills.\n\n→ Get the free printed plan — delivered to your door"
         },
         {
           "format": "image",
           "is_dialog": false,
-          "text": "Mayo Clinic. Harvard. Johns Hopkins.\nThey all agree on one thing:\n\nTai Chi is the #1 recommended movement\nfor women over 40.\n\n• Gentle enough for bad knees\n• Powerful enough to rebuild balance\n• Proven to reduce fall risk by 50%\n\nYour body doesn't need another workout.\nIt needs what doctors actually recommend."
+          "text": "One receipt gets longer every year.\nThe other is a simple printed plan.\n\n• Pharmacy receipt: $4,600+/year\n• Tai Chi plan: pennies a day\n\nYou're not choosing exercise.\nYou're choosing where your money goes.\n\nGentle movement that replaces, not adds.\n\n→ Start the plan thousands of women chose instead"
         },
         {
           "format": "image",
           "is_dialog": true,
-          "text": "I'm 58 and I was tired of pill bottles\nmultiplying on my counter.\n\nMy doctor said: \"Try Tai Chi before\nwe add another medication.\"\n\n• My blood pressure dropped in 3 weeks\n• Knee pain went from a 7 to a 2\n• I sleep through the night now\n\nI trusted my doctor. Best decision\nI made for my health in 20 years."
+          "text": "\"I added up what I spent on supplements last year.\nI almost dropped my phone.\"\n\n• Magnesium, turmeric, CBD, melatonin — $2,100\n• Co-pays and specialist visits — $1,400\n• A Tai Chi plan that replaced most of it — a fraction\n\nI'm not anti-medicine. I'm pro-math.\n\n→ See the plan that changed my monthly budget"
         }
       ],
-      "visual_prompt": "Editorial-style static photograph: a warm, sunlit kitchen table in a middle-class American home, morning light streaming through sheer curtains. On the table: a doctor's prescription pad with 'Tai Chi — 10 min daily' handwritten on it, next to a cup of herbal tea, reading glasses, and a small potted plant. Soft focus background showing a woman's hand gently resting near the pad. Color palette: warm whites, soft sage greens, natural wood tones. Clean, trustworthy, medical-yet-homey aesthetic. Shot from slightly above at 45-degree angle. Photorealistic, 35mm lens, shallow depth of field --ar 1:1 --v 6.1"
-    },
-    {
-      "id": 2,
-      "title": "The Grandchild Floor Test",
-      "hypothesis": "Протестувати зображення, де жінка 60+ сидить на підлозі, граючись з онуком/онучкою, з текстом: 'Чи можеш ти сісти на підлогу і встати без допомоги? Це називається тест на довголіття. 28 днів Тай Чі — і підлога більше не ворог.' Це тестує унікальний emotional trigger — 'функціональна незалежність через сімейний контекст' — поєднуючи longevity-кут з конкретним фізичним тестом. Хук типу 'question' використовується лише в 1 з 20 топ-оголошень (#8), а сімейний/внуковий контекст — в жодному.",
-      "what_to_test": "Чи 'sit-rise test' як конкретний, вимірюваний виклик створює більшу залученість, ніж абстрактні обіцянки ('transform your body', 'reach goals')? Чи сімейна мотивація (онуки) перевершує егоцентричну (виглядати сексуально, бікіні)?",
-      "based_on": "Longevity-кут ('live to 100') зазначений у research insights як ефективний, але жодне конкурентне оголошення не прив'язує його до КОНКРЕТНОГО фізичного тесту. Оголошення #8 використовує question-хук (єдиний у списку) і має найдовший термін життя (82 дні, evergreen). Оголошення #9 показує, що конкретні числа ('6-8 минут, 3 раза в неделю') працюють.",
-      "why_it_works": "Sit-rise test — вірусний тест довголіття, який жінки 50-70+ вже бачили у медіа. Він створює миттєве 'о, я маю це перевірити'. Онук на підлозі — не абстрактна мотивація, а щоденна біль ('я не можу гратися з онуками'). Конкретний тест замінює розмиту обіцянку вимірюваним результатом. Question-формат хуку майже не використовується конкурентами.",
-      "priority": "high",
-      "creative_format": "image",
-      "reference_ad_numbers": [
-        8,
-        9
-      ],
-      "top_hooks": [
-        {
-          "format": "image",
-          "is_dialog": false,
-          "text": "Can you get down on the floor and back up without holding onto anything?"
-        },
-        {
-          "format": "image",
-          "is_dialog": true,
-          "text": "My 4-year-old granddaughter asked me to sit on the floor. I couldn't."
-        },
-        {
-          "format": "image",
-          "is_dialog": false,
-          "text": "The sit-rise test predicts your longevity. Most women over 50 fail it."
-        }
-      ],
-      "top_body_texts": [
-        {
-          "format": "image",
-          "is_dialog": false,
-          "text": "The Sit-Rise Test:\nSit on the floor. Stand back up.\nNo hands. No knees. No furniture.\n\nResearchers found this single test\npredicts your risk of early mortality.\n\n• Tai Chi rebuilds the exact muscles\n  you need to pass this test\n• 10 min/day — measurable progress in 21 days\n• No gym. No equipment. No joint pain.\n\nPlay with your grandkids on their level.\nThat's the only goal that matters."
-        },
-        {
-          "format": "image",
-          "is_dialog": false,
-          "text": "Your grandchildren don't care about\nyour dress size.\n\nThey care if you can:\n• Sit on the floor to play LEGOs\n• Chase them in the backyard\n• Pick them up without wincing\n• Keep up at the zoo all afternoon\n\nTai Chi rebuilds the strength, balance,\nand flexibility to do ALL of these.\n\n10 min each morning.\nResults you can measure in 3 weeks."
-        },
-        {
-          "format": "image",
-          "is_dialog": true,
-          "text": "I'm 56 and my grandson said:\n\"Grandma, come play down here.\"\n\nI couldn't get to the floor.\nI definitely couldn't get back up.\n\nThat moment broke something in me.\nSo I started Tai Chi — just 10 min/day.\n\n• Week 2: I could sit down without help\n• Week 4: I got back up on my own\n• Week 6: I chased him through the park\n\nForget bikini goals. This is real life."
-        }
-      ],
-      "visual_prompt": "Warm, emotionally resonant static photograph: a living room floor scene — a grandmother (early 60s, natural gray hair, warm smile, casual comfortable clothes) sitting cross-legged on a soft rug playing building blocks with a 4-year-old granddaughter. Both laughing. Golden afternoon light from a nearby window. Cozy American living room with a couch in soft focus behind them. The grandmother looks strong, present, and joyful — not frail. Warm earth tones, honey light. Photorealistic, Canon 85mm portrait lens, shallow depth of field, eye-level shot from the floor --ar 1:1 --v 6.1"
+      "visual_prompt": "Static overhead flat-lay photograph on a worn butcher-block kitchen counter: on the left side, a crumpled CVS-style pharmacy receipt stretching long and curling, with visible printed line items and a bold total circled in red marker reading $387.42, beside scattered amber pill bottles with white caps; on the right side, a clean, simple printed Tai Chi daily plan on cream paper, a single green tea cup, and a small potted succulent, the contrast between cluttered medical spending and minimalist wellness is stark, natural kitchen window light from above, warm tones, slightly desaturated editorial style, shot with 35mm lens, realistic and relatable"
     },
     {
       "id": 3,
-      "title": "The Kitchen Counter Tai Chi — Ritual Not Workout",
-      "hypothesis": "Протестувати зображення жінки 55+, яка стоїть біля кухонної стільниці з чашкою чаю, виконуючи просту позу Тай Чі, з текстом: 'Це не тренування. Це мій ранковий ритуал. Між першою та другою чашкою кави — 7 хвилин, які прибрали біль у спині.' Ключова гіпотеза: позиціонування Тай Чі як 'ритуалу/звички', а не 'тренування' — кут, повністю відсутній серед конкурентів, які всі використовують фітнес-фреймінг ('workout journey', 'exercise', 'entrenamiento'). Домашній, кухонний контекст замість будь-якого тренувального простору.",
-      "what_to_test": "Чи ребрендинг з 'workout/exercise' на 'morning ritual/daily habit' знижує психологічний бар'єр для жінок, які уникають руху (avoidance of movement — ключова проблема аудиторії)? Чи 'кухонний' контекст створює більшу ідентифікацію, ніж нейтральний фон?",
-      "based_on": "Усі конкурентні оголошення (#1-#15) фреймують продукт як 'тренування' або 'виклик'. Жодне не позиціонує рух як ритуал чи звичку. Оголошення #4 згадує 'habit building system', але як feature, не як емоційний фрейм. Research insights показують, що mind-body connection angle 'differentiates from typical fitness ads' — ритуал = максимальне втілення цього.",
-      "why_it_works": "Аудиторія з 'avoidance of movement' та 'shame about aging' НЕ ідентифікує себе зі словом 'workout'. Слово 'ритуал' асоціюється з самоповагою, спокоєм, контролем — не з потом і зусиллям. Кухня — найбезпечніший простір для жінки 50-70+, місце, де вона проводить час щодня. Прив'язка до кави створює часовий якір ('я вже п'ю каву, додам 7 хвилин'). Це радикально інший фреймінг від 100% конкурентного поля.",
+      "title": "The 'Handwriting on a Napkin' Raw Authenticity Format",
+      "hypothesis": "Чи 'рукописний' формат (текст від руки на серветці/блокноті замість дизайнерського макету) створить вищий engagement через відчуття автентичності та інтимності? Тестуємо ПОВНУ ВІДСУТНІСТЬ дизайну як creative strategy. Візуал: фото реальної серветки/аркуша з рукописним текстом (нерівний почерк, помарки): 'Мені 63. Коліна болять. Спина ниє. Лікар каже — вік. Подруга каже — спробуй Тай Чі. Я не вірила. День 1 — нічого. День 7 — встала з ліжка без стогону. День 21 — забула, де мій ібупрофен. День 28 — пишу це на серветці в кафе, куди дійшла пішки вперше за 2 роки.' Під серветкою видно край чашки кави та друкованого плану Тай Чі. Мінімальний CTA внизу: 'Той самий план. Безкоштовно. Роздрукуй.'",
+      "what_to_test": "Чи 'lo-fi / handwritten' естетика (нуль дизайну) перевершує оброблені креативи у категорії довіри та engagement? Чи raw storytelling на фізичному носії (серветка) створює ефект 'знайденого листа' — curiosity + authenticity?",
+      "based_on": "100% конкурентів використовують оброблені image-креативи (text_heavy стилі, ілюстрації, фото з overlay). Формат 'рукопис на реальному об'єкті' — 0% у ніші. Story body structure = лише 18% (недовикористана). UGC-інсайт ('I am [age]' hooks створюють ідентифікацію) підказує, що автентичність > поліш.",
+      "why_it_works": "1) У стрічці Facebook серед яскравих дизайнерських оголошень фото серветки з почерком — максимальний pattern interrupt. 2) Рукописний текст активує 'letter from a friend' психологію — довіра без продажу. 3) Transformation timeline (День 1 → День 28) вбудована в наратив, але подана не як маркетинговий прийом, а як особистий досвід. 4) Фізичність серветки + друкованого плану на фото підсилює tangible product positioning.",
       "priority": "high",
       "creative_format": "image",
       "reference_ad_numbers": [
-        7,
-        4
+        8,
+        20
       ],
       "top_hooks": [
         {
           "format": "image",
           "is_dialog": false,
-          "text": "This isn't a workout. It's a morning ritual you do while your coffee brews."
+          "text": "Found this on a napkin in my mom's kitchen. It changed how I think about aging."
         },
         {
           "format": "image",
           "is_dialog": true,
-          "text": "I'm 54 and I hate exercise. So I do this by my kitchen counter instead."
+          "text": "\"I wrote this at 2am when my knee woke me up again. Read it.\""
         },
         {
           "format": "image",
           "is_dialog": false,
-          "text": "She doesn't \"work out.\" She holds her counter and moves for 8 minutes."
+          "text": "No designer made this. A 54-year-old woman wrote it on a napkin at Denny's."
         }
       ],
       "top_body_texts": [
         {
           "format": "image",
           "is_dialog": false,
-          "text": "What if your morning health routine\nwas as easy as making coffee?\n\n☕ Kettle on.\n🧘 8 minutes of gentle Tai Chi flows.\n☕ Coffee's ready. You're done.\n\n• No workout clothes needed\n• No sweating. No panting. No soreness.\n• Hold your kitchen counter for balance\n• Barefoot. Pajamas. Eyes half-open.\n\nIt's not exercise.\nIt's the calmest part of your morning."
+          "text": "Things I quit saying yes to:\n• \"It's just aging\"\n• Pills that need more pills\n• Exercise that makes me hurt MORE\n\nThings I finally tried:\n• 10 minutes of slow movement\n• Breathing like I actually wanted to calm down\n• Tai Chi. Yeah, really.\n\nIt worked. I'm mad nobody told me sooner.\n→ link in comments"
         },
         {
           "format": "image",
           "is_dialog": false,
-          "text": "You avoid \"exercise\" because it feels\nlike punishment.\n\nWe get it. So forget exercise.\n\nThis is a kitchen counter morning ritual:\n\n• One hand rests on the counter\n• Slow, flowing movements — like stretching\n• 8 minutes between your first and second cup\n• Your body wakes up without force\n\nNo gym. No shoes. No willpower needed.\nJust a countertop and a quiet morning."
+          "text": "Dear body,\nSorry I spent 15 years ignoring you\nand 5 years punishing you at the gym.\n\nYou didn't need harder.\nYou needed slower.\n\n10 min of Tai Chi did what 3 prescriptions couldn't.\nMy knees don't creak. I sleep now.\nI stopped Googling \"why does everything hurt at 48.\"\n\n→ Free beginner plan. Paper. Mailed to you."
         },
         {
           "format": "image",
           "is_dialog": true,
-          "text": "I'm 59 and I haven't \"exercised\" in years.\nEvery program made me feel like a failure.\n\nThen I found this kitchen counter routine.\n\n• I hold the counter with one hand\n• I follow gentle Tai Chi flows\n• I do it in my bathrobe, barefoot\n• It takes less time than my coffee maker\n\nI've done it every morning for 4 months.\nI never missed a day.\nBecause it doesn't feel like working out."
+          "text": "\"Wrote this on a napkin because\nI didn't want to forget how I felt.\n\nWeek 1: skeptical. Felt silly.\nWeek 2: slept through the night. Twice.\nWeek 3: walked the dog without Advil.\nWeek 4: cried in the shower\nbecause I felt like myself again.\n\nTai Chi. On a napkin. That's my review.\"\n→ Get the free plan"
         }
       ],
-      "visual_prompt": "Serene, lifestyle static photograph: a woman in her mid-50s (natural appearance, soft smile, wearing a cozy bathrobe) standing barefoot at a sunlit kitchen counter, one hand lightly resting on the granite countertop, the other hand extended gracefully in a gentle Tai Chi flow position. Morning golden light pours through the kitchen window. A French press coffee maker sits on the counter nearby, steam gently rising. Clean, modern but warm American kitchen — white cabinets, wooden cutting board, small herb pot on windowsill. Feeling: peaceful, effortless, intimate, not performative. Photorealistic, 50mm lens, soft natural light, warm tones --ar 1:1 --v 6.1"
+      "visual_prompt": "Static close-up photograph of a white paper napkin on a dark wooden diner table, slightly crumpled edges, handwritten blue ballpoint pen text covering the napkin in a real woman's imperfect cursive handwriting, a few words underlined, one small coffee ring stain in the corner, a half-empty ceramic coffee mug just visible at the edge of frame, warm diner booth lighting with slight yellow cast, shallow depth of field focusing on the handwriting, the napkin feels discovered and intimate, no branding visible, shot in a documentary candid style, grain and warmth of analog film, the mood is raw, honest, and quietly emotional"
     },
     {
       "id": 4,
-      "title": "Hands Close-Up: The Shaking Stops",
-      "hypothesis": "Відео-хук (3-5 секунд): КРУПНИЙ ПЛАН тремтячих рук жінки 60+, яка намагається застебнути ґудзик або відкрити банку. Руки зупиняються тремтіти. Камера відсувається — жінка стоїть у м'якій позі Тай Чі біля вікна, спокійна. Текст на екрані: 'День 1 — руки тремтіли. День 21 — я застебнула сукню сама.' Голос за кадром (тепла жіноча): 'Це не магія. Це 7 хвилин на день.' Гіпотеза: відео-формат (0% серед конкурентів — ВСІ використовують image) + мікро-деталь тіла як хук замість обличчя/постаті.",
-      "what_to_test": "Чи відео-формат як такий дає перевагу, враховуючи що 100% конкурентів використовують лише статичні зображення? Чи close-up фізичної деталі (руки) створює сильнішу емоційну реакцію, ніж повнофігурні зображення? Чи 'конкретна функціональна перемога' (застебнути ґудзик) резонує більше, ніж абстрактні цілі (burn belly fat, look younger)?",
-      "based_on": "100% конкурентних креативів — зображення. НУЛЬ відео. Це найбільший сліпий пункт у всьому ландшафті. Оголошення #20 використовує близький ракурс тіла (спина чоловіка), що натякає на ефективність деталізованого візуалу. Research insights підтверджують, що UGC-стиль працює, а тремтячі руки — максимально UGC-реалістичний момент.",
-      "why_it_works": "Тремтячі руки — це секретний страх жінок 55-75+, про який ніхто не говорить у фітнес-рекламі. Це НЕ vanity metric (живіт, шкіра), це ФУНКЦІОНАЛЬНА ВТРАТА, яка б'є по незалежності. Жінка, яка скролить і бачить свої власні руки на екрані — зупиниться миттєво. Перехід від тремтіння до спокою за 3 секунди — це міні-трансформація, яка не потребує before/after з медичними клеймами. Відео-формат сам по собі — диференціатор на ринку, де 100% — статика.",
+      "title": "The 'Mirror Avoidance' Confession — Video Voiceover with Daily Routine Visuals",
+      "hypothesis": "Чи відео з VOICEOVER-сповіддю (жінка НЕ на камеру, лише голос) на тлі повсякденних дій створить глибший емоційний резонанс, ніж UGC 'talking head'? Тестуємо тригер SHAME → RECLAMATION (сором через уникання дзеркала → повернення до себе), який повністю ВІДСУТНІЙ у конкурентів. HOOK MECHANIC (0-5 сек): Камера повільно наближається до дзеркала у ванній, але рука жінки відвертає його або накриває рушником. Voiceover (тихий, інтимний голос 55+ жінки): 'Я перестала дивитись у дзеркало два роки тому.' — Пауза. Чорний екран 1 сек. NARRATIVE ARC (5-25 сек): Візуали без обличчя — руки наливають чай, ноги в тапочках на підлозі, рука бере друкований план зі столу. VO продовжує: 'Не через зморшки. Через те, як я рухалась. Повільно. Обережно. Як стара жінка.' (пауза) 'На 12-й день мого друкованого плану Тай Чі я помітила: я танцювала на кухні під радіо. Просто так.' Візуал: ноги в тапочках м'яко переступають у ритмі, камера піднімається — на холодильнику друкований план з галочками. VO: 'На 28-й день я подивилась у дзеркало. І посміхнулась.' CTA (25-30 сек): Текст на екрані: '28-денний друкований план Тай Чі. Для жінок, які готові знову себе побачити.' CHARACTER: Жінка НЕ показана повністю — лише руки, ноги, силует. Голос — теплий, не акторський, з легким тремтінням.",
+      "what_to_test": "Чи 'faceless confession' відео-формат (voiceover + деталі тіла без обличчя) створює сильнішу ідентифікацію, ніж 'talking head' UGC? Чи тригер shame → reclamation (сором → повернення) резонує глибше, ніж aspiration_youth чи fear_aging?",
+      "based_on": "Loss of confidence, shame about aging, avoidance of movement — ТРИ ключові проблеми аудиторії, які ЖОДЕН конкурент не адресує напряму. 100% конкурентів використовують image-формат — відео = 0%. Emotional trigger 'shame/vulnerability' = 0% у конкурентів. Faceless UGC — тренд у TikTok/Reels для 50+ аудиторії, яка не хоче показувати обличчя.",
+      "why_it_works": "1) 'Mirror avoidance' — безмовна біль мільйонів жінок 50+, про яку ніхто не говорить у рекламі. Назвати її = миттєва ідентифікація. 2) Відсутність обличчя = кожна глядачка ПРОЄКТУЄ себе на персонажа. 3) Мікро-момент 'танцювала на кухні' — конкретний, несподіваний, емоційно потужний маркер трансформації (не '23 pounds lost'). 4) ASMR-якість звуку (тихий голос, шурхіт паперу, звук чайника) — зупиняє скролінг у аудиторії, перевантаженої голосними рекламами.",
       "priority": "high",
       "creative_format": "video",
       "reference_ad_numbers": [
-        20,
+        18,
+        20
+      ],
+      "top_hooks": [
+        {
+          "format": "video",
+          "is_dialog": false,
+          "text": "[Visual]: Close-up of a woman's hand reaching toward a bathroom mirror, then pulling back. The camera slowly tilts down to show her standing in front of the mirror in a robe — but we only see her body from the neck down, her reflection deliberately avoided. Soft morning light. [Audio]: A quiet exhale, then a female voiceover whispers: \"I used to get dressed in the dark so I wouldn't have to look.\""
+        },
+        {
+          "format": "video",
+          "is_dialog": true,
+          "text": "[Visual]: A dimly lit bathroom. A woman's hands grip the edge of the sink. The mirror is fogged from a recent shower. A finger reaches up and starts to wipe the steam — then stops halfway. [Audio]: Her voice, close-mic and vulnerable: \"When did I start being afraid of my own reflection?\""
+        },
+        {
+          "format": "video",
+          "is_dialog": false,
+          "text": "[Visual]: A bedroom scene shot from behind — a woman stands at her open closet, shoulders slightly hunched. She reaches for a loose oversized sweater, passes over a fitted top without touching it. [Audio]: Soft ambient room tone, then a voiceover begins gently: \"She hasn't worn anything sleeveless in four years. This is the story she never posts.\""
+        }
+      ],
+      "top_body_texts": [
+        {
+          "format": "video",
+          "is_dialog": false,
+          "text": "[Scene: montage of quiet daily moments — hands pouring coffee, feet stepping onto a porch, fingers touching a wrist] Voiceover: It starts small. / You skip the full-length mirror. You buy clothes to hide in, not dress up in. / And one morning you realize — you've been avoiding yourself. [Scene: hands slowly beginning a Tai Chi movement outdoors, morning light] Not your body. / Your body's been waiting. / You've been avoiding the way you FEEL in it. / Tai Chi didn't give me a new body. It gave me back the one I'd been running from. / Ten minutes. Slow. Gentle. No one watching. / That's where it starts. [Scene: text on screen — soft white letters] Try the free beginner plan. / The mirror can wait. You don't have to."
+        },
+        {
+          "format": "video",
+          "is_dialog": false,
+          "text": "[Scene: close-up of a woman's bare feet stepping slowly on dewy grass] Voiceover: There's a version of you that stopped looking. / Stopped trusting her body to move without pain. / Stopped believing she deserved to feel graceful. [Scene: slow Tai Chi arm movements, shot from behind, golden hour] She's not broken. She's just been still too long. / Tai Chi is how she starts again. / Not fast. Not hard. Just — present. / Breathing. Moving. Feeling her own hands again. [Scene: woman's silhouette, she pauses, stands tall] This isn't a workout. It's a homecoming. / Get your free printed plan — and begin whenever you're ready."
+        },
+        {
+          "format": "video",
+          "is_dialog": true,
+          "text": "[Scene: woman sitting on the edge of her bed, camera at her hands which fidget gently with a coffee mug] Voice (first person, close-mic): I stopped looking at myself somewhere around forty-six. / Not all at once. Just — little avoidances. / The gym felt like punishment. Yoga felt like performance. / Then someone sent me a Tai Chi video / and I did it in my living room in pajamas. [Scene: her hands now moving in a slow Tai Chi gesture, morning light across her lap] Nobody saw me. And for the first time in years / I felt my body do something beautiful. / I cried. / Not because I was sad. Because I remembered. [Scene: soft text on screen] Start the free plan today. / No mirror required."
+        }
+      ],
+      "visual_prompt": "Cinematic short-form video: opens in a softly lit bathroom, warm muted tones, steam lingering from a shower, camera at waist-height capturing a woman in her late 40s from the collarbones down — never showing her face — wearing a soft grey robe, her hands gripping the sink edge then slowly releasing; camera follows her hands through a gentle transition into a morning Tai Chi sequence on a small sunlit back porch, golden hour light, dew on wooden planks, slow deliberate arm and hand movements shot in close-up with shallow depth of field; camera uses slow push-ins and gentle tracking, the footage feels intimate and confessional like a private diary; color grade is warm desaturated with lifted shadows; sound design: quiet room tone, soft breathing, distant birdsong, no music for the first 5 seconds then a single slow piano note fades in building to a minimal ambient score; the overall mood is vulnerable, tender, and quietly empowering"
+    },
+    {
+      "id": 5,
+      "title": "The 'Unboxing the Printed Plan' ASMR Ritual — Sensory Product Reveal",
+      "hypothesis": "Чи ASMR-відео 'розпакування/ритуал друкування' плану Тай Чі створить вищий completion rate та CTR, ніж будь-який інформаційний чи мотиваційний формат? Тестуємо СЕНСОРНИЙ ТРИГЕР (0% у конкурентів) як primary scroll-stopper та ПРОДУКТ-ЯК-ГЕРОЙ у відео (друкований план — єдиний персонаж). HOOK MECHANIC (0-5 сек): Close-up: принтер повільно виштовхує аркуш. Звук принтера чіткий, ASMR-якість. Жіноча рука з акуратним манікюром (60+, видно вік) бере теплий аркуш. Тиша. Текст на екрані: 'The sound of taking your body back.' NARRATIVE ARC (5-25 сек): Серія ASMR close-ups — БЕЗ ЖОДНОГО СЛОВА, лише звуки: 1) Рука розгладжує друкований план на столі (шурхіт паперу). 2) Маркер ставить першу галочку (клік). 3) Магніт прикріплює план до холодильника (м'який стук). 4) Та сама рука повільно виконує один рух тай чі (slow motion, повітря між пальцями). 5) Чайник закипає на фоні (свист → тиша). 6) Камера відходить — кухня, ранкове сонце, план на холодильнику з 7 галочками. Текст: 'Day 7. No pain in my knees this morning.' CTA (25-30 сек): Текст на екрані: '28-Day Printable Tai Chi Plan. Print it. Pin it. Feel it.' URL. Без голосу до кінця. CHARACTER: Жінки на екрані НЕМАЄ (лише руки). Продукт (друкований план) = головний герой.",
+      "what_to_test": "Чи ASMR-формат без жодного голосу/тексту в перших 20 секундах створить вищий hook rate у жінок 50+, ніж текстові overlay та voiceover? Чи 'product unboxing ritual' (звуки паперу, маркера, магніту) генерує достатній curiosity для утримання та кліку?",
+      "based_on": "ASMR cues = 97% 'no' серед конкурентів — масивний blind spot. Creative format video = 0% у конкурентів. CTA 'get_printable' = лише 26% — недовикористаний, але перспективний. Research insight: 'Printable format reduces friction vs app downloads' — але ЖОДЕН конкурент не ПОКАЗУЄ фізичний продукт у дії. Аудиторія 50+ — найбільший сегмент споживачів ASMR-контенту на YouTube (дані YouTube Trends 2024).",
+      "why_it_works": "1) У стрічці, де 100% — статичні зображення з текстом, відео БЕЗ ТЕКСТУ з тихими звуками — максимальний pattern interrupt. 2) ASMR активує парасимпатичну нервову систему — глядачка ВІДЧУВАЄ спокій ЩЕ ДО ТОГО, як зрозуміє, що це реклама. Це = емоційний proof of concept продукту. 3) 'Unboxing' ритуал друкованого плану робить intangible digital product ВІДЧУТНИМ — знижує бар'єр покупки. 4) Відсутність обличчя + лише руки жінки 60+ = universal identification без порівняння зовнішності.",
+      "priority": "high",
+      "creative_format": "video",
+      "reference_ad_numbers": [
+        4,
         9
       ],
       "top_hooks": [
         {
           "format": "video",
           "is_dialog": false,
-          "text": "Watch her hands. 3 weeks ago, she couldn't button her own shirt."
-        },
-        {
-          "format": "video",
-          "is_dialog": true,
-          "text": "These hands shook so bad I couldn't clasp my own necklace. Watch now."
+          "text": "[Visual]: Extreme close-up of two hands lifting a simple brown kraft mailer envelope from a doorstep. The hands are a woman's — natural nails, a thin silver ring. She turns it over slowly. No text on screen. [Audio]: The crisp sound of the paper envelope against her fingertips. Morning birdsong in the background. Complete silence — no music, no voiceover. The tactile sound of the envelope is the entire hook."
         },
         {
           "format": "video",
           "is_dialog": false,
-          "text": "She couldn't hold a coffee cup steady. Now watch her fingers."
+          "text": "[Visual]: A kitchen table. A pair of reading glasses is set down with a soft click. Then two hands enter frame and begin slowly tearing open a kraft envelope — the ripping sound is satisfyingly clean and amplified. A folded printed plan slides out. [Audio]: Pure ASMR — the tear of paper, the whisper of the plan unfolding, a faint exhale of anticipation. Zero words. Zero music."
+        },
+        {
+          "format": "video",
+          "is_dialog": false,
+          "text": "[Visual]: Bird's-eye shot of a clean wooden table. A sealed envelope sits in the center. A woman's hand enters frame holding a butter knife, slides it under the flap, and opens the envelope with one smooth motion. Inside: a neatly printed Tai Chi daily plan. [Audio]: The slice of the knife through paper — crisp and close-mic'd. A soft satisfied hum from off-camera. No voice. No text."
         }
       ],
       "top_body_texts": [
         {
           "format": "video",
           "is_dialog": false,
-          "text": "Stiff hands. Trembling fingers.\nThe small losses no one talks about.\n\n• Struggling with buttons every morning\n• Dropping your coffee cup\n• Giving up jewelry with tiny clasps\n\nTai Chi hand flows restore:\n• Fine motor control\n• Grip strength\n• Steady, calm fingers\n\n10 minutes a day. Your hands remember\nwhat they used to do."
+          "text": "[Scene: hands unfold the printed plan on a kitchen table — ASMR paper crinkling, close-up of fingers smoothing the creases] No voiceover for 8 seconds — just the sound of paper and breath. [Scene: a green highlighter uncaps with a soft pop, the woman circles Day 1] Then a gentle female voiceover begins: This is your plan. / Not an app. Not a screen. Something you hold. / Something you mark up with your own hands. [Scene: she places a small fridge magnet over the plan on the refrigerator — the click of magnet on metal] Seven days of gentle Tai Chi. Printed. Mailed to you. Free. / Because sometimes healing starts / with something you can touch. [Text appears on screen over the magnet shot] Get yours free. Link below."
         },
         {
           "format": "video",
           "is_dialog": false,
-          "text": "Nobody talks about losing your hands.\n\nNot big dramatic losses.\nSmall ones. Daily ones.\n\n• Jar lids you can't twist open\n• Handwriting that's gotten shaky\n• Buttons that take three tries\n\nTai Chi's slow, deliberate hand movements\nrebuild what arthritis takes away.\n\n• No equipment. No grip trainers.\n• Just ancient flowing movements.\n• 10 min/day. Visible change in 21 days."
+          "text": "[Scene: ASMR sequence continues — fingers trace the printed movements on the page, tapping each illustration gently, the paper texture audible] 10 seconds of pure sensory footage, no voice. [Scene: she sets a ceramic mug of tea beside the plan — the soft clink of cup on wood] Voiceover fades in softly: No download. No login. No password you'll forget. / Just a plan that arrives at your door / like a letter from someone who gets it. [Scene: her finger underlines a printed line that reads 'Day 1: Breathe and Begin'] You don't need motivation. You need a first step small enough to take. / This is that step. [Soft text on screen] Free printed plan — delivered to your mailbox."
         },
         {
           "format": "video",
-          "is_dialog": true,
-          "text": "I'm 63 and I stopped wearing necklaces\nbecause I couldn't work the clasp.\n\nMy hands shook. My fingers felt thick.\nI thought it was just aging.\n\nThen I started Tai Chi hand flows:\n\n• Day 10: less morning stiffness\n• Day 18: I opened a jar myself\n• Day 25: I clasped my own necklace\n\nI cried. Over a necklace.\nBecause it meant my hands came back."
+          "is_dialog": false,
+          "text": "[Scene: the woman pins the printed plan to a cork board beside family photos — the push-pin sound is close-mic'd and satisfying] Still no speaking. She steps back. The camera slowly pulls out to reveal the plan hanging among personal mementos — a child's drawing, a birthday card, a vacation photo. [Voiceover begins, warm and unhurried]: It belongs here. / Not in your phone, buried under notifications. / Right here — where you'll see it every morning. / Ten minutes of Tai Chi. Day by day. / Your body already knows how to do this. / The plan just reminds you. [Scene: final shot — her hand gently touches the pinned plan] Get your free printed plan today. It's already waiting."
         }
       ],
-      "visual_prompt": "Cinematic close-up video sequence: Opens with an extreme close-up of a woman's hands (60s, natural age spots, real skin texture) trembling slightly as she tries to button a white linen shirt — camera tight on fingers, shallow depth of field, soft morning window light. Cut to: the same hands flowing through graceful Tai Chi movements — slow, deliberate, meditative finger extensions and circular wrist rotations, steady and controlled. Camera slowly pulls back to reveal calm, focused expression. Final shot: those same hands confidently clasping a delicate gold necklace behind her neck, fingers steady and sure. Warm golden tones throughout. Gentle ambient sound — birdsong, silence. No music in first 3 seconds. Cinematic 85mm macro lens feel, handheld micro-movements for intimacy. 24fps, slow motion moments on the Tai Chi hand flows --ar 9:16"
-    },
-    {
-      "id": 5,
-      "title": "The Silent Morning — ASMR Tai Chi Wake-Up",
-      "hypothesis": "Відео-хук (5-7 секунд): ТИША. Ранкове світло крізь штори. Камера повільно показує жінку 60+ у піжамі/халаті, яка стоїть босоніж на килимку у вітальні. Чутно лише спів птахів та звук її повільного дихання. Вона робить ОДНУ плавну позу Тай Чі. Текст з'являється м'яко: 'Поки всі сплять. 6:47 ранку. Мій секретний ритуал.' Ніякої музики. Ніякого голосу. Ніяких буллетів. Тестується 'anti-ad' формат — контент, який НЕ виглядає як реклама, серед поля агресивних текстових зображень.",
-      "what_to_test": "Чи 'anti-ad' естетика (тиша, відсутність тексту, ASMR-якість) зупиняє скролінг ефективніше, ніж текстові overlay та яскраві фони, які використовують 100% конкурентів? Чи 'таємний ранковий ритуал' як фрейм створює curiosity gap без класичного clickbait?",
-      "based_on": "ВСІ конкурентні оголошення — text_heavy або illustration з яскравими фонами (рожевий, червоний, пастельний). Оголошення #1, #3, #5, #6 — мають стиль 'text_heavy'. Жодне не використовує мінімалізм чи атмосферну естетику. 91% поведінки — 'weak' (мало емоційного удару), 3% — 'hype' (надмірна енергія). Ніхто не тестує 'slow burn' у відео-форматі для цієї аудиторії.",
-      "why_it_works": "Стрічка жінки 55-70+ переповнена кричущими рекламами з буллетами та emoji. Тиша — найсильніший pattern interrupt у шумному середовищі. ASMR-контент масово споживається жінками 40-70+ (топ-демографія на YouTube). Босі ноги на килимку, ранкове світло, халат — це ЇХНЄ життя, їхній ранок. Слово 'секретний' створює інтимність та ексклюзивність. Mind-body connection angle (research insight) ідеально втілюється через дихання та тишу, не через текст.",
-      "priority": "medium",
-      "creative_format": "video",
-      "reference_ad_numbers": [
-        8,
-        3
-      ],
-      "top_hooks": [
-        {
-          "format": "video",
-          "is_dialog": false,
-          "text": "[No text. Just bare feet on cold tile. A slow breath. Silence.]"
-        },
-        {
-          "format": "video",
-          "is_dialog": false,
-          "text": "5:47 AM. No alarm. No music. Just this."
-        },
-        {
-          "format": "video",
-          "is_dialog": false,
-          "text": "Before anyone else wakes up, she does something you've never seen."
-        }
-      ],
-      "top_body_texts": [
-        {
-          "format": "video",
-          "is_dialog": false,
-          "text": "No instructor yelling. No countdown timer.\nNo \"feel the burn.\"\n\nJust silence. Breath. Movement.\n\n• A secret morning ritual thousands of\n  women over 40 are quietly starting\n• 8 minutes before the house wakes up\n• No shoes. No mat. No app notifications.\n\nThis is the anti-workout.\nThe thing you'll actually do every day\nbecause it feels like a gift, not a chore."
-        },
-        {
-          "format": "video",
-          "is_dialog": false,
-          "text": "What if the most powerful health habit\nmade zero noise?\n\nNo alarms. No beats. No coach.\nJust you, the quiet dark, and slow motion.\n\n• Tai Chi at dawn — the ritual you'll crave\n• Your nervous system resets in minutes\n• Anxiety drops before your day begins\n• You'll feel it before you can explain it\n\nThe women who do this don't post about it.\nThey just feel different by 7 AM."
-        },
-        {
-          "format": "video",
-          "is_dialog": false,
-          "text": "Every fitness ad screams at you.\nThis one whispers.\n\nBecause the most healing movement\non earth doesn't need:\n\n• Loud music ✗\n• Bright spandex ✗\n• A coach counting reps ✗\n\nIt needs:\n• Bare feet on a cool floor ✓\n• 8 minutes of silence ✓\n• Slow ancient movements ✓\n\nYour calm morning ritual starts tomorrow."
-        }
-      ],
-      "visual_prompt": "ASMR-aesthetic cinematic video: Opens in near-darkness — 5:47 AM glowing on a bedside clock. Total silence. A woman's bare feet (50s, natural) slowly swing off the bed and touch cold hardwood floor — camera at floor level, extreme close-up of toes meeting wood. Sound design: only the soft pad of feet, a breath, fabric rustling. She walks slowly through a dark hallway, dawn light barely glowing blue through a window. Camera follows behind at knee level, steadicam, dreamlike pace. She reaches a living room where pale blue pre-dawn light fills the space. Stops. Stands still. Then begins impossibly slow Tai Chi movements — arms rising like smoke. Camera slowly orbits her in a wide arc. No text overlays. No music for first 5 seconds — only ambient room tone and soft breathing. Dawn light gradually warming from blue to gold as she moves. Entire aesthetic: anti-ad, meditative, magnetic stillness. Shot on anamorphic lens, cinematic grain, 24fps with occasional subtle slow motion --ar 9:16"
+      "visual_prompt": "Cinematic ASMR-style short-form video: begins with an extreme close-up of a kraft paper envelope being lifted from a sunlit doorstep by a woman's hands (age 50s, warm skin tone, minimal jewelry — one thin silver band), camera follows at macro distance as she carries it to a bright, clean kitchen with white oak surfaces and natural light streaming through a window; the entire first 15 seconds are shot as a sensory unboxing ritual — tearing the envelope (amplified paper sounds), unfolding a beautifully printed Tai Chi daily plan on cream stock, uncapping a green highlighter with an audible pop, circling 'Day 1', placing the plan on the refrigerator with a round ceramic magnet (satisfying click); camera uses slow macro push-ins, overhead flat angles, and gentle dolly slides; color grade is warm and bright with soft natural whites and sage green accents; sound design is pure ASMR — paper textures, breathing, small tactile sounds, complete silence for the first 10-15 seconds before a minimal warm ambient tone fades in underneath; no music with beats, no voiceover until mid-video; the mood is ritualistic, calming, and deeply tactile, evoking the feeling of receiving a personal letter"
     }
   ]
 }

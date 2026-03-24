@@ -222,10 +222,33 @@ body {
 }
 
 /* ── Tested checkbox ─────────────────────────────────── */
-.tested-label {
+.hypo-actions {
   position: absolute;
   top: 0;
   right: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-asana {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted2);
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.15s, border-color 0.15s;
+}
+.btn-asana:hover:not(:disabled) { color: var(--text); border-color: var(--muted); }
+.btn-asana:disabled { opacity: 0.6; cursor: default; }
+
+.tested-label {
+  position: static;
   display: flex;
   align-items: center;
   gap: 5px;

@@ -1,0 +1,293 @@
+{
+  "generated_at": "2026-03-24T16:31:00.579Z",
+  "direction": "Tai Chi Training for Women 40+",
+  "based_on_ads": 60,
+  "pattern_freq": {
+    "hook_type": [
+      "direct_offer: 62%",
+      "challenge_date: 10%",
+      "before_after: 8%",
+      "pattern_interrupt: 8%",
+      "question: 7%",
+      "age_specific: 3%",
+      "ugc_dialog: 2%"
+    ],
+    "body_structure": [
+      "numbered_list: 37%",
+      "simple_offer: 22%",
+      "bullets: 18%",
+      "story: 15%",
+      "transformation_timeline: 8%"
+    ],
+    "cta_type": [
+      "take_quiz: 58%",
+      "start_challenge: 28%",
+      "learn_more: 12%",
+      "buy: 2%"
+    ],
+    "emotional_trigger": [
+      "aspiration_youth: 62%",
+      "fear_aging: 13%",
+      "identity: 12%",
+      "urgency: 10%",
+      "social_proof: 2%",
+      "authority: 2%"
+    ],
+    "behavior": [
+      "hype: 45%",
+      "evergreen: 42%",
+      "weak: 13%"
+    ],
+    "creative_format": [
+      "video: 82%",
+      "image: 18%"
+    ]
+  },
+  "hypotheses": [
+    {
+      "id": 1,
+      "title": "The 'Permission to Be Still' Anti-Fitness Angle",
+      "hypothesis": "Замість типового аспіраційного тригера ('виглядай молодше', 'скинь вагу'), протестувати емоційний тригер САМОСПІВЧУТТЯ та ДОЗВОЛУ — 'Твоє тіло не зламане. Воно просто потребує м'якості.' Ринок на 62% побудований на аспірації молодості та 45% хайпу, але жінки 40+ з хронічним болем та соромом через старіння реагують на валідацію, а не на тиск. Тай Чі — це єдиний продукт у фітнес-ніші, який може автентично зайняти позицію 'анти-тренування'. Креатив — статичне зображення жінки 60+ у спокійній позі тай чі в саду з текстом-маніфестом.",
+      "what_to_test": "Емоційний тригер САМОСПІВЧУТТЯ (compassion/permission) замість аспірації чи страху. Хук типу 'маніфест' замість прямої пропозиції чи челенджу. Формат — стаття/маніфест у тілі тексту замість нумерованого списку.",
+      "based_on": "Реклами #6, #8 та #17 використовують story-формат з fear_aging тригером ('Your body is telling you something. Stiff. Swollen. Heavy.') і мають статус HYPE з високим охопленням за короткий час. Але їхній тон все ще проблемно-орієнтований. Ми тестуємо ТОЙ ЖЕ story-формат, але з протилежним емоційним вектором — не 'тобі погано', а 'ти вже достатньо добра'.",
+      "why_it_works": "1) Story-формат з pattern_interrupt — лише 8% ринку, але саме ці оголошення (#6, #8, #17) показують найшвидше зростання охоплення. 2) Тригер 'compassion/self-acceptance' — ПОВНІСТЮ ВІДСУТНІЙ у конкурентів (0%). 3) Жінки з хронічним болем та соромом через старіння мають 'рекламну втому' від обіцянок трансформації — валідація є свіжим патерн-інтераптом. 4) Тай Чі ідеально підходить для позиціонування 'рух як турбота', а не 'рух як покарання'. 5) Статичне зображення (лише 18% ринку) виділятиметься у стрічці серед 82% відео.",
+      "priority": "high",
+      "creative_format": "image",
+      "reference_ad_numbers": [
+        6,
+        8
+      ],
+      "top_hooks": [
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "You don't need to push harder. You need permission to be still."
+        },
+        {
+          "format": "image",
+          "is_dialog": true,
+          "text": "I'm 54 and I stopped punishing my body. That's when everything changed."
+        },
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "Stillness is not laziness. It's the bravest thing a tired woman can choose."
+        }
+      ],
+      "top_body_texts": [
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "A manifesto for every woman who's been told\nshe's \"not doing enough.\"\n\n• You don't owe anyone a sweat-soaked selfie\n• Your body is not a problem to fix at 40, 50, or 60\n• Gentle movement heals what forced reps never could\n\nTai Chi isn't giving up on fitness.\nIt's finally choosing yourself.\n\nStart your free 28-day Tai Chi plan today."
+        },
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "This is not a workout program.\nThis is a quiet rebellion.\n\n• No countdowns. No boot camps. No guilt.\n• Just 7 minutes of slow, intentional movement\n• Designed for women who are done fighting their own bodies\n\nYou've earned the right to move with kindness.\nTai Chi gives you that space.\n\nTake the first step — gently."
+        },
+        {
+          "format": "image",
+          "is_dialog": true,
+          "text": "I'm 58 and I spent 20 years forcing myself\ninto workouts I hated.\n\nThen I found Tai Chi and realized:\n• Rest isn't quitting — it's healing\n• Slow movement rebuilt what HIIT destroyed\n• I finally look forward to mornings again\n\nThis isn't about fitness goals.\nIt's about coming home to your body.\n\nStart your free 28-day Tai Chi plan today."
+        }
+      ],
+      "visual_prompt": "A serene lifestyle photograph of a woman in her mid-50s standing barefoot on a wooden porch at golden hour, eyes gently closed, hands softly resting at her sides, wearing a loose linen blouse and comfortable pants, a warm cup of tea on the railing beside her, soft morning light casting long golden shadows, a lush green garden blurred in the background, muted earth tones, editorial style, calm and contemplative mood, text overlay space at top and bottom, shot on Canon EOS R5, 85mm lens, shallow depth of field, warm color grading --ar 4:5 --style raw"
+    },
+    {
+      "id": 2,
+      "title": "Printed Ritual Calendar — Tactile Object as Hero",
+      "hypothesis": "Зробити ФІЗИЧНИЙ ДРУКОВАНИЙ ПЛАН головним героєм креативу замість людини чи додатку. Жоден конкурент не показує сам продукт (друкований план) як об'єкт бажання. Всі показують або скріншоти додатків (#1, #7, #11), або людей, що тренуються (#4, #12). Для жінок 40-70+ друкований календар на холодильнику — це знайомий, затишний формат (не технологічний бар'єр), який викликає ностальгію та відчуття контролю. Зображення: красиво оформлений 28-денний календар тай чі на кухонному столі поруч із чашкою чаю та окулярами.",
+      "what_to_test": "Візуальний герой — ПРОДУКТ (друкований план) замість людини або додатку. Емоційний тригер — ЗАТИШОК/РИТУАЛ замість аспірації чи страху. CTA — 'Роздрукуй свій план' замість 'Пройди квіз' (quiz CTA = 58% ринку, 'print' = 0%).",
+      "based_on": "Реклами #1, #7, #11 показують скріншоти додатків з календарем тренувань і мають статус EVERGREEN з 200+ днями активності. Це доводить, що візуальна структура '28-денний календар' працює. Але всі вони показують ЦИФРОВИЙ інтерфейс. Ми тестуємо ту саму структуру (календар + прогрес-трекер), але у ФІЗИЧНОМУ форматі, що відповідає нашому продукту (Printable Plan) та знижує тертя для аудиторії 60+.",
+      "why_it_works": "1) Printable format reduces friction — це підтверджений інсайт з дослідження аудиторії. 2) CTA 'роздрукуй' — 0% у конкурентів, повний блакитний океан. 3) Зображення фізичного об'єкта (календар + чай) активує 'ownership effect' — людина вже уявляє це у себе вдома. 4) Ностальгічний, тактильний тон різко контрастує з tech-heavy скріншотами додатків. 5) Image формат (18% ринку) + product-as-hero — унікальна комбінація, якої немає в жодного конкурента.",
+      "priority": "high",
+      "creative_format": "image",
+      "reference_ad_numbers": [
+        1,
+        7
+      ],
+      "top_hooks": [
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "Your 28-day Tai Chi ritual. Print it. Pin it. Begin tomorrow morning."
+        },
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "Not an app. Not a video. A printed plan you hold in your hands."
+        },
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "One page on your fridge. 7 minutes each morning. 28 days of calm."
+        }
+      ],
+      "top_body_texts": [
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "Your morning ritual, on paper.\n\n• A beautiful 28-day Tai Chi calendar\n• Each day: one gentle 7-minute movement\n• Print it, pin it to your fridge, check off each morning\n\nNo app notifications. No screen time.\nJust a quiet page and your own two hands.\n\n☕ Pairs perfectly with your morning tea.\n\nPrint your free ritual calendar now."
+        },
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "Something beautiful for your kitchen wall.\n\n• A printable 28-day Tai Chi movement plan\n• Designed for women 40+ who crave routine, not rigidity\n• Each square = one slow, calming practice\n\nCheck it off with a pen.\nFeel the satisfaction of ink on paper.\n\nThis is fitness that feels like self-care.\n\nPrint your free Tai Chi calendar today."
+        },
+        {
+          "format": "image",
+          "is_dialog": true,
+          "text": "I'm 52 and I taped this calendar\nright next to my coffee maker.\n\n• Every morning I check off one square\n• 7 minutes of slow Tai Chi before the world wakes up\n• 28 days later my back pain was gone\n\nNo phone. No app. Just a printed page\nand a pen that makes me smile.\n\nPrint your free ritual calendar now."
+        }
+      ],
+      "visual_prompt": "A cozy flat-lay photograph of a beautifully designed printed 28-day calendar on thick cream-colored cardstock, placed on a warm wooden kitchen table, several days checked off with a soft pencil, a ceramic mug of herbal tea with steam beside it, a small succulent plant in a terracotta pot, reading glasses, soft diffused morning window light from the left, warm honey tones, overhead shot, editorial product photography style, tactile paper texture visible, gentle shadows, hygge aesthetic, inviting and intimate mood --ar 4:5 --style raw"
+    },
+    {
+      "id": 3,
+      "title": "The 'Granddaughter Test' — Relational Identity Hook",
+      "hypothesis": "Замість фокусу на зовнішності ('виглядай молодше', 'бікіні') або фізичних показниках ('скинь вагу'), протестувати РЕЛЯЦІЙНУ МОТИВАЦІЮ — 'Щоб встати з підлоги після гри з онуками без допомоги.' Тригер 'identity' = лише 12% ринку, і навіть ті оголошення використовують його поверхово ('beginner or gym maniac'). Глибокий identity-тригер через РОЛЬ (бабуся, мама, дружина) — повністю відсутній. Для жінок 40-70+ незалежність та здатність бути активною з родиною — сильніший мотиватор, ніж зовнішність.",
+      "what_to_test": "Хук через РЕЛЯЦІЙНУ ІДЕНТИЧНІСТЬ ('бабуся, яка може...') замість фізичної трансформації. Структура тіла — 'міні-сценарій з життя' (3 конкретні ситуації: підлога з онуками, прогулянка без болю, танець на весіллі дочки) замість нумерованого списку кроків. CTA — 'Почни свій 28-денний план' (start_challenge = лише 28%).",
+      "based_on": "Реклами #4, #10, #15 використовують identity-тригер ('whether you're a beginner or gym maniac'), але це ФІТНЕС-ідентичність. Реклами #6, #8 використовують story-формат і мають найвищий reach/day ratio серед HYPE оголошень. Ми комбінуємо identity-тригер з story-форматом, але переносимо ідентичність з фітнес-рівня на ЖИТТЄВУ РОЛЬ.",
+      "why_it_works": "1) Реляційна мотивація (онуки, родина, незалежність) — 0% у конкурентів, але це топ-бажання аудиторії ('be independent', 'stay active at any age'). 2) Конкретні сценарії ('встати з підлоги', 'піднятися сходами') — це 'specific numbers' принцип, перенесений на ситуації. 3) Жінки 40+ з low energy та chronic pain приймають рішення не через аспірацію, а через страх ВТРАТИТИ можливість бути з родиною. 4) Тай Чі ідеально позиціонується як 'рух для життя', а не 'рух для тіла'. 5) Story-формат (15%) + identity-тригер (12%) — рідкісна комбінація з доведеною ефективністю.",
+      "priority": "high",
+      "creative_format": "image",
+      "reference_ad_numbers": [
+        6,
+        4
+      ],
+      "top_hooks": [
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "Be the grandma who gets down on the floor — and back up again."
+        },
+        {
+          "format": "image",
+          "is_dialog": true,
+          "text": "I'm 61 and my granddaughter asked me to dance. I said yes without thinking."
+        },
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "She won't remember your dress size. She'll remember you played with her."
+        }
+      ],
+      "top_body_texts": [
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "Three moments that matter more than any number on a scale:\n\n• Sitting on the floor to build Legos with your grandkids — and standing back up without help\n• Walking through the farmer's market Saturday morning — no knee pain, no stopping\n• Dancing at your daughter's wedding — the whole song, smiling\n\nTai Chi builds the body for THESE moments.\n7 min/day. 28 days.\n\nStart your plan today."
+        },
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "Fitness after 50 isn't about a \"bikini body.\"\nIt's about real life:\n\n• Picking up a toddler without wincing\n• A long walk with your best friend — no excuses needed\n• Standing tall in the family photo, pain-free\n\nTai Chi gives you strength that shows up\nwhere it actually matters.\n\n28 days. 7 minutes a morning.\nStart your free Tai Chi plan now."
+        },
+        {
+          "format": "image",
+          "is_dialog": true,
+          "text": "I'm 59 and last Thanksgiving I couldn't\nget off the floor after playing with my grandson.\n\nThat was my wake-up call.\n\n• 28 days of gentle Tai Chi — just 7 min/morning\n• Now I get down AND back up — no hands needed\n• Last week we danced in the kitchen together\n\nI didn't lose weight. I gained my life back.\n\nStart your 28-day plan today."
+        }
+      ],
+      "visual_prompt": "A warm, candid-style photograph of a fit, joyful woman in her early 60s sitting cross-legged on a living room floor building colorful wooden blocks with a small granddaughter around age 4, both laughing, soft natural window light, cozy living room with a knitted blanket on the couch behind them, warm amber and cream tones, the grandmother looks strong and at ease on the floor, genuine connection between them, lifestyle editorial photography, shot at eye level, Canon 50mm f1.4, shallow bokeh, emotionally warm and aspirational --ar 4:5 --style raw"
+    },
+    {
+      "id": 4,
+      "title": "The 'Chinese Grandmother' Social Proof — Cultural Authority Without Guru",
+      "hypothesis": "Замість 'майстра тай чі' (#6, #8 використовують elderly Asian male master), протестувати СОЦІАЛЬНИЙ ДОКАЗ через реальних китайських бабусь 70-80+, які практикують тай чі в парку. Це не гуру, а РІВНА — 'Їй 78. Вона робить це щоранку в парку Пекіна. Без тренера. Без додатку. Просто 7 хвилин.' Цей підхід замінює авторитет експерта на авторитет ЖИВОГО ПРИКЛАДУ, що ближчий до аудиторії, яка не довіряє фітнес-індустрії.",
+      "what_to_test": "Візуал — група літніх жінок у парку, що практикують тай чі (не студія, не дім, не лікарський кабінет). Хук — конкретний вік + конкретна локація + конкретний час ('Їй 78. Кожен ранок. 7 хвилин.'). Тригер — SOCIAL PROOF через культурну практику (повністю відсутній у конкурентів). Формат — image з мінімальним текстом.",
+      "based_on": "Реклами #6 та #8 вже використовують культурний авторитет (elderly Asian male, Chinese temple, orange robes), і вони мають статус HYPE з високим reach. Але вони показують ГУРУ (чоловіка-експерта), що суперечить нашому правилу 'no men in creative' і створює дистанцію. Ми тестуємо той самий культурний авторитет, але через ЖІНОК-ОДНОЛІТКІВ, що одночасно дотримується правил і створює ідентифікацію.",
+      "why_it_works": "1) Дослідження показує: 'UGC-style I am [age] hooks create immediate identification' — бабуся 78 років = найсильніша ідентифікація. 2) 'Longevity angle (live to 100)' — підтверджений інсайт, а реальні 78-річні жінки — це ЖИВИЙ ДОКАЗ довголіття. 3) '7 minutes' — підтверджений інсайт про specific numbers. 4) Парк замість дому/студії — новий сетинг, відсутній у 100% конкурентів. 5) Знімає бар'єр 'це складно' — якщо бабуся 78 робить це щодня, я точно зможу. 6) Anti-guru позиціонування ('без тренера, без додатку') — патерн-інтерапт для аудиторії, втомленої від фітнес-маркетингу.",
+      "priority": "medium",
+      "creative_format": "image",
+      "reference_ad_numbers": [
+        6,
+        8
+      ],
+      "top_hooks": [
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "She's 78. Every morning. 7 minutes. A park in Shanghai."
+        },
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "82 years old. Same bench. Same park. Same 7-minute Tai Chi ritual since 1986."
+        },
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "No gym. No trainer. She's 76 and hasn't missed a morning in 30 years."
+        }
+      ],
+      "top_body_texts": [
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "Every morning in parks across China,\nmillions of women over 70 do the same thing:\n\n• 7 minutes of slow Tai Chi at sunrise\n• No equipment. No instructor. No pressure.\n• They've done it for decades — and they move\n  better than most 50-year-olds in North America\n\nThis isn't a trend. It's a tradition\nthat works.\n\nNow it's your turn.\nStart your free 28-day Tai Chi plan."
+        },
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "In China, this isn't called \"exercise.\"\nIt's called \"morning.\"\n\n• Grandmothers gather in parks at dawn\n• 7 minutes of gentle flowing movement\n• They don't count reps. They count decades.\n\nResearch confirms: Tai Chi improves balance,\nreduces joint pain, lowers fall risk after 60.\n\nBring this ancient daily ritual home.\nStart your free 28-day plan today."
+        },
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "She doesn't have a fitness app.\nShe doesn't have a gym membership.\n\nShe has a park bench and 7 minutes.\n\n• She's 78 and her balance is extraordinary\n• She's practiced Tai Chi every morning for 40 years\n• Her doctor visits? Once a year. \"All fine.\"\n\nMillions of women like her already know the secret.\n\nNow it's available as your 28-day plan.\nStart free today."
+        }
+      ],
+      "visual_prompt": "A stunning documentary-style photograph of a group of five elderly Chinese women in their 70s-80s practicing Tai Chi together in a misty public park at sunrise, wearing comfortable loose clothing, standing among ancient trees with soft golden light filtering through morning fog, a stone pathway and traditional park bench visible, their movements perfectly synchronized with arms raised gracefully, serene and powerful expressions, lush green foliage, cinematic natural lighting, National Geographic style, shot on Leica 35mm, minimal text overlay space at top, authentic and dignified atmosphere --ar 4:5 --style raw"
+    },
+    {
+      "id": 5,
+      "title": "The 'What Your Doctor Won't Prescribe' — Medical Gap Positioning",
+      "hypothesis": "Замість позиціонування тай чі як фітнесу чи духовної практики, позиціонувати його як МЕДИЧНИЙ ПРОБІЛ — 'Твій лікар скаже: приймай таблетки від болю в суглобах. Він НЕ скаже: роби ці 4 рухи тай чі по 7 хвилин.' Це новий хук-тип 'authority_challenge' — виклик медичній системі, якого НЕМАЄ в жодному конкурентному оголошенні. Для жінок 40+ з хронічним болем та менопаузою, які розчаровані в таблетках, це потужний патерн-інтерапт.",
+      "what_to_test": "Хук типу 'authority_challenge' (0% у конкурентів — існують лише direct_offer 62%, challenge_date 10%, before_after 8%, pattern_interrupt 8%). Структура тіла — 'проблема → пробіл у системі → рішення' замість numbered_list чи simple_offer. Візуал — розділений екран: зліва таблетки/рецепт, справа — жінка 60+ у спокійній позі тай чі. Тригер — EMPOWERMENT/REBELLION замість аспірації чи страху.",
+      "based_on": "Інсайт 'Anti-running messaging (F*ck Running) resonates as pattern interrupt' доводить, що аудиторія реагує на ПРОТИСТАВЛЕННЯ загальноприйнятому. Реклами #6, #8, #17 з pattern_interrupt хуком мають найвищий reach/day ratio. Ми розвиваємо цей принцип: якщо 'F*ck Running' працює проти фітнес-індустрії, то 'Що твій лікар не пропише' працюватиме проти фарм-індустрії — ще потужніший ворог для нашої аудиторії.",
+      "why_it_works": "1) Authority_challenge — повністю новий тип хука, 0% у конкурентів. 2) Жінки 40+ з хронічним болем мають РЕАЛЬНИЙ негативний досвід з лікарями та таблетками — це не вигаданий біль. 3) Тай чі має НАУКОВУ БАЗУ (дослідження Harvard, Mayo Clinic) для болю в суглобах та менопаузи — це не медичний клейм, а факт. 4) 'Rebellion' тригер об'єднує аудиторію навколо спільного 'ворога' (система, що ігнорує їх). 5) Конкретні числа ('4 рухи', '7 хвилин') підвищують довіру. 6) Цей кут повністю відрізняє тай чі від калістеніки та пілатесу — конкуренти не можуть скопіювати медичний авторитет тай чі.",
+      "priority": "medium",
+      "creative_format": "image",
+      "reference_ad_numbers": [
+        6,
+        17
+      ],
+      "top_hooks": [
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "Your doctor can prescribe pills for pain. But not this."
+        },
+        {
+          "format": "image",
+          "is_dialog": true,
+          "text": "I'm 56 and my doctor said 'stay active.' That was the entire plan."
+        },
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "There's a gap between your prescription and your healing. Tai Chi fills it."
+        }
+      ],
+      "top_body_texts": [
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "The problem:\nJoint pain, stiffness, poor sleep, anxiety after 50.\n\nThe medical answer:\nPills. \"Try to stay active.\" See you in 6 months.\n\nThe gap:\nNo one prescribes the HOW.\n\n• Tai Chi reduces inflammation & joint pain (Harvard Medical)\n• Improves balance & cuts fall risk by 50%\n• 7 min/day — no equipment, no impact\n\nFill the gap your doctor left open.\nStart your free 28-day plan."
+        },
+        {
+          "format": "image",
+          "is_dialog": false,
+          "text": "Your doctor means well.\nBut \"stay active\" isn't a plan.\n\n• You got the diagnosis\n• You got the prescription\n• You never got the movement program\n\nTai Chi is the missing prescription:\n→ Clinically shown to reduce chronic pain\n→ Gentle enough for every fitness level\n→ 7 minutes a morning. No gym required.\n\nTake back what the system left out.\nStart your free 28-day Tai Chi plan."
+        },
+        {
+          "format": "image",
+          "is_dialog": true,
+          "text": "I'm 62 and I had three prescriptions\nand zero guidance on how to actually move.\n\n• My doctor said \"exercise more\" — that was it\n• Physical therapy was $200/session\n• I felt abandoned between appointments\n\nThen I found a 28-day Tai Chi plan.\n7 minutes. Every morning. Free.\n\nMy pain dropped. My sleep improved.\nMy doctor asked what changed.\n\nStart your free plan today."
+        }
+      ],
+      "visual_prompt": "A powerful split-screen static image divided vertically down the center. Left side: a cold, clinical scene — a prescription pill bottle and scattered white tablets on a sterile white countertop under harsh fluorescent lighting, desaturated blue-gray tones, clinical and impersonal feeling. Right side: a warm, radiant scene — a woman in her early 60s in a peaceful Tai Chi pose outdoors in a sunlit garden, wearing soft flowing clothes, eyes closed with a gentle smile, golden morning light, warm amber and green tones, sense of calm empowerment. Sharp contrast between both halves, editorial advertising style, clean composition with text overlay space at top and bottom --ar 4:5 --style raw"
+    }
+  ]
+}

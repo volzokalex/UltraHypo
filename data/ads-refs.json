@@ -1,12 +1,4 @@
 {
-  "3": {
-    "ad_id": "786789817284892",
-    "image_url": "https://scontent-ord5-3.xx.fbcdn.net/v/t39.35426-6/644001736_2724404571288101_2803520735825994637_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=GAVOTy-EXDsQ7kNvwEnU1PF&_nc_oc=AdrFXg-31qVb6jfMtYHLA7_GYSl3BJsl_8PzZTWZ1NVcJ_tCwlAX7hY3dVLM5GBF0Ns&_nc_zt=14&_nc_ht=scontent-ord5-3.xx&_nc_gid=TwKcjyqEodk0dkoEctvKHA&_nc_ss=7a30f&oh=00_AfxGOO6jrrVPgp9GCnIjqP9fbCtBQStovCApJzn2YmbxAw&oe=69C7C702",
-    "reach": 1321066,
-    "active_days": 24,
-    "status": "INACTIVE",
-    "behavior": "hype"
-  },
   "4": {
     "ad_id": "893332833342243",
     "image_url": "https://scontent-ord5-1.xx.fbcdn.net/v/t39.35426-6/631797177_1540407407255206_929216114570143781_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=S0mPcP_7U6IQ7kNvwHJzWvR&_nc_oc=AdpeTxclMe7BjBUsj4EuL67lJKb6w-wV5u7nxn3hApu0WvP3lRWGvieOx4Hxf6j8_oA&_nc_zt=14&_nc_ht=scontent-ord5-1.xx&_nc_gid=rgfX2GSf_osDFmt1MjKLtQ&_nc_ss=7a30f&oh=00_AfzEnpGsTKIfuOZQUgueVXk2hZpQ7Z-O-iq_AFgmtrdJAg&oe=69C7C2E4",
@@ -14,14 +6,6 @@
     "active_days": 40,
     "status": "ACTIVE",
     "behavior": "weak"
-  },
-  "7": {
-    "ad_id": "1699393648139529",
-    "image_url": "https://scontent-ord5-1.xx.fbcdn.net/v/t39.35426-6/646277554_1495948935290169_328087014613015319_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=NTxrFh76eTcQ7kNvwE2W6Md&_nc_oc=AdpGex9dQG6_g1LcYMYQyk_If4eL6OwJH00aKqBEJv_yzH8XWO76T8D-ykjF-oXPf7Q&_nc_zt=14&_nc_ht=scontent-ord5-1.xx&_nc_gid=O-26SHbdmxrX8_hHo7JPVg&_nc_ss=7a30f&oh=00_Afw72YkW3ALeOgigxvZHSbB9ObEc2ijoAaNp26JJjMZMbw&oe=69C7A1EC",
-    "reach": 886560,
-    "active_days": 16,
-    "status": "INACTIVE",
-    "behavior": "hype"
   },
   "8": {
     "ad_id": "2052073772004443",
@@ -46,6 +30,22 @@
     "active_days": 18,
     "status": "ACTIVE",
     "behavior": "hype"
+  },
+  "15": {
+    "ad_id": "1443619420502662",
+    "image_url": "https://scontent-ord5-2.xx.fbcdn.net/v/t39.35426-6/640910796_1910476829557061_2217265837504613527_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=g6yLLCpHyMYQ7kNvwFtutmM&_nc_oc=AdpsJnuLy7kCTbP8WZKuXm7RgyDHBL7GDi7-Pz7REfInk2kSxDcbMvDsHCTMNKPVA6I&_nc_zt=14&_nc_ht=scontent-ord5-2.xx&_nc_gid=srJWtVVc2qhHi50qmbzjLg&_nc_ss=7a30f&oh=00_AfwTr-Y0H0fhBk3-Aj0HWV8XIbR3RXdSy0nbQoa1FbXPQg&oe=69C7ADCC",
+    "reach": 327508,
+    "active_days": 28,
+    "status": "ACTIVE",
+    "behavior": "weak"
+  },
+  "18": {
+    "ad_id": "1413227753723910",
+    "image_url": "https://scontent-ord5-2.xx.fbcdn.net/v/t39.35426-6/619986925_923916023394629_8446071949856141115_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=EmvJsRUwJ44Q7kNvwHgw_IG&_nc_oc=AdptfRkjFKRo46nw9LTTs7GF3fVqQCTsRwc5re8AkvK58a12IBKNjozQHasnvA4cFpc&_nc_zt=14&_nc_ht=scontent-ord5-2.xx&_nc_gid=bx3oooYlaMG0Zbhf78vPgQ&_nc_ss=7a30f&oh=00_Afz7vKgINQXN7uwQ2ila2563uINrC2SgDpIIOUM9lyRnmQ&oe=69C7C433",
+    "reach": 216368,
+    "active_days": 54,
+    "status": "ACTIVE",
+    "behavior": "weak"
   },
   "20": {
     "ad_id": "1807087353315507",

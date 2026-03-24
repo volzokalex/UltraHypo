@@ -17,9 +17,10 @@ const L = {
 };
 
 // ── State ─────────────────────────────────────────────────────────────────────
-let hypotheses = [];
-let adsRefs    = {};
-let current    = 0;
+let hypotheses   = [];
+let adsRefs      = {};
+let current      = 0;
+let asanaProject = null; // loaded once on init
 
 // ── Tested state (localStorage) ───────────────────────────────────────────────
 const TESTED_KEY = 'ultrahypo_tested';
@@ -190,13 +191,23 @@ function renderHypothesis() {
 
   const checkSvg = `<svg class="tested-check-icon" viewBox="0 0 10 8" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1,4 4,7 9,1"/></svg>`;
 
+  const asanaBtn = asanaProject
+    ? `<button class="btn-asana" title="Add to Asana">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="6" r="4"/><circle cx="5" cy="17" r="4"/><circle cx="19" cy="17" r="4"/></svg>
+        Add to Asana
+      </button>`
+    : '';
+
   centerEl.innerHTML = `
     <div class="hypo-wrap" style="position:relative">
-      <label class="tested-label${tested ? ' is-tested' : ''}" title="Mark as tested">
-        <input type="checkbox" class="tested-cb"${tested ? ' checked' : ''} />
-        <span class="tested-check-box">${checkSvg}</span>
-        Tested
-      </label>
+      <div class="hypo-actions">
+        ${asanaBtn}
+        <label class="tested-label${tested ? ' is-tested' : ''}" title="Mark as tested">
+          <input type="checkbox" class="tested-cb"${tested ? ' checked' : ''} />
+          <span class="tested-check-box">${checkSvg}</span>
+          Tested
+        </label>
+      </div>
 
       <div class="badges">
         <span class="badge ${priorityClass}">● ${h.priority}</span>
@@ -236,6 +247,33 @@ function renderHypothesis() {
     cb.closest('.tested-label').classList.toggle('is-tested', cb.checked);
     renderNavPills();
   });
+
+  // Wire Asana button
+  const asanaBtnEl = centerEl.querySelector('.btn-asana');
+  asanaBtnEl?.addEventListener('click', async () => {
+    if (!confirm(`Create task in "${asanaProject}"?\n\n${h.title}`)) return;
+    asanaBtnEl.disabled = true;
+    asanaBtnEl.textContent = 'Creating...';
+    try {
+      const res = await fetch('/api/asana', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(h),
+      });
+      const data = await res.json();
+      if (data.task_url) {
+        asanaBtnEl.textContent = '✓ Created';
+        asanaBtnEl.style.color = 'var(--high)';
+        setTimeout(() => window.open(data.task_url, '_blank'), 300);
+      } else {
+        throw new Error(data.error ?? 'Failed');
+      }
+    } catch (e) {
+      asanaBtnEl.disabled = false;
+      asanaBtnEl.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="6" r="4"/><circle cx="5" cy="17" r="4"/><circle cx="19" cy="17" r="4"/></svg> Add to Asana`;
+      alert('Asana error: ' + e.message);
+    }
+  });
 }
 
 // ── Render all ────────────────────────────────────────────────────────────────
@@ -268,6 +306,39 @@ async function loadData(url = 'data/hypotheses.json', refsUrl = 'data/ads-refs.j
   return data;
 }
 
+
+// ── History selector ──────────────────────────────────────────────────────────
+async function buildHistorySelect() {
+  const res = await fetch('data/history-index.json').catch(() => null);
+  if (!res?.ok) return;
+  const files = await res.json();
+  if (!files.length) return;
+
+  const wrap = document.createElement('div');
+  wrap.style.cssText = 'display:flex;align-items:center;gap:6px';
+
+  const label = document.createElement('span');
+  label.style.cssText = 'font-size:11px;color:var(--muted)';
+  label.textContent = 'History:';
+
+  const sel = document.createElement('select');
+  sel.className = 'history-select';
+  sel.innerHTML = `<option value="">Latest</option>` +
+    files.map(f => {
+      const m = f.match(/hypotheses-(\d{4}-\d{2}-\d{2})_(\d{2}-\d{2})/);
+      const lbl = m ? `${m[1]} ${m[2].replace('-', ':')}` : f;
+      return `<option value="data/history/${f}">${lbl}</option>`;
+    }).join('');
+
+  sel.addEventListener('change', async () => {
+    if (!sel.value) await loadData();
+    else await loadData(sel.value, 'data/ads-refs.json');
+  });
+
+  wrap.appendChild(label);
+  wrap.appendChild(sel);
+  document.querySelector('.header-actions').prepend(wrap);
+}
 
 // ── Error modal ───────────────────────────────────────────────────────────────
 function showError(msg) {
@@ -348,7 +419,9 @@ btnGenerate.addEventListener('click', async () => {
           break outer;
         }
         if (eventType === 'done') {
+          document.querySelector('.history-select')?.parentElement?.remove();
           await loadData();
+          await buildHistorySelect();
           break outer;
         }
       }
@@ -372,8 +445,14 @@ async function init() {
   lb.addEventListener('click', () => lb.classList.remove('open'));
   document.body.appendChild(lb);
 
+  // Load Asana project name (only works when server is running)
+  fetch('/api/asana/project').then(r => r.ok ? r.json() : null).then(data => {
+    if (data?.name) { asanaProject = data.name; if (hypotheses.length) renderHypothesis(); }
+  }).catch(() => {});
+
   try {
     await loadData();
+    await buildHistorySelect();
   } catch(e) {
     console.error(e);
   }
