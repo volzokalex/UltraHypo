@@ -1,66 +1,58 @@
 {
-  "1": {
-    "ad_id": "4039537153043050",
-    "image_url": "https://scontent-ord5-3.xx.fbcdn.net/v/t39.35426-6/533033093_980999337418523_8561615834067787925_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=n5zUIWOg2-MQ7kNvwFv64s0&_nc_oc=AdrHC9-l8JqRJsBRKAdCv5UVyabmhN7LuXpmWVLkEHnZl24tg8ZfXOco5BpQo8MbwjI&_nc_zt=14&_nc_ht=scontent-ord5-3.xx&_nc_gid=IpxN7I3v9G540Oq_SQDWxg&_nc_ss=7a30f&oh=00_Afx4IAjLC6K1Lou4s3eTT0xfQLwqfjFStKZUJvBjHm8ZUQ&oe=69C274BB",
-    "reach": 2698773,
-    "active_days": 217,
-    "status": "ACTIVE",
-    "behavior": "evergreen"
-  },
-  "2": {
-    "ad_id": "26219758267654320",
-    "image_url": "https://scontent-ord5-3.xx.fbcdn.net/v/t39.35426-6/632298616_1912572289467075_7782892670046125381_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=yWLtyf37rucQ7kNvwG0Pxch&_nc_oc=AdoF2EgAjQfpcLCJaFw_ANZSk0DNBoiYAsJBBtYWq07mxilCXVeA0NvBU7s-n11vofE&_nc_zt=14&_nc_ht=scontent-ord5-3.xx&_nc_gid=NsToI7TXoZ89kCFDFxVPNQ&_nc_ss=7a30f&oh=00_AfxBHeNKYdBjRdjcPAIbnbzkY6W796f1Wk5lfE1cUDtXPA&oe=69C263F0",
-    "reach": 2906038,
-    "active_days": 34,
-    "status": "ACTIVE",
-    "behavior": "weak"
-  },
   "3": {
-    "ad_id": "1224760869763340",
-    "image_url": "https://scontent-ord5-1.xx.fbcdn.net/v/t39.35426-6/621814709_740611852454421_442871287791445758_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=eXoDpGqNUjkQ7kNvwGEKxyR&_nc_oc=AdoGa_P3nyk3pr_BOuNaQY4BN2JYABDEmnqabSIexoWVihmGTfXclkqIaHSWT6Mt4eg&_nc_zt=14&_nc_ht=scontent-ord5-1.xx&_nc_gid=mYmXh05oXmK4rZVxjE81zg&_nc_ss=7a30f&oh=00_AfyF5igWRIG5_GdgmY5-8OYJHdGvqG1NMyqso_3Ty-mjBw&oe=69C28CA8",
-    "reach": 3487619,
-    "active_days": 46,
+    "ad_id": "786789817284892",
+    "image_url": "https://scontent-ord5-3.xx.fbcdn.net/v/t39.35426-6/644001736_2724404571288101_2803520735825994637_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=GAVOTy-EXDsQ7kNvwEnU1PF&_nc_oc=AdrFXg-31qVb6jfMtYHLA7_GYSl3BJsl_8PzZTWZ1NVcJ_tCwlAX7hY3dVLM5GBF0Ns&_nc_zt=14&_nc_ht=scontent-ord5-3.xx&_nc_gid=TwKcjyqEodk0dkoEctvKHA&_nc_ss=7a30f&oh=00_AfxGOO6jrrVPgp9GCnIjqP9fbCtBQStovCApJzn2YmbxAw&oe=69C7C702",
+    "reach": 1321066,
+    "active_days": 24,
     "status": "INACTIVE",
-    "behavior": "weak"
+    "behavior": "hype"
   },
   "4": {
-    "ad_id": "1549697526290663",
-    "image_url": "https://scontent-ord5-3.xx.fbcdn.net/v/t39.35426-6/625346927_900412409045407_8256552694557244155_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=4u-qcwbZVwsQ7kNvwHsQtWJ&_nc_oc=AdpMInlomLhIBNgEH1LkoA1O4hd2nK2xNAL0Bs7C2Rc5mn1tdK5DTHlusqO0Noe6tGg&_nc_zt=14&_nc_ht=scontent-ord5-3.xx&_nc_gid=M7js1YZ9tvUYKHTSdb5png&_nc_ss=7a30f&oh=00_AfwOagGsLgy_4k4T1-ULA8EEQbz_d5GFiGxpC5g-VsIQjA&oe=69C2883A",
-    "reach": 2140520,
-    "active_days": 47,
+    "ad_id": "893332833342243",
+    "image_url": "https://scontent-ord5-1.xx.fbcdn.net/v/t39.35426-6/631797177_1540407407255206_929216114570143781_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=S0mPcP_7U6IQ7kNvwHJzWvR&_nc_oc=AdpeTxclMe7BjBUsj4EuL67lJKb6w-wV5u7nxn3hApu0WvP3lRWGvieOx4Hxf6j8_oA&_nc_zt=14&_nc_ht=scontent-ord5-1.xx&_nc_gid=rgfX2GSf_osDFmt1MjKLtQ&_nc_ss=7a30f&oh=00_AfzEnpGsTKIfuOZQUgueVXk2hZpQ7Z-O-iq_AFgmtrdJAg&oe=69C7C2E4",
+    "reach": 568928,
+    "active_days": 40,
     "status": "ACTIVE",
     "behavior": "weak"
   },
-  "6": {
-    "ad_id": "896704239917176",
-    "image_url": "https://scontent-ord5-3.xx.fbcdn.net/v/t39.35426-6/646664036_912933631663511_2413146278897134485_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=crkytDcrO10Q7kNvwH6_UbG&_nc_oc=Adr0czNHxav5Cs3lJbK-qo-Cp-xdGR3kgZriruD811YF6Dg8if4mZmIBbRLgf8WxYAw&_nc_zt=14&_nc_ht=scontent-ord5-3.xx&_nc_gid=184P9ecuOJxBpiN1ZFQIxw&_nc_ss=7a30f&oh=00_AfzksvpeZI5cIcwWGkPeABzHVzxsGl9zC_BxYhber0BvfQ&oe=69C288B9",
-    "reach": 1849318,
-    "active_days": 14,
-    "status": "ACTIVE",
+  "7": {
+    "ad_id": "1699393648139529",
+    "image_url": "https://scontent-ord5-1.xx.fbcdn.net/v/t39.35426-6/646277554_1495948935290169_328087014613015319_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=NTxrFh76eTcQ7kNvwE2W6Md&_nc_oc=AdpGex9dQG6_g1LcYMYQyk_If4eL6OwJH00aKqBEJv_yzH8XWO76T8D-ykjF-oXPf7Q&_nc_zt=14&_nc_ht=scontent-ord5-1.xx&_nc_gid=O-26SHbdmxrX8_hHo7JPVg&_nc_ss=7a30f&oh=00_Afw72YkW3ALeOgigxvZHSbB9ObEc2ijoAaNp26JJjMZMbw&oe=69C7A1EC",
+    "reach": 886560,
+    "active_days": 16,
+    "status": "INACTIVE",
     "behavior": "hype"
+  },
+  "8": {
+    "ad_id": "2052073772004443",
+    "image_url": "https://scontent-ord5-3.xx.fbcdn.net/v/t39.35426-6/608520682_1436799268121878_1481785585935243758_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=b-rLYlb14A4Q7kNvwEvC5EY&_nc_oc=AdqPeiGPCA7gDVAi45cGXQPyt8GfYvUZppWbrrZRv178ZdEE8F0WCKU2KFv_6IVM-tY&_nc_zt=14&_nc_ht=scontent-ord5-3.xx&_nc_gid=X2F6uTt1W9iJE5JaRBsmvg&_nc_ss=7a30f&oh=00_Afxuw--7ngr--Azz0rYvE6f_IO6qWmDUtR_ma1apzd-e-g&oe=69C7AC93",
+    "reach": 544923,
+    "active_days": 82,
+    "status": "INACTIVE",
+    "behavior": "evergreen"
   },
   "9": {
-    "ad_id": "1421939805960746",
-    "image_url": "https://scontent-ord5-3.xx.fbcdn.net/v/t39.35426-6/606620833_924742840020775_3175550344833432136_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=2YwEDGCjBJUQ7kNvwGxOLh6&_nc_oc=Adpl-US34qSFp3t5YnlHtqm1iGteo3naUfDX9kZrnUlwR0cwTA-P9sByWp-kvfElhRI&_nc_zt=14&_nc_ht=scontent-ord5-3.xx&_nc_gid=Zn_Cmct2OU1o4vLlTeILNw&_nc_ss=7a30f&oh=00_Afz5Jxn3r5cU0bEny8C5Xr3-kNlPCHGED9OVZCT9ER07ww&oe=69C26F0E",
-    "reach": 1609657,
-    "active_days": 79,
-    "status": "INACTIVE",
-    "behavior": "evergreen"
-  },
-  "15": {
-    "ad_id": "786789817284892",
-    "image_url": "https://scontent-ord5-3.xx.fbcdn.net/v/t39.35426-6/644001736_2724404571288101_2803520735825994637_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=83Q5psxtVzUQ7kNvwEXc0Ij&_nc_oc=AdpGLRtXAD1Fk7e9yViIg0SBWMTsNEdX_QfzQzLNr_oTSx4gLxEdo1yIz10UCkGIWoA&_nc_zt=14&_nc_ht=scontent-ord5-3.xx&_nc_gid=3RoUr0yu8tO4BfSBLRKIzw&_nc_ss=7a30f&oh=00_AfyxCtiwGhkf9_MhpIRen2cWpVhnWmD5CtO74SIPjgZp0w&oe=69C28102",
-    "reach": 1295121,
-    "active_days": 21,
+    "ad_id": "1664316868071192",
+    "image_url": "https://scontent-ord5-3.xx.fbcdn.net/v/t39.35426-6/646197510_2304586630025490_3431451278856288164_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=uHJ-jpINWPgQ7kNvwEBsupR&_nc_oc=AdoJLygGsCHp9dm2ZbFBAn0vKh26yXNwNJURx08S_mdwZkI-oto_sCwIJaRwUfPkzBc&_nc_zt=14&_nc_ht=scontent-ord5-3.xx&_nc_gid=6yhXmg3n_bOrrB_DY5EaNg&_nc_ss=7a30f&oh=00_Afwza1DI_4vG3X7vDS2RuuKpPt056Q_UMwPwUgHCKmN17Q&oe=69C7BEF4",
+    "reach": 518069,
+    "active_days": 20,
     "status": "ACTIVE",
     "behavior": "hype"
   },
-  "17": {
-    "ad_id": "874994171562088",
-    "image_url": "https://scontent-ord5-2.xx.fbcdn.net/v/t39.35426-6/612990682_2747605378914505_429945259357723458_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=_nPkWd2Ex9YQ7kNvwEIpPxa&_nc_oc=Adr4e7qC_CM6vVm43wvbGuCY6G5JPvJUeoelRnBgOojWZ9nHVJI6L1u-QB_gsVnqsSs&_nc_zt=14&_nc_ht=scontent-ord5-2.xx&_nc_gid=1HL86hBI8cMlaY68nmvaUg&_nc_ss=7a30f&oh=00_AfxXI2gFWzdN6tnCwXEld-LYm4dv_L-yBojXz0qMyzYXWA&oe=69C2773A",
-    "reach": 1400597,
-    "active_days": 66,
+  "10": {
+    "ad_id": "937860452137237",
+    "image_url": "https://scontent-ord5-2.xx.fbcdn.net/v/t39.35426-6/648422740_756737483953426_742292257822933288_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=SSCExNFBiYoQ7kNvwFsuIY1&_nc_oc=AdoXnMK2judKR-mdLflm8mS0jJILImg5W1R0g4_wzQsEEuQNEUHPyLsILg5pCuws8KQ&_nc_zt=14&_nc_ht=scontent-ord5-2.xx&_nc_gid=_wWbF2JHwfNXe12V5iJkBA&_nc_ss=7a30f&oh=00_AfxtnmOCwRFs7dPr9ku9wx-v72E2gdQS3IbDij_ePBwLYw&oe=69C7B411",
+    "reach": 515989,
+    "active_days": 18,
+    "status": "ACTIVE",
+    "behavior": "hype"
+  },
+  "20": {
+    "ad_id": "1807087353315507",
+    "image_url": "https://scontent-ord5-1.xx.fbcdn.net/v/t39.35426-6/636872572_945350448166476_4088851202481138872_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=vDus7dHclGsQ7kNvwH8Hm3f&_nc_oc=AdrDvnf7sc2BswgPa-WIBuxqTn8oBk-NS9NQXWsLZE4d2EqP4UPpjCBr9Nfk72vMoTk&_nc_zt=14&_nc_ht=scontent-ord5-1.xx&_nc_gid=bV6pyE9VucInqayvt_BwpQ&_nc_ss=7a30f&oh=00_Afyjs3gIL8et8w7bYTX3fO2-Q30FKm0PvkA7Ju7sPzxNAA&oe=69C7CF2E",
+    "reach": 360857,
+    "active_days": 28,
     "status": "INACTIVE",
-    "behavior": "evergreen"
+    "behavior": "weak"
   }
 }
