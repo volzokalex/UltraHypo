@@ -66,16 +66,21 @@ function handleGenerate(res) {
     send('log', { msg: step.label });
 
     const proc = spawn(step.cmd, step.args, { cwd: __dirname });
+    const errLines = [];
 
     proc.stdout.on('data', d =>
       String(d).split('\n').filter(Boolean).forEach(line => send('log', { msg: line }))
     );
     proc.stderr.on('data', d =>
-      String(d).split('\n').filter(Boolean).forEach(line => send('log', { msg: line }))
+      String(d).split('\n').filter(Boolean).forEach(line => {
+        errLines.push(line);
+        send('log', { msg: line });
+      })
     );
     proc.on('close', code => {
       if (code !== 0) {
-        send('error', { msg: `Step failed with code ${code}` });
+        const detail = errLines.slice(-3).join(' | ') || 'no output';
+        send('error', { msg: `${step.label} failed:\n${detail}` });
         res.end();
       } else {
         runNext();

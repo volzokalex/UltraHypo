@@ -300,10 +300,11 @@ async function buildHistorySelect() {
 // ── Generate button ───────────────────────────────────────────────────────────
 let generating = false;
 
-function setButtonLoading(on) {
+function setButtonLoading(on, logMsg) {
   if (on) {
     btnGenerate.disabled = true;
-    btnGenerate.innerHTML = `<span class="btn-spinner"></span>Cooking hypotheses...`;
+    const msg = logMsg ? `<span class="btn-spinner"></span>${logMsg}` : `<span class="btn-spinner"></span>Cooking hypotheses...`;
+    btnGenerate.innerHTML = msg;
   } else {
     btnGenerate.disabled = false;
     btnGenerate.textContent = t('generate');
@@ -347,7 +348,9 @@ btnGenerate.addEventListener('click', async () => {
         const eventType = evtLine ? evtLine.slice(7).trim() : 'log';
         const payload   = JSON.parse(dataLine.slice(5).trim());
 
-        if (eventType === 'error') {
+        if (eventType === 'log') {
+          setButtonLoading(true, payload.msg.slice(0, 40));
+        } else if (eventType === 'error') {
           alert('Error: ' + payload.msg);
           break outer;
         }
