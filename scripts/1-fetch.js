@@ -38,4 +38,8 @@ async function fetchAll() {
   console.log(`Saved → ${OUT_FILE}`);
 }
 
-fetchAll().catch(err => { console.error(err); process.exit(1); });
+fetchAll().catch(err => {
+  console.error(err.message);
+  if (err.cause) console.error('Cause:', err.cause.message ?? err.cause);
+  process.exit(1);
+});
