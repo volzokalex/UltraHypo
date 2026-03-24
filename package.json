@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "start":    "node server.js",
     "fetch":    "node scripts/1-fetch.js",
     "analyze":  "node scripts/2-analyze.js",
     "generate": "node scripts/3-generate.js",
