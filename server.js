@@ -79,7 +79,7 @@ function handleGenerate(res) {
     );
     proc.on('close', code => {
       if (code !== 0) {
-        const detail = errLines.slice(-3).join(' | ') || 'no output';
+        const detail = errLines.slice(0, 4).join(' | ') || 'no output';
         send('error', { msg: `${step.label} failed:\n${detail}` });
         res.end();
       } else {
