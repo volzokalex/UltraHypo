@@ -142,16 +142,16 @@ async function handleAsanaCreate(req, res) {
   req.on('end', async () => {
     const h = JSON.parse(body);
 
-    const hooks = (h.top_hooks ?? []).map((hk, i) => `${i + 1}. ${hk.text}`).join('\n');
-    const bodies = (h.top_body_texts ?? []).map((b, i) => `${i + 1}. ${b.text}`).join('\n\n');
+    const hooks  = (h.top_hooks ?? []).map((hk, i) => `_${i + 1}. ${hk.text}_`).join('\n');
+    const bodies = (h.top_body_texts ?? []).map((b, i) => `_${i + 1}. ${b.text}_`).join('\n\n');
 
     const notes = [
-      h.hypothesis      ? `Hypothesis:\n${h.hypothesis}`         : '',
-      h.what_to_test    ? `What to test:\n${h.what_to_test}`     : '',
-      h.why_it_works    ? `Why it works:\n${h.why_it_works}`     : '',
-      hooks             ? `Top Hooks:\n${hooks}`                  : '',
-      bodies            ? `Top Body Texts:\n${bodies}`            : '',
-      h.visual_prompt   ? `Visual Prompt:\n${h.visual_prompt}`   : '',
+      h.hypothesis    ? `**Hypothesis:**\n${h.hypothesis}`       : '',
+      h.what_to_test  ? `**What to test:**\n${h.what_to_test}`   : '',
+      h.why_it_works  ? `**Why it works:**\n${h.why_it_works}`   : '',
+      hooks           ? `**Top Hooks:**\n${hooks}`                : '',
+      bodies          ? `**Top Body Texts:**\n${bodies}`          : '',
+      h.visual_prompt ? `**Visual Prompt:**\n\`\`\`\n${h.visual_prompt}\n\`\`\`` : '',
     ].filter(Boolean).join('\n\n---\n\n');
 
     const payload = {
