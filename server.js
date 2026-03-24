@@ -45,13 +45,11 @@ function handleGenerate(res) {
   const send = (event, data) =>
     res.write(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`);
 
-  send('log', { msg: 'Starting pipeline...' });
+  send('log', { msg: 'Starting hypothesis generation...' });
 
-  // Run scripts sequentially
+  // Only step 3 — fetch+analyze are run locally and committed to git
   const steps = [
-    { cmd: 'node', args: ['scripts/1-fetch.js'],    label: '[1/3] Fetching ads...' },
-    { cmd: 'node', args: ['scripts/2-analyze.js'],  label: '[2/3] Analyzing...' },
-    { cmd: 'node', args: ['scripts/3-generate.js'], label: '[3/3] Generating hypotheses...' },
+    { cmd: 'node', args: ['scripts/3-generate.js'], label: '[1/1] Generating hypotheses...' },
   ];
 
   let stepIdx = 0;
