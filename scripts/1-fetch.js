@@ -39,7 +39,8 @@ async function fetchAll() {
 }
 
 fetchAll().catch(err => {
-  console.error(err.message);
-  if (err.cause) console.error('Cause:', err.cause.message ?? err.cause);
+  console.error('ERR:', err.message);
+  console.error('CAUSE:', JSON.stringify(err.cause));
+  console.error('API_BASE:', process.env.SPY_TOOL_API?.trim()?.slice(0, 40));
   process.exit(1);
 });
