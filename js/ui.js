@@ -199,10 +199,11 @@ function renderHypothesis() {
 
   const checkSvg = `<svg class="tested-check-icon" viewBox="0 0 10 8" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1,4 4,7 9,1"/></svg>`;
 
+  const asanaCreated = h.asana_created ?? false;
   const asanaBtn = asanaProject
-    ? `<button class="btn-asana" title="Add to Asana">
+    ? `<button class="btn-asana${asanaCreated ? ' is-created' : ''}" title="Add to Asana"${asanaCreated ? ' disabled' : ''}>
         <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="6" r="4"/><circle cx="5" cy="17" r="4"/><circle cx="19" cy="17" r="4"/></svg>
-        Add to Asana
+        ${asanaCreated ? '✓ Created' : 'Add to Asana'}
       </button>`
     : '';
 
@@ -268,8 +269,10 @@ function renderHypothesis() {
       });
       const data = await res.json();
       if (data.task_url) {
-        asanaBtnEl.textContent = '✓ Created';
-        asanaBtnEl.style.color = 'var(--high)';
+        h.asana_created = true;
+        asanaBtnEl.disabled = true;
+        asanaBtnEl.classList.add('is-created');
+        asanaBtnEl.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="6" r="4"/><circle cx="5" cy="17" r="4"/><circle cx="19" cy="17" r="4"/></svg> ✓ Created`;
         setTimeout(() => window.open(data.task_url, '_blank'), 300);
       } else {
         throw new Error(data.error ?? 'Failed');
@@ -369,16 +372,34 @@ function showError(msg) {
 
 // ── Generate button ───────────────────────────────────────────────────────────
 let generating = false;
+let progressTimer = null;
+let progressPct = 0;
 
-function setButtonLoading(on, logMsg) {
-  if (on) {
-    btnGenerate.disabled = true;
-    const msg = logMsg ? `<span class="btn-spinner"></span>${logMsg}` : `<span class="btn-spinner"></span>Cooking hypotheses...`;
-    btnGenerate.innerHTML = msg;
-  } else {
-    btnGenerate.disabled = false;
-    btnGenerate.textContent = L.generate;
-  }
+function setProgress(pct) {
+  progressPct = Math.min(pct, 99);
+  btnGenerate.innerHTML = `<span class="btn-spinner"></span>Cooking... ${Math.round(progressPct)}%`;
+}
+
+function startProgressAnimation() {
+  progressPct = 0;
+  // Animate: fast to 40%, slow to 85%, then stall until done
+  progressTimer = setInterval(() => {
+    if (progressPct < 40)      progressPct += 2.5;
+    else if (progressPct < 85) progressPct += 0.4;
+    else clearInterval(progressTimer);
+    btnGenerate.innerHTML = `<span class="btn-spinner"></span>Cooking... ${Math.round(progressPct)}%`;
+  }, 200);
+}
+
+function finishProgress() {
+  clearInterval(progressTimer);
+  btnGenerate.innerHTML = `<span class="btn-spinner"></span>Cooking... 100%`;
+}
+
+function resetButton() {
+  clearInterval(progressTimer);
+  btnGenerate.disabled = false;
+  btnGenerate.textContent = L.generate;
 }
 
 btnGenerate.addEventListener('click', async () => {
@@ -391,7 +412,8 @@ btnGenerate.addEventListener('click', async () => {
   }
 
   generating = true;
-  setButtonLoading(true);
+  btnGenerate.disabled = true;
+  startProgressAnimation();
 
   try {
     const resp = await fetch('/api/generate', { method: 'POST' });
@@ -418,13 +440,12 @@ btnGenerate.addEventListener('click', async () => {
         const eventType = evtLine ? evtLine.slice(7).trim() : 'log';
         const payload   = JSON.parse(dataLine.slice(5).trim());
 
-        if (eventType === 'log') {
-          setButtonLoading(true, payload.msg.slice(0, 40));
-        } else if (eventType === 'error') {
+        if (eventType === 'error') {
           showError(payload.msg);
           break outer;
         }
         if (eventType === 'done') {
+          finishProgress();
           document.querySelector('.history-select')?.parentElement?.remove();
           await loadData();
           await buildHistorySelect();
@@ -437,7 +458,7 @@ btnGenerate.addEventListener('click', async () => {
     alert('Generation failed: ' + e.message);
   } finally {
     generating = false;
-    setButtonLoading(false);
+    resetButton();
   }
 });
 

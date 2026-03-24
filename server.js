@@ -169,6 +169,17 @@ async function handleAsanaCreate(req, res) {
     });
     const result = await asanaRes.json();
 
+    if (asanaRes.ok && result.data?.gid) {
+      // Save asana_created flag to hypotheses.json
+      if (fs.existsSync(HYPO_FILE)) {
+        const hypoData = JSON.parse(fs.readFileSync(HYPO_FILE, 'utf8'));
+        hypoData.hypotheses = hypoData.hypotheses.map(hyp =>
+          hyp.id === h.id ? { ...hyp, asana_created: true } : hyp
+        );
+        fs.writeFileSync(HYPO_FILE, JSON.stringify(hypoData, null, 2));
+      }
+    }
+
     res.writeHead(asanaRes.ok ? 200 : 500, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ task_url: `https://app.asana.com/0/${ASANA_PROJECT}/${result.data?.gid}` }));
   });
