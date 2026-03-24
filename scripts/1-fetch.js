@@ -2,8 +2,8 @@ import 'dotenv/config';
 import fs from 'fs';
 import path from 'path';
 
-const API_BASE  = process.env.SPY_TOOL_API;
-const TOKEN     = process.env.SPY_TOOL_TOKEN;
+const API_BASE  = process.env.SPY_TOOL_API?.trim();
+const TOKEN     = process.env.SPY_TOOL_TOKEN?.trim().replace(/\s+/g, '');
 const OUT_FILE  = path.resolve('data/ads-raw.json');
 const PAGE_SIZE = 24;
 

@@ -391,6 +391,56 @@ body {
 .badge-fmt-ugc     { background: rgba(245,158,11,.12); color: var(--med); }
 .badge-fmt-carousel{ background: rgba(255,255,255,.08);color: var(--muted2); }
 
+/* ── Error modal ─────────────────────────────────────────── */
+#err-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.err-inner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid #ef4444;
+  border-radius: var(--radius);
+  padding: 24px;
+  max-width: 520px;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.err-title { font-size: 14px; font-weight: 700; color: #ef4444; }
+.err-text {
+  font-size: 12px;
+  font-family: monospace;
+  color: var(--muted2);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-height: 200px;
+  overflow-y: auto;
+  user-select: all;
+}
+.err-footer { display: flex; justify-content: flex-end; gap: 8px; }
+.err-copy, .err-close {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted2);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.err-copy:hover { color: var(--text); border-color: var(--muted); }
+.err-close:hover { color: var(--text); border-color: var(--muted); }
+
 /* ── History select ──────────────────────────────────── */
 .history-select {
   background: var(--surface2);

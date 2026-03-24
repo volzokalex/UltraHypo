@@ -297,6 +297,27 @@ async function buildHistorySelect() {
   document.querySelector('.header-actions').prepend(wrap);
 }
 
+// ── Error modal ───────────────────────────────────────────────────────────────
+function showError(msg) {
+  const el = document.createElement('div');
+  el.id = 'err-modal';
+  el.innerHTML = `
+    <div class="err-inner">
+      <div class="err-title">Generation failed</div>
+      <pre class="err-text">${esc(msg)}</pre>
+      <div class="err-footer">
+        <button class="err-copy">Copy error</button>
+        <button class="err-close">Close</button>
+      </div>
+    </div>`;
+  document.body.appendChild(el);
+  el.querySelector('.err-copy').addEventListener('click', () => {
+    navigator.clipboard.writeText(msg).catch(() => {});
+    el.querySelector('.err-copy').textContent = 'Copied!';
+  });
+  el.querySelector('.err-close').addEventListener('click', () => el.remove());
+}
+
 // ── Generate button ───────────────────────────────────────────────────────────
 let generating = false;
 
@@ -351,7 +372,7 @@ btnGenerate.addEventListener('click', async () => {
         if (eventType === 'log') {
           setButtonLoading(true, payload.msg.slice(0, 40));
         } else if (eventType === 'error') {
-          alert('Error: ' + payload.msg);
+          showError(payload.msg);
           break outer;
         }
         if (eventType === 'done') {
