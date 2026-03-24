@@ -15,7 +15,7 @@ const clean  = s => s ? s.replace(/[\uD800-\uDFFF]/g, '') : '';
 function computePatternFrequency(ads) {
   const freq = {
     hook_type: {}, body_structure: {}, cta_type: {}, emotional_trigger: {},
-    behavior: {}, creative_format: {}
+    behavior: {}, creative_format: {}, asmr_cues: {}
   };
 
   ads.forEach(ad => {
@@ -27,6 +27,10 @@ function computePatternFrequency(ads) {
     }
     if (ad._behavior) freq.behavior[ad._behavior] = (freq.behavior[ad._behavior] ?? 0) + 1;
     if (ad['Asset Type']) freq.creative_format[ad['Asset Type']] = (freq.creative_format[ad['Asset Type']] ?? 0) + 1;
+    if (p?.asmr_cues !== undefined) {
+      const k = p.asmr_cues ? 'yes' : 'no';
+      freq.asmr_cues[k] = (freq.asmr_cues[k] ?? 0) + 1;
+    }
   });
 
   // Convert to sorted percentages
@@ -77,9 +81,21 @@ ${buildAdContext(ads)}
 
 IMPORTANT FORMAT SPLIT:
 - 3 hypotheses must be "image" format — static ad creative
-- 2 hypotheses must be "video" format — SHORT SKETCH HOOK (3-7 second opening concept that grabs attention, no full video analysis needed, just the hook idea: what the viewer sees and hears in the first 3-7 seconds)
+- 2 hypotheses must be "video" format — short-form video ad concept (Facebook/Reels style, 15-30 sec)
 
-For VIDEO hypotheses: focus on the HOOK MECHANIC — pattern interrupt, unexpected visual, emotional trigger specific to women 40+. Think: what would make a 58-year-old woman stop scrolling?
+For VIDEO hypotheses: think in terms of the full video mechanic, not just a hook line. Specify:
+- HOOK MECHANIC (first 3-7 sec): dialog, ASMR/sensory, pattern interrupt, voiceover over scene
+- NARRATIVE ARC: what happens after the hook (problem → aha moment → solution → CTA)
+- CHARACTER: is there a person on screen? Speaking? Or just visuals + voiceover?
+
+VIDEO hook mechanics to consider (pick what fits the blind spot):
+• Dialog/UGC: character speaks provocative line directly to camera
+• ASMR/sensory: no talking, close-up slow movement, satisfying audio cues (rustling paper, soft sounds) — extremely underused in health/fitness
+• Text-on-screen + reaction: bold claim appears, character reacts
+• Voiceover over scene: narrator speaks while relatable action plays out
+• Before/after reveal: visual transformation without heavy editing
+
+ASMR NOTE: ASMR-style content (slow motion, close-ups, ambient sound, no hard sell) is almost absent in this niche but performs strongly for 50+ women who are overwhelmed by aggressive ads. Consider it as a hypothesis angle.
 
 Each hypothesis must:
 - Test ONE specific untested angle
@@ -101,10 +117,17 @@ function buildCreativesPrompt(hypotheses) {
   const list = hypotheses.map(h => {
     const fmt = h.creative_format ?? 'image';
     const fmtNote = fmt === 'image'
-      ? 'STATIC IMAGE creative — all hooks and body texts are for a static ad (text overlay, visual message, no motion)'
+      ? 'STATIC IMAGE — hooks and body texts are TEXT OVERLAYS on a static image. Hook = bold headline on the image. Body = short formatted text visible on or below the image.'
       : fmt === 'ugc'
-      ? 'UGC VIDEO creative — first-person testimonial style, spoken to camera'
-      : 'VIDEO SKETCH HOOK — write 3-7 second opening hooks that stop the scroll. Focus on the first moment: what the viewer sees, hears, or reads in the opening frame. Short, punchy, unexpected.';
+      ? 'UGC VIDEO — first-person testimonial, person speaks directly to camera. Hooks = opening spoken line. Body = voiceover script with natural spoken rhythm.'
+      : `VIDEO SKETCH — short-form video ad (Facebook/Instagram Reels style).
+HOOKS (3-7 sec opening): describe WHAT THE VIEWER SEES + HEARS in the first moment. Can be:
+  • Dialog hook: character speaks a provocative line to camera ("My doctor told me to stop…")
+  • ASMR/sensory: close-up of slow movement, soft sound cue, no talking
+  • Pattern interrupt: unexpected visual that breaks scroll (text on screen + reaction)
+  • Voiceover over scene: narrator speaks while action plays
+Write each hook as a brief scene direction: "[Visual]: ... [Audio]: ..." or pure dialog.
+BODY TEXTS: voiceover SCRIPT for the 15-30 sec after the hook. Written as spoken language, NOT bullet lists. Include natural pauses (/), scene transitions, and a CTA at the end.`;
 
     return `ID ${h.id} [FORMAT: ${fmt.toUpperCase()}]
 ${fmtNote}
@@ -114,15 +137,19 @@ Angle: ${h.what_to_test}`;
 
   return `Senior copywriter for Tai Chi health programs. Women 40+, USA/Canada.
 
-IMPORTANT: Each hypothesis has a specific creative format. ALL hooks, body texts and visual_prompt must match that format exactly. Do NOT mix formats.
+CRITICAL: Each format requires completely different writing style.
+- IMAGE hooks/body = text overlays, short, scannable
+- VIDEO hooks = scene + audio description (what viewer sees AND hears)
+- VIDEO body = spoken voiceover script with natural rhythm, NOT bullet points
+- UGC = first-person spoken testimonial
 
 For each hypothesis write in ENGLISH:
-- 3 hooks: max 130 chars. All 3 must match the hypothesis format.
-- 3 body texts: formatted with line breaks and • bullets, max 380 chars. All 3 must match the format.
-- visual_prompt: Midjourney/Sora-style prompt matching the format. For image: describe a static scene. For video: describe motion, sequence, camera movement. For ugc: describe a person speaking to camera.
+- 3 hooks: For IMAGE max 130 chars. For VIDEO describe opening scene+audio (2-3 sentences). For UGC max 130 chars spoken line.
+- 3 body texts: For IMAGE formatted with line breaks and • bullets, max 380 chars. For VIDEO voiceover script 40-80 words with scene cues. For UGC natural spoken paragraph.
+- visual_prompt: Sora/Midjourney-style prompt. For image: static scene. For video: motion, lighting, camera movement, sound mood. For ugc: person description + setting.
 
-is_dialog=true → first-person ("I'm 58 and I never thought...")
-is_dialog=false → direct statement or pattern interrupt
+is_dialog=true → character speaks (dialog, first-person)
+is_dialog=false → narrator voiceover, text overlay, or scene description
 
 ${list}
 

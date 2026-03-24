@@ -69,10 +69,11 @@ Return JSON only:
   "style": "photo|illustration|ugc|text_heavy",
   "emotion": "dominant emotion conveyed",
   "text_on_image": "all text visible on the image",
-  "hook_type": "age_specific|ugc_dialog|direct_offer|pattern_interrupt|challenge_date|before_after|question|none",
-  "body_structure": "numbered_list|story|transformation_timeline|bullets|simple_offer|social_proof|none",
+  "hook_type": "age_specific|ugc_dialog|direct_offer|pattern_interrupt|challenge_date|before_after|question|asmr_sensory|none",
+  "body_structure": "numbered_list|story|transformation_timeline|bullets|simple_offer|social_proof|voiceover_script|none",
   "cta_type": "get_printable|start_challenge|take_quiz|download|buy|learn_more|none",
-  "emotional_trigger": "fear_aging|aspiration_youth|identity|social_proof|urgency|authority|none",
+  "emotional_trigger": "fear_aging|aspiration_youth|identity|social_proof|urgency|authority|sensory_calm|none",
+  "asmr_cues": false,
   "fits_niche": true
 }`
           }
@@ -140,10 +141,11 @@ async function run() {
   enriched.forEach(ad => {
     if (ad._image_analysis) {
       ad._text_pattern = {
-        hook_type:        ad._image_analysis.hook_type,
-        body_structure:   ad._image_analysis.body_structure,
-        cta_type:         ad._image_analysis.cta_type,
+        hook_type:         ad._image_analysis.hook_type,
+        body_structure:    ad._image_analysis.body_structure,
+        cta_type:          ad._image_analysis.cta_type,
         emotional_trigger: ad._image_analysis.emotional_trigger,
+        asmr_cues:         ad._image_analysis.asmr_cues ?? false,
       };
     }
   });
