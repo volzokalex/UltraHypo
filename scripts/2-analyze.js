@@ -6,14 +6,13 @@ const RAW_FILE    = 'data/ads-raw.json';
 const SCORED_FILE = 'data/ads-scored.json';
 const NICHE_FILE  = 'config/niche.json';
 
-const TOP_TEXT   = 60;  // text pattern analysis
-const TOP_IMAGE  = 15;  // image analysis (most expensive)
+const TEXT_BATCH = 100; // analyze text in batches of 100
+const IMG_PARALLEL = 5; // analyze images 5 at a time
 
 const client = new Anthropic();
 const clean  = s => s ? s.replace(/[\uD800-\uDFFF]/g, '') : '';
 
 // ── 1. Дедупликація ───────────────────────────────────────────────────────────
-// Залишаємо тільки оригінали, виключаємо всі дублікати
 function deduplicateAds(ads) {
   const seen = new Set();
   const unique = [];
@@ -27,13 +26,9 @@ function deduplicateAds(ads) {
 }
 
 // ── 2. Тег поведінки ──────────────────────────────────────────────────────────
-// hype: великий охоплення за короткий час → щось спрацювало швидко
-// evergreen: великий охоплення + довго активний → стабільний переможець
-// slow_burn: живе довго але не масштабується
-// weak: не показало результату
 function tagBehavior(ad) {
-  const reach  = ad['EU Total Reach'] ?? 0;
-  const days   = ad['Active days']    ?? 0;
+  const reach = ad['EU Total Reach'] ?? 0;
+  const days  = ad['Active days']    ?? 0;
   if (reach > 500000 && days < 30)  return 'hype';
   if (reach > 150000 && days >= 60) return 'evergreen';
   if (days >= 60)                   return 'slow_burn';
@@ -41,8 +36,6 @@ function tagBehavior(ad) {
 }
 
 // ── 3. Скоринг ────────────────────────────────────────────────────────────────
-// reach × log(days) → враховує і швидкість і довголіття
-// активні оголошення отримують буст ×1.5 — вони ще витрачають бюджет = прибуткові
 function scoreAd(ad) {
   const reach       = ad['EU Total Reach'] ?? 0;
   const days        = ad['Active days']    ?? 1;
@@ -50,10 +43,10 @@ function scoreAd(ad) {
   return (reach / 1000) * Math.log10(days + 2) * activeBoost;
 }
 
-// ── 4. Аналіз текстових паттернів (батч, 1 запит до Claude) ──────────────────
-async function analyzeTextPatterns(ads) {
+// ── 4. Текстовий аналіз (батчами) ────────────────────────────────────────────
+async function analyzeTextBatch(ads, offset) {
   const list = ads.map((ad, i) =>
-    `#${i + 1}: ${clean(ad.Body ?? '—').slice(0, 200)}`
+    `#${offset + i + 1}: ${clean(ad.Body ?? '—').slice(0, 200)}`
   ).join('\n\n');
 
   const msg = await client.messages.create({
@@ -63,7 +56,7 @@ async function analyzeTextPatterns(ads) {
       role: 'user',
       content: `Classify text patterns for ${ads.length} health/fitness Facebook ads (Women 40+, weight loss, Tai Chi, printable plans).
 
-For each ad return its index (1-based) and:
+For each ad return its index (1-based, starting from ${offset + 1}) and:
 - hook_type: "age_specific"|"ugc_dialog"|"direct_offer"|"pattern_interrupt"|"challenge_date"|"before_after"|"question"
 - body_structure: "numbered_list"|"story"|"transformation_timeline"|"bullets"|"simple_offer"|"social_proof"
 - cta_type: "get_printable"|"start_challenge"|"take_quiz"|"download"|"buy"|"learn_more"
@@ -73,18 +66,26 @@ ADS:
 ${list}
 
 Return ONLY JSON array with exactly ${ads.length} objects:
-[{"index":1,"hook_type":"...","body_structure":"...","cta_type":"...","emotional_trigger":"..."}]`
+[{"index":${offset + 1},"hook_type":"...","body_structure":"...","cta_type":"...","emotional_trigger":"..."}]`
     }]
   });
 
   const match = msg.content[0].text.match(/\[[\s\S]*\]/);
-  if (!match) return [];
-  const patterns = JSON.parse(match[0]);
-  // Map by index position back to ad
-  return patterns;
+  return match ? JSON.parse(match[0]) : [];
 }
 
-// ── 5. Аналіз зображень з контекстом ніші ────────────────────────────────────
+async function analyzeAllTextPatterns(ads) {
+  const all = [];
+  for (let i = 0; i < ads.length; i += TEXT_BATCH) {
+    const batch = ads.slice(i, i + TEXT_BATCH);
+    console.log(`  text batch ${Math.floor(i / TEXT_BATCH) + 1}/${Math.ceil(ads.length / TEXT_BATCH)} (${i + 1}–${i + batch.length})`);
+    const patterns = await analyzeTextBatch(batch, i);
+    all.push(...patterns);
+  }
+  return all;
+}
+
+// ── 5. Аналіз зображень (паралельно по 5) ────────────────────────────────────
 async function analyzeImage(imageUrl, niche) {
   try {
     const res = await fetch(imageUrl);
@@ -116,6 +117,25 @@ Analyze this Facebook ad image. Return JSON only:
   }
 }
 
+async function analyzeAllImages(ads, niche) {
+  const imageAds = ads.filter(ad => ad.Image?.[0]?.url);
+  console.log(`[2/2] Image analysis for ${imageAds.length} image ads (${IMG_PARALLEL} parallel)...`);
+
+  let done = 0;
+  for (let i = 0; i < imageAds.length; i += IMG_PARALLEL) {
+    const batch = imageAds.slice(i, i + IMG_PARALLEL);
+    await Promise.all(batch.map(async ad => {
+      ad._image_analysis = await analyzeImage(ad.Image[0].url, niche);
+      done++;
+      process.stdout.write(`\r  [${done}/${imageAds.length}]`);
+    }));
+    if (i + IMG_PARALLEL < imageAds.length) {
+      await new Promise(r => setTimeout(r, 1000)); // rate limit between batches
+    }
+  }
+  console.log('\n      ✓ Done');
+}
+
 // ── Main ──────────────────────────────────────────────────────────────────────
 async function run() {
   if (!fs.existsSync(RAW_FILE)) {
@@ -135,36 +155,27 @@ async function run() {
     .map(ad => ({ ...ad, _behavior: tagBehavior(ad), _score: scoreAd(ad) }))
     .sort((a, b) => b._score - a._score);
 
-  // Behavior summary
+  // Stats
   const behaviors = enriched.reduce((acc, ad) => {
     acc[ad._behavior] = (acc[ad._behavior] ?? 0) + 1;
     return acc;
   }, {});
-  console.log('Behavior breakdown:', behaviors);
+  console.log(`Behavior breakdown:`, behaviors);
 
-  const topAds = enriched.slice(0, TOP_TEXT);
-
-  // Text pattern analysis
-  console.log(`[1/2] Text pattern analysis for top ${topAds.length} ads...`);
-  const patterns = await analyzeTextPatterns(topAds);
+  // Text pattern analysis — ALL ads
+  console.log(`[1/2] Text pattern analysis for ALL ${enriched.length} ads...`);
+  const patterns = await analyzeAllTextPatterns(enriched);
   patterns.forEach(p => {
-    const ad = topAds[p.index - 1];
+    const ad = enriched[p.index - 1];
     if (ad) ad._text_pattern = p;
   });
   console.log(`      ✓ ${patterns.length} patterns classified`);
 
-  // Image analysis (top 15 with images)
-  const withImages = topAds.filter(ad => ad.Image?.[0]?.url).slice(0, TOP_IMAGE);
-  console.log(`[2/2] Image analysis for top ${withImages.length} ads...`);
-  for (let i = 0; i < withImages.length; i++) {
-    process.stdout.write(`\r  [${i + 1}/${withImages.length}]`);
-    withImages[i]._image_analysis = await analyzeImage(withImages[i].Image[0].url, niche);
-    await new Promise(r => setTimeout(r, 300));
-  }
-  console.log('\n      ✓ Done');
+  // Image analysis — ALL image ads, parallel
+  await analyzeAllImages(enriched, niche);
 
   fs.mkdirSync('data', { recursive: true });
-  fs.writeFileSync(SCORED_FILE, JSON.stringify(topAds, null, 2));
+  fs.writeFileSync(SCORED_FILE, JSON.stringify(enriched, null, 2));
   console.log(`Saved → ${SCORED_FILE}`);
 }
 

@@ -8,7 +8,7 @@ const OUT_FILE  = path.resolve('data/ads-raw.json');
 const PAGE_SIZE = 24;
 
 async function fetchPage(page) {
-  const url = `${API_BASE}/ads?sort_by=EU+Total+Reach&sort_order=desc&ranking=top_by_page&page=${page}&limit=${PAGE_SIZE}`;
+  const url = `${API_BASE}/ads?sort_by=EU+Total+Reach&sort_order=desc&ranking=top_by_page&asset_type=image&page=${page}&limit=${PAGE_SIZE}`;
   const res = await fetch(url, {
     headers: { Authorization: `Bearer ${TOKEN}` }
   });

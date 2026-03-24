@@ -75,13 +75,19 @@ ${buildAdContext(ads)}
 2. Find the BLIND SPOTS: angles, formats, emotions, hooks that are ABSENT or underused.
 3. Generate ${HYPO_COUNT} hypotheses that test something NEW — not what's already saturated.
 
+IMPORTANT FORMAT SPLIT:
+- 3 hypotheses must be "image" format — static ad creative
+- 2 hypotheses must be "video" format — SHORT SKETCH HOOK (3-7 second opening concept that grabs attention, no full video analysis needed, just the hook idea: what the viewer sees and hears in the first 3-7 seconds)
+
+For VIDEO hypotheses: focus on the HOOK MECHANIC — pattern interrupt, unexpected visual, emotional trigger specific to women 40+. Think: what would make a 58-year-old woman stop scrolling?
+
 Each hypothesis must:
 - Test ONE specific untested angle
 - Be grounded in our niche (Tai Chi, women 40+, printable, low-impact)
 - Challenge an assumption the market is making
 - Have a clear reason WHY this blind spot could be an opportunity
 
-reference_ad_numbers = 1-2 ads from the list that inspired this hypothesis (1-based index, IMAGE type preferred)
+reference_ad_numbers = 1-2 image ads from the list that inspired this hypothesis (1-based index)
 title: in English
 hypothesis, what_to_test, based_on, why_it_works: in Ukrainian
 
@@ -98,7 +104,7 @@ function buildCreativesPrompt(hypotheses) {
       ? 'STATIC IMAGE creative — all hooks and body texts are for a static ad (text overlay, visual message, no motion)'
       : fmt === 'ugc'
       ? 'UGC VIDEO creative — first-person testimonial style, spoken to camera'
-      : 'VIDEO creative — motion, voiceover or text animation';
+      : 'VIDEO SKETCH HOOK — write 3-7 second opening hooks that stop the scroll. Focus on the first moment: what the viewer sees, hears, or reads in the opening frame. Short, punchy, unexpected.';
 
     return `ID ${h.id} [FORMAT: ${fmt.toUpperCase()}]
 ${fmtNote}
