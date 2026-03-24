@@ -89,8 +89,11 @@ Return JSON only:
 }
 
 async function analyzeAllImages(ads, niche) {
-  const imageAds = ads.filter(ad => ad.Image?.[0]?.url);
-  console.log(`[2/2] Image analysis for ${imageAds.length} image ads (${IMG_PARALLEL} parallel)...`);
+  const imageAds = ads.filter(ad => ad.Image?.[0]?.url && !ad._image_analysis);
+  const cached   = ads.filter(ad => ad.Image?.[0]?.url &&  ad._image_analysis).length;
+  if (cached) console.log(`  Skipping ${cached} already-analyzed ads`);
+  if (!imageAds.length) { console.log('  All ads already analyzed, skipping.'); return; }
+  console.log(`[2/2] Image analysis for ${imageAds.length} new ads (${IMG_PARALLEL} parallel)...`);
 
   let done = 0;
   for (let i = 0; i < imageAds.length; i += IMG_PARALLEL) {
@@ -117,13 +120,30 @@ async function run() {
   const rawAds = JSON.parse(fs.readFileSync(RAW_FILE, 'utf8'));
   const niche  = JSON.parse(fs.readFileSync(NICHE_FILE, 'utf8'));
 
+  // Load previously analyzed results to skip already-analyzed ads
+  const prevScored = fs.existsSync(SCORED_FILE)
+    ? JSON.parse(fs.readFileSync(SCORED_FILE, 'utf8'))
+    : [];
+  const prevAnalysis = Object.fromEntries(
+    prevScored.filter(a => a._image_analysis).map(a => [a.ID, a._image_analysis])
+  );
+  const prevPatterns = Object.fromEntries(
+    prevScored.filter(a => a._text_pattern).map(a => [a.ID, a._text_pattern])
+  );
+
   // Deduplicate
   const unique = deduplicateAds(rawAds);
   console.log(`Deduplicated: ${rawAds.length} → ${unique.length} unique ads`);
 
-  // Tag + score + sort
+  // Tag + score + sort, restore previous analysis for known ads
   const enriched = unique
-    .map(ad => ({ ...ad, _behavior: tagBehavior(ad), _score: scoreAd(ad) }))
+    .map(ad => ({
+      ...ad,
+      _behavior:        tagBehavior(ad),
+      _score:           scoreAd(ad),
+      _image_analysis:  prevAnalysis[ad.ID] ?? undefined,
+      _text_pattern:    prevPatterns[ad.ID] ?? undefined,
+    }))
     .sort((a, b) => b._score - a._score);
 
   // Stats
