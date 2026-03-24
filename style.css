@@ -120,7 +120,7 @@ body {
 }
 
 .panel-left  { border-right: 1px solid var(--border); padding: 16px; }
-.panel-right { border-left:  1px solid var(--border); padding: 16px; position: sticky; top: var(--header-h); }
+.panel-right { border-left:  1px solid var(--border); padding: 16px; position: sticky; top: var(--header-h); min-width: 220px; }
 .panel-center { padding: 28px 32px; }
 
 .panel-label {

@@ -18,9 +18,16 @@ const L = {
 
 // ── State ─────────────────────────────────────────────────────────────────────
 let hypotheses   = [];
+let batches      = [];
 let adsRefs      = {};
 let current      = 0;
 let asanaProject = null; // loaded once on init
+
+function fmtBatchLabel(iso) {
+  const d = new Date(iso);
+  return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
+    + ', ' + d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+}
 
 // ── Tested state (server-side, hypotheses.json) ───────────────────────────────
 function isTestedLocal(id) {
@@ -295,6 +302,7 @@ async function loadData() {
   if (!res.ok) throw new Error('Failed to load hypotheses');
 
   const data = await res.json();
+  batches    = data.batches ?? [];
   hypotheses = data.hypotheses ?? [];
   adsRefs    = data.refs ?? {};
 
@@ -304,36 +312,34 @@ async function loadData() {
   current = 0;
   emptyEl?.remove();
   renderAll();
+  buildHistorySelect();
   return data;
 }
 
 
 // ── History selector ──────────────────────────────────────────────────────────
-async function buildHistorySelect() {
-  const res = await fetch('data/history-index.json').catch(() => null);
-  if (!res?.ok) return;
-  const files = await res.json();
-  if (!files.length) return;
+function buildHistorySelect() {
+  document.getElementById('history-wrap')?.remove();
+  if (batches.length < 2) return;
 
   const wrap = document.createElement('div');
+  wrap.id = 'history-wrap';
   wrap.style.cssText = 'display:flex;align-items:center;gap:6px';
 
   const label = document.createElement('span');
   label.style.cssText = 'font-size:11px;color:var(--muted)';
-  label.textContent = 'History:';
+  label.textContent = 'Batch:';
 
   const sel = document.createElement('select');
   sel.className = 'history-select';
-  sel.innerHTML = `<option value="">Latest</option>` +
-    files.map(f => {
-      const m = f.match(/hypotheses-(\d{4}-\d{2}-\d{2})_(\d{2}-\d{2})/);
-      const lbl = m ? `${m[1]} ${m[2].replace('-', ':')}` : f;
-      return `<option value="data/history/${f}">${lbl}</option>`;
-    }).join('');
+  sel.innerHTML = batches.map((b, i) =>
+    `<option value="${i}">${i === 0 ? '● ' : ''}${fmtBatchLabel(b.batch)}</option>`
+  ).join('');
 
-  sel.addEventListener('change', async () => {
-    if (!sel.value) await loadData();
-    else await loadData(sel.value, 'data/ads-refs.json');
+  sel.addEventListener('change', () => {
+    hypotheses = batches[+sel.value]?.hypotheses ?? [];
+    current = 0;
+    renderAll();
   });
 
   wrap.appendChild(label);
@@ -439,6 +445,7 @@ btnGenerate.addEventListener('click', async () => {
         if (eventType === 'done') {
           finishProgress();
           await loadData();
+          buildHistorySelect();
           break outer;
         }
       }

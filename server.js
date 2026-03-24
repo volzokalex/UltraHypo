@@ -116,7 +116,7 @@ async function handleHypotheses(req, res) {
     }
   });
 
-  const hypotheses = hypoRes.rows.map(r => ({
+  const allHypotheses = hypoRes.rows.map(r => ({
     id:                   r.hypo_id,
     _db_id:               r.id,
     title:                r.title,
@@ -133,13 +133,25 @@ async function handleHypotheses(req, res) {
     tested:               r.tested,
     asana_created:        r.asana_created,
     generated_at:         r.generated_at,
+    batch:                r.batch,
   }));
 
+  // Group by batch, newest first
+  const batchMap = new Map();
+  allHypotheses.forEach(h => {
+    if (!batchMap.has(h.batch)) batchMap.set(h.batch, []);
+    batchMap.get(h.batch).push(h);
+  });
+  const batches = [...batchMap.entries()]
+    .sort((a, b) => new Date(b[0]) - new Date(a[0]))
+    .map(([batch, hypotheses]) => ({ batch, hypotheses }));
+
   const payload = {
-    generated_at: hypotheses[0]?.generated_at ?? new Date().toISOString(),
+    generated_at: batches[0]?.batch ?? new Date().toISOString(),
     direction:    niche.direction,
     based_on_ads: parseInt(adsRes.rows[0].count),
-    hypotheses,
+    batches,
+    hypotheses:   batches[0]?.hypotheses ?? [],
     refs,
   };
 
