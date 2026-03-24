@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import { spawn } from 'child_process';
 import { fileURLToPath } from 'url';
+import { pool, initSchema } from './db.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = process.env.PORT || 3000;
@@ -89,19 +90,51 @@ function handleGenerate(res) {
   runNext();
 }
 
-// ── Tested state endpoint ─────────────────────────────────────────────────────
-const HYPO_FILE = path.join(__dirname, 'data/hypotheses.json');
+// ── Hypotheses endpoint ───────────────────────────────────────────────────────
+async function handleHypotheses(req, res) {
+  const niche = JSON.parse(fs.readFileSync(path.join(__dirname, 'config/niche.json'), 'utf8'));
+  const [hypoRes, adsRes] = await Promise.all([
+    pool.query('SELECT * FROM hypotheses ORDER BY generated_at DESC'),
+    pool.query('SELECT COUNT(*) FROM ads_analysis'),
+  ]);
 
+  const hypotheses = hypoRes.rows.map(r => ({
+    id:                   r.hypo_id,
+    _db_id:               r.id,
+    title:                r.title,
+    hypothesis:           r.hypothesis,
+    what_to_test:         r.what_to_test,
+    based_on:             r.based_on,
+    why_it_works:         r.why_it_works,
+    priority:             r.priority,
+    creative_format:      r.creative_format,
+    reference_ad_numbers: r.reference_ad_numbers,
+    top_hooks:            r.top_hooks,
+    top_body_texts:       r.top_body_texts,
+    visual_prompt:        r.visual_prompt,
+    tested:               r.tested,
+    asana_created:        r.asana_created,
+    generated_at:         r.generated_at,
+  }));
+
+  const payload = {
+    generated_at: hypotheses[0]?.generated_at ?? new Date().toISOString(),
+    direction:    niche.direction,
+    based_on_ads: parseInt(adsRes.rows[0].count),
+    hypotheses,
+  };
+
+  res.writeHead(200, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify(payload));
+}
+
+// ── Tested state endpoint ─────────────────────────────────────────────────────
 function handleTestedToggle(req, res) {
   let body = '';
   req.on('data', d => body += d);
-  req.on('end', () => {
-    const { id, tested } = JSON.parse(body);
-    const data = JSON.parse(fs.readFileSync(HYPO_FILE, 'utf8'));
-    data.hypotheses = data.hypotheses.map(h =>
-      h.id === id ? { ...h, tested: !!tested } : h
-    );
-    fs.writeFileSync(HYPO_FILE, JSON.stringify(data, null, 2));
+  req.on('end', async () => {
+    const { _db_id, tested } = JSON.parse(body);
+    await pool.query('UPDATE hypotheses SET tested = $1 WHERE id = $2', [!!tested, _db_id]);
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ ok: true }));
   });
@@ -169,15 +202,8 @@ async function handleAsanaCreate(req, res) {
     });
     const result = await asanaRes.json();
 
-    if (asanaRes.ok && result.data?.gid) {
-      // Save asana_created flag to hypotheses.json
-      if (fs.existsSync(HYPO_FILE)) {
-        const hypoData = JSON.parse(fs.readFileSync(HYPO_FILE, 'utf8'));
-        hypoData.hypotheses = hypoData.hypotheses.map(hyp =>
-          hyp.id === h.id ? { ...hyp, asana_created: true } : hyp
-        );
-        fs.writeFileSync(HYPO_FILE, JSON.stringify(hypoData, null, 2));
-      }
+    if (asanaRes.ok && result.data?.gid && h._db_id) {
+      await pool.query('UPDATE hypotheses SET asana_created = TRUE WHERE id = $1', [h._db_id]);
     }
 
     res.writeHead(asanaRes.ok ? 200 : 500, { 'Content-Type': 'application/json' });
@@ -193,6 +219,7 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  if (req.method === 'GET'  && req.url === '/api/hypotheses')      { handleHypotheses(req, res).catch(e => { res.writeHead(500); res.end(e.message); }); return; }
   if (req.method === 'POST' && req.url === '/api/tested')         { handleTestedToggle(req, res); return; }
   if (req.method === 'GET'  && req.url === '/api/asana/project') { handleAsanaProject(res); return; }
   if (req.method === 'POST' && req.url === '/api/asana')          { handleAsanaCreate(req, res); return; }
@@ -201,6 +228,11 @@ const server = http.createServer((req, res) => {
   serveStatic(req, res);
 });
 
-server.listen(PORT, () => {
-  console.log(`UltraHypo dev server: http://localhost:${PORT}`);
+initSchema().then(() => {
+  server.listen(PORT, () => {
+    console.log(`UltraHypo dev server: http://localhost:${PORT}`);
+  });
+}).catch(err => {
+  console.error('DB init failed:', err.message);
+  process.exit(1);
 });

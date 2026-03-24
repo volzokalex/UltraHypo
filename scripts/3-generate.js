@@ -1,12 +1,10 @@
 import 'dotenv/config';
 import fs from 'fs';
 import Anthropic from '@anthropic-ai/sdk';
+import { pool, initSchema } from '../db.js';
 
-const SCORED_FILE = 'data/ads-scored.json';
-const NICHE_FILE  = 'config/niche.json';
-const OUT_FILE    = 'data/hypotheses.json';
-const REFS_FILE   = 'data/ads-refs.json';
-const HYPO_COUNT  = 5;
+const NICHE_FILE = 'config/niche.json';
+const HYPO_COUNT = 5;
 
 const client = new Anthropic();
 const clean  = s => s ? s.replace(/[\uD800-\uDFFF]/g, '') : '';
@@ -173,49 +171,44 @@ async function callClaude(prompt) {
   return JSON.parse(match[0]);
 }
 
-// ── Збір всіх попередніх гіпотез з архіву ────────────────────────────────────
-function loadAllPastHypotheses() {
-  const all = [];
-
-  // Current hypotheses.json
-  if (fs.existsSync(OUT_FILE)) {
-    const cur = JSON.parse(fs.readFileSync(OUT_FILE, 'utf8'));
-    (cur.hypotheses ?? []).forEach(h => all.push(h));
-  }
-
-  // All history files
-  const histDir = 'data/history';
-  if (fs.existsSync(histDir)) {
-    fs.readdirSync(histDir)
-      .filter(f => f.startsWith('hypotheses-') && f.endsWith('.json'))
-      .forEach(f => {
-        try {
-          const data = JSON.parse(fs.readFileSync(`${histDir}/${f}`, 'utf8'));
-          (data.hypotheses ?? []).forEach(h => all.push(h));
-        } catch {}
-      });
-  }
-
-  // Deduplicate by title
-  const seen = new Set();
-  return all.filter(h => {
-    if (seen.has(h.title)) return false;
-    seen.add(h.title);
-    return true;
-  });
+// ── Збір всіх попередніх гіпотез з БД ────────────────────────────────────────
+async function loadAllPastHypotheses() {
+  const res = await pool.query('SELECT * FROM hypotheses ORDER BY generated_at DESC');
+  return res.rows.map(r => ({
+    id:                   r.hypo_id,
+    title:                r.title,
+    hypothesis:           r.hypothesis,
+    what_to_test:         r.what_to_test,
+    based_on:             r.based_on,
+    why_it_works:         r.why_it_works,
+    priority:             r.priority,
+    creative_format:      r.creative_format,
+    reference_ad_numbers: r.reference_ad_numbers,
+    top_hooks:            r.top_hooks,
+    top_body_texts:       r.top_body_texts,
+    visual_prompt:        r.visual_prompt,
+    tested:               r.tested,
+    asana_created:        r.asana_created,
+    generated_at:         r.generated_at,
+    _db_id:               r.id,
+  }));
 }
 
 async function run() {
-  if (!fs.existsSync(SCORED_FILE)) {
-    console.error(`Missing ${SCORED_FILE}. Run 2-analyze.js first.`);
-    process.exit(1);
-  }
-
-  const ads   = JSON.parse(fs.readFileSync(SCORED_FILE, 'utf8'));
+  await initSchema();
   const niche = JSON.parse(fs.readFileSync(NICHE_FILE, 'utf8'));
 
+  // Load ads from DB
+  const dbRows = await pool.query('SELECT data FROM ads_analysis ORDER BY (data->>\'_score\')::float DESC NULLS LAST');
+  if (!dbRows.rows.length) {
+    console.error('No ads in DB. Run 2-analyze.js first.');
+    process.exit(1);
+  }
+  const ads = dbRows.rows.map(r => r.data);
+  console.log(`Loaded ${ads.length} ads from DB`);
+
   // Collect all past hypotheses to avoid repetition
-  const pastHypotheses = loadAllPastHypotheses();
+  const pastHypotheses = await loadAllPastHypotheses();
   console.log(`Past hypotheses loaded: ${pastHypotheses.length} (will avoid repeating these angles)`);
 
   // Compute pattern frequencies
@@ -241,55 +234,28 @@ async function run() {
     visual_prompt:  creativeMap[h.id]?.visual_prompt  ?? '',
   }));
 
-  // Build ads-refs (image ads only)
-  const refs = {};
-  merged.forEach(h => {
-    (h.reference_ad_numbers ?? []).forEach(num => {
-      const ad = ads[num - 1];
-      if (ad && !refs[num] && ad.Image?.[0]?.url) {
-        refs[num] = {
-          ad_id:       ad.ID,
-          image_url:   ad.Image[0].url,
-          reach:       ad['EU Total Reach'] ?? 0,
-          active_days: ad['Active days']    ?? 0,
-          status:      ad.Status,
-          behavior:    ad._behavior ?? null,
-        };
-      }
-    });
-  });
-
-  fs.mkdirSync('data', { recursive: true });
-  fs.mkdirSync('data/history', { recursive: true });
-
-  const payload = {
-    generated_at: new Date().toISOString(),
-    direction:    niche.direction,
-    based_on_ads: ads.length,
-    pattern_freq: patternFreq,
-    hypotheses:   merged
-  };
-
-  // Archive previous hypotheses before overwriting
-  if (fs.existsSync(OUT_FILE)) {
-    const prev = JSON.parse(fs.readFileSync(OUT_FILE, 'utf8'));
-    if (prev.generated_at) {
-      const stamp = prev.generated_at.replace(/[:.]/g, '-').replace('T', '_').slice(0, 19);
-      fs.writeFileSync(`data/history/hypotheses-${stamp}.json`, JSON.stringify(prev, null, 2));
-      console.log(`Archived previous → data/history/hypotheses-${stamp}.json`);
-    }
+  // Save new hypotheses to DB
+  const batch = new Date().toISOString();
+  for (const h of merged) {
+    await pool.query(
+      `INSERT INTO hypotheses
+        (batch, hypo_id, title, hypothesis, what_to_test, based_on, why_it_works,
+         priority, creative_format, reference_ad_numbers, top_hooks, top_body_texts, visual_prompt)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)`,
+      [
+        batch, h.id, h.title, h.hypothesis, h.what_to_test, h.based_on, h.why_it_works,
+        h.priority, h.creative_format,
+        JSON.stringify(h.reference_ad_numbers ?? []),
+        JSON.stringify(h.top_hooks ?? []),
+        JSON.stringify(h.top_body_texts ?? []),
+        h.visual_prompt ?? '',
+      ]
+    );
   }
+  console.log(`Saved ${merged.length} hypotheses to DB (batch: ${batch})`);
 
-  // Update history index
-  const historyFiles = fs.readdirSync('data/history')
-    .filter(f => f.startsWith('hypotheses-') && f.endsWith('.json'))
-    .sort().reverse();
-  fs.writeFileSync('data/history-index.json', JSON.stringify(historyFiles, null, 2));
-
-  fs.writeFileSync(OUT_FILE,  JSON.stringify(payload, null, 2));
-  fs.writeFileSync(REFS_FILE, JSON.stringify(refs, null, 2));
-
-  console.log(`Done → ${OUT_FILE}`);
+  await pool.end();
+  console.log('Done.');
 }
 
 run().catch(err => { console.error(err.message); process.exit(1); });

@@ -28,16 +28,12 @@ function isTestedLocal(id) {
   return h?.tested ?? false;
 }
 
-async function setTested(id, tested) {
-  // Update local state immediately
-  const h = hypotheses.find(h => h.id === id);
-  if (h) h.tested = tested;
-
-  // Persist to server (best-effort)
+async function setTested(h, tested) {
+  h.tested = tested;
   fetch('/api/tested', {
     method:  'POST',
     headers: { 'Content-Type': 'application/json' },
-    body:    JSON.stringify({ id, tested }),
+    body:    JSON.stringify({ _db_id: h._db_id, tested }),
   }).catch(() => {});
 }
 
@@ -250,7 +246,7 @@ function renderHypothesis() {
   // Wire tested checkbox
   const cb = centerEl.querySelector('.tested-cb');
   cb?.addEventListener('change', () => {
-    setTested(h.id, cb.checked);
+    setTested(h, cb.checked);
     cb.closest('.tested-label').classList.toggle('is-tested', cb.checked);
     renderNavPills();
   });
@@ -294,16 +290,15 @@ function renderAll() {
 }
 
 // ── Load hypothesis data ──────────────────────────────────────────────────────
-async function loadData(url = 'data/hypotheses.json', refsUrl = 'data/ads-refs.json') {
-  const [hypoRes, refsRes] = await Promise.all([
-    fetch(url),
-    fetch(refsUrl).catch(() => null)
-  ]);
-  if (!hypoRes.ok) throw new Error('Failed to load hypotheses');
+async function loadData() {
+  const res = await fetch('/api/hypotheses');
+  if (!res.ok) throw new Error('Failed to load hypotheses');
 
-  const data = await hypoRes.json();
+  const data = await res.json();
   hypotheses = data.hypotheses ?? [];
 
+  // Load ref ads from static file (still used for images)
+  const refsRes = await fetch('data/ads-refs.json').catch(() => null);
   if (refsRes?.ok) adsRefs = await refsRes.json();
 
   const date = new Date(data.generated_at).toLocaleDateString('en-GB');
@@ -446,9 +441,7 @@ btnGenerate.addEventListener('click', async () => {
         }
         if (eventType === 'done') {
           finishProgress();
-          document.querySelector('.history-select')?.parentElement?.remove();
           await loadData();
-          await buildHistorySelect();
           break outer;
         }
       }
@@ -479,7 +472,6 @@ async function init() {
 
   try {
     await loadData();
-    await buildHistorySelect();
   } catch(e) {
     console.error(e);
   }

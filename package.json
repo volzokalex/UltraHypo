@@ -3,15 +3,16 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start":    "node server.js",
-    "fetch":    "node scripts/1-fetch.js",
-    "analyze":  "node scripts/2-analyze.js",
+    "start": "node server.js",
+    "fetch": "node scripts/1-fetch.js",
+    "analyze": "node scripts/2-analyze.js",
     "generate": "node scripts/3-generate.js",
-    "run-all":  "npm run fetch && npm run analyze && npm run generate",
-    "serve":    "node server.js"
+    "run-all": "npm run fetch && npm run analyze && npm run generate",
+    "serve": "node server.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "pg": "^8.20.0"
   }
 }
