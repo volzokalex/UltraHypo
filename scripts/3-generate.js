@@ -58,7 +58,11 @@ Visual: ${img ? `${img.visual_subject ?? ''}, style=${img.style ?? '?'}, emotion
 }
 
 // ── Промт для генерації гіпотез (пошук сліпих зон) ───────────────────────────
-function buildHypothesisPrompt(niche, ads, patternFreq) {
+function buildHypothesisPrompt(niche, ads, patternFreq, pastHypotheses = []) {
+  const pastBlock = pastHypotheses.length
+    ? `\n## ALREADY GENERATED HYPOTHESES (DO NOT REPEAT THESE ANGLES)\n${pastHypotheses.map(h => `- [${h.creative_format ?? 'image'}] ${h.title}: ${h.what_to_test}`).join('\n')}\n`
+    : '';
+
   return `You are a senior performance marketing strategist. Your task is to generate TRULY UNIQUE creative hypotheses — not copies of what already works, but NEW angles that haven't been tested yet.
 
 ## OUR NICHE CONFIG
@@ -68,7 +72,7 @@ Audience: ${JSON.stringify(niche.audience.pain_points)} | ${JSON.stringify(niche
 What we avoid: ${JSON.stringify(niche.what_we_avoid)}
 Research insights: ${JSON.stringify(niche.research_insights)}
 
-## WHAT COMPETITORS ARE ALREADY DOING (pattern frequency across top ads)
+${pastBlock}## WHAT COMPETITORS ARE ALREADY DOING (pattern frequency across top ads)
 ${Object.entries(patternFreq).map(([cat, vals]) => `${cat}: ${vals.slice(0,4).join(' | ')}`).join('\n')}
 
 ## TOP PERFORMING ADS (for reference)
@@ -169,6 +173,38 @@ async function callClaude(prompt) {
   return JSON.parse(match[0]);
 }
 
+// ── Збір всіх попередніх гіпотез з архіву ────────────────────────────────────
+function loadAllPastHypotheses() {
+  const all = [];
+
+  // Current hypotheses.json
+  if (fs.existsSync(OUT_FILE)) {
+    const cur = JSON.parse(fs.readFileSync(OUT_FILE, 'utf8'));
+    (cur.hypotheses ?? []).forEach(h => all.push(h));
+  }
+
+  // All history files
+  const histDir = 'data/history';
+  if (fs.existsSync(histDir)) {
+    fs.readdirSync(histDir)
+      .filter(f => f.startsWith('hypotheses-') && f.endsWith('.json'))
+      .forEach(f => {
+        try {
+          const data = JSON.parse(fs.readFileSync(`${histDir}/${f}`, 'utf8'));
+          (data.hypotheses ?? []).forEach(h => all.push(h));
+        } catch {}
+      });
+  }
+
+  // Deduplicate by title
+  const seen = new Set();
+  return all.filter(h => {
+    if (seen.has(h.title)) return false;
+    seen.add(h.title);
+    return true;
+  });
+}
+
 async function run() {
   if (!fs.existsSync(SCORED_FILE)) {
     console.error(`Missing ${SCORED_FILE}. Run 2-analyze.js first.`);
@@ -178,13 +214,17 @@ async function run() {
   const ads   = JSON.parse(fs.readFileSync(SCORED_FILE, 'utf8'));
   const niche = JSON.parse(fs.readFileSync(NICHE_FILE, 'utf8'));
 
+  // Collect all past hypotheses to avoid repetition
+  const pastHypotheses = loadAllPastHypotheses();
+  console.log(`Past hypotheses loaded: ${pastHypotheses.length} (will avoid repeating these angles)`);
+
   // Compute pattern frequencies
   const patternFreq = computePatternFrequency(ads);
   console.log('Pattern frequencies computed.');
 
   // Step 1: Generate hypotheses from blind spots
   console.log(`[1/2] Generating ${HYPO_COUNT} unique hypotheses from blind spots...`);
-  const hypotheses = await callClaude(buildHypothesisPrompt(niche, ads, patternFreq));
+  const hypotheses = await callClaude(buildHypothesisPrompt(niche, ads, patternFreq, pastHypotheses));
   console.log(`      ✓ ${hypotheses.length} hypotheses`);
 
   // Step 2: Generate hooks, body texts, visual prompts
