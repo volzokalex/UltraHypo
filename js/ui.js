@@ -22,14 +22,23 @@ let adsRefs      = {};
 let current      = 0;
 let asanaProject = null; // loaded once on init
 
-// ── Tested state (localStorage) ───────────────────────────────────────────────
-const TESTED_KEY = 'ultrahypo_tested';
-function getTestedSet() {
-  try { return new Set(JSON.parse(localStorage.getItem(TESTED_KEY) ?? '[]')); }
-  catch { return new Set(); }
+// ── Tested state (server-side, hypotheses.json) ───────────────────────────────
+function isTestedLocal(id) {
+  const h = hypotheses.find(h => h.id === id);
+  return h?.tested ?? false;
 }
-function saveTestedSet(set) {
-  localStorage.setItem(TESTED_KEY, JSON.stringify([...set]));
+
+async function setTested(id, tested) {
+  // Update local state immediately
+  const h = hypotheses.find(h => h.id === id);
+  if (h) h.tested = tested;
+
+  // Persist to server (best-effort)
+  fetch('/api/tested', {
+    method:  'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body:    JSON.stringify({ id, tested }),
+  }).catch(() => {});
 }
 
 // ── DOM ───────────────────────────────────────────────────────────────────────
@@ -136,9 +145,8 @@ function openLightbox(url) {
 
 // ── Nav pills ─────────────────────────────────────────────────────────────────
 function renderNavPills() {
-  const tested = getTestedSet();
   navPillsEl.innerHTML = hypotheses.map((h, i) => {
-    const isTested = tested.has(h.id);
+    const isTested = h.tested ?? false;
     const cls = [
       'nav-pill',
       i === current ? 'active' : '',
@@ -180,7 +188,7 @@ function renderRefAds(h) {
 function renderHypothesis() {
   const h = hypotheses[current];
   const priorityClass = h.priority === 'high' ? 'badge-high' : 'badge-medium';
-  const tested = getTestedSet().has(h.id);
+  const tested = h.tested ?? false;
 
   const visualBlock = h.visual_prompt ? `
     <div class="visual-prompt-block">
@@ -241,9 +249,7 @@ function renderHypothesis() {
   // Wire tested checkbox
   const cb = centerEl.querySelector('.tested-cb');
   cb?.addEventListener('change', () => {
-    const set = getTestedSet();
-    if (cb.checked) set.add(h.id); else set.delete(h.id);
-    saveTestedSet(set);
+    setTested(h.id, cb.checked);
     cb.closest('.tested-label').classList.toggle('is-tested', cb.checked);
     renderNavPills();
   });

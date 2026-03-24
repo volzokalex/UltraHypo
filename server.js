@@ -89,6 +89,24 @@ function handleGenerate(res) {
   runNext();
 }
 
+// ── Tested state endpoint ─────────────────────────────────────────────────────
+const HYPO_FILE = path.join(__dirname, 'data/hypotheses.json');
+
+function handleTestedToggle(req, res) {
+  let body = '';
+  req.on('data', d => body += d);
+  req.on('end', () => {
+    const { id, tested } = JSON.parse(body);
+    const data = JSON.parse(fs.readFileSync(HYPO_FILE, 'utf8'));
+    data.hypotheses = data.hypotheses.map(h =>
+      h.id === id ? { ...h, tested: !!tested } : h
+    );
+    fs.writeFileSync(HYPO_FILE, JSON.stringify(data, null, 2));
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ ok: true }));
+  });
+}
+
 // ── Asana endpoints ───────────────────────────────────────────────────────────
 const ASANA_TOKEN   = process.env.ASANA_TOKEN;
 const ASANA_PROJECT = process.env.ASANA_PROJECT_GID;
@@ -164,6 +182,7 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  if (req.method === 'POST' && req.url === '/api/tested')         { handleTestedToggle(req, res); return; }
   if (req.method === 'GET'  && req.url === '/api/asana/project') { handleAsanaProject(res); return; }
   if (req.method === 'POST' && req.url === '/api/asana')          { handleAsanaCreate(req, res); return; }
   if (req.method === 'POST' && req.url === '/api/generate')       { handleGenerate(res); return; }
