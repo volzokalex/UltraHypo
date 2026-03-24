@@ -11,11 +11,12 @@
 
     <header class="header">
       <div class="header-inner">
-        <div class="logo">UltraHypo</div>
-        <div class="header-meta" id="meta">—</div>
+        <div class="header-left">
+          <div class="logo">UltraHypo</div>
+          <div class="header-meta" id="meta">—</div>
+        </div>
         <div class="header-actions">
           <button class="btn-generate" id="btn-generate">✦ Generate Hypotheses</button>
-          <button class="lang-toggle" id="lang-toggle">UA</button>
         </div>
       </div>
     </header>
@@ -24,21 +25,21 @@
 
       <!-- Left: Reference ads -->
       <aside class="panel-left">
-        <div class="panel-label" data-i18n="based_on">Based on</div>
+        <div class="panel-label">Based on</div>
         <div id="ref-ads"></div>
       </aside>
 
       <!-- Center: Hypothesis content -->
       <main class="panel-center" id="panel-center">
         <div class="empty-state" id="empty-state">
-          <p data-i18n="no_data">No hypotheses found.</p>
+          <p>No hypotheses found.</p>
           <p class="hint">Run <code>npm run run-all</code> to generate.</p>
         </div>
       </main>
 
       <!-- Right: Navigation -->
       <aside class="panel-right">
-        <div class="panel-label" data-i18n="all_hypotheses">All hypotheses</div>
+        <div class="panel-label">All hypotheses</div>
         <div id="nav-pills"></div>
       </aside>
 

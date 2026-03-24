@@ -1,52 +1,35 @@
-// ── i18n (только лейблы интерфейса) ──────────────────────────────────────────
-const i18n = {
-  en: {
-    based_on:       'Based on',
-    all_hypotheses: 'All hypotheses',
-    no_data:        'No hypotheses found.',
-    hypothesis:     'Hypothesis',
-    what_to_test:   'What to test',
-    why_it_works:   'Why it works',
-    top_hooks:      'Top Hooks',
-    top_body:       'Top Body Texts',
-    visual_prompt:  'Visual Prompt',
-    generate:       '✦ Generate Hypotheses',
-    reach:          'Reach',
-    days:           'Active days',
-    active:         'Active',
-    inactive:       'Inactive',
-    generating:     'Generating...',
-    history:        'History',
-    latest:         'Latest',
-  },
-  ua: {
-    based_on:       'На чому базується',
-    all_hypotheses: 'Всі гіпотези',
-    no_data:        'Гіпотези не знайдено.',
-    hypothesis:     'Гіпотеза',
-    what_to_test:   'Що тестуємо',
-    why_it_works:   'Чому спрацює',
-    top_hooks:      'Топ Хуки',
-    top_body:       'Топ Body тексти',
-    visual_prompt:  'Візуальний промт',
-    generate:       '✦ Генерувати гіпотези',
-    reach:          'Охоплення',
-    days:           'Активних днів',
-    active:         'Активний',
-    inactive:       'Неактивний',
-    generating:     'Генерую...',
-    history:        'Історія',
-    latest:         'Поточні',
-  }
+// ── Labels ────────────────────────────────────────────────────────────────────
+const L = {
+  based_on:       'Based on',
+  all_hypotheses: 'All hypotheses',
+  no_data:        'No hypotheses found.',
+  hypothesis:     'Hypothesis',
+  what_to_test:   'What to test',
+  why_it_works:   'Why it works',
+  top_hooks:      'Top Hooks',
+  top_body:       'Top Body Texts',
+  visual_prompt:  'Visual Prompt',
+  generate:       '✦ Generate Hypotheses',
+  reach:          'Reach',
+  days:           'Active days',
+  active:         'Active',
+  inactive:       'Inactive',
 };
 
 // ── State ─────────────────────────────────────────────────────────────────────
 let hypotheses = [];
 let adsRefs    = {};
 let current    = 0;
-let lang       = 'en';
 
-const t = key => i18n[lang][key] ?? key;
+// ── Tested state (localStorage) ───────────────────────────────────────────────
+const TESTED_KEY = 'ultrahypo_tested';
+function getTestedSet() {
+  try { return new Set(JSON.parse(localStorage.getItem(TESTED_KEY) ?? '[]')); }
+  catch { return new Set(); }
+}
+function saveTestedSet(set) {
+  localStorage.setItem(TESTED_KEY, JSON.stringify([...set]));
+}
 
 // ── DOM ───────────────────────────────────────────────────────────────────────
 const metaEl      = document.getElementById('meta');
@@ -54,7 +37,6 @@ const emptyEl     = document.getElementById('empty-state');
 const centerEl    = document.getElementById('panel-center');
 const refAdsEl    = document.getElementById('ref-ads');
 const navPillsEl  = document.getElementById('nav-pills');
-const langToggle  = document.getElementById('lang-toggle');
 const btnGenerate = document.getElementById('btn-generate');
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -107,7 +89,7 @@ function makeCarousel(titleKey, items) {
     const item = items[idx];
     return `<div class="carousel-wrap" id="${id}">
       <div class="carousel-header">
-        <span class="carousel-title">${t(titleKey)}</span>
+        <span class="carousel-title">${L[titleKey]}</span>
       </div>
       <div class="carousel-body">
         <div class="carousel-text${item.is_dialog ? ' is-dialog' : ''}">${formatText(item.text)}</div>
@@ -153,9 +135,16 @@ function openLightbox(url) {
 
 // ── Nav pills ─────────────────────────────────────────────────────────────────
 function renderNavPills() {
-  navPillsEl.innerHTML = hypotheses.map((h, i) => `
-    <button class="nav-pill${i===current?' active':''}" data-idx="${i}">${esc(h.title)}</button>
-  `).join('');
+  const tested = getTestedSet();
+  navPillsEl.innerHTML = hypotheses.map((h, i) => {
+    const isTested = tested.has(h.id);
+    const cls = [
+      'nav-pill',
+      i === current ? 'active' : '',
+      isTested ? 'tested' : '',
+    ].filter(Boolean).join(' ');
+    return `<button class="${cls}" data-idx="${i}">${esc(h.title)}</button>`;
+  }).join('');
   navPillsEl.querySelectorAll('.nav-pill').forEach(btn =>
     btn.addEventListener('click', () => { current = +btn.dataset.idx; renderAll(); })
   );
@@ -174,9 +163,9 @@ function renderRefAds(h) {
     return `<div class="ref-card" data-img="${esc(ad.image_url)}">
       <img src="${esc(ad.image_url)}" alt="Ad ${esc(ad.ad_id)}" loading="lazy" />
       <div class="ref-card-body">
-        <div class="ref-card-stat"><span>${t('reach')}</span><span>${fmtReach(ad.reach)}</span></div>
-        <div class="ref-card-stat"><span>${t('days')}</span><span>${ad.active_days}</span></div>
-        <span class="ref-status ${statusCls}">${ad.status === 'ACTIVE' ? t('active') : t('inactive')}</span>
+        <div class="ref-card-stat"><span>${L.reach}</span><span>${fmtReach(ad.reach)}</span></div>
+        <div class="ref-card-stat"><span>${L.days}</span><span>${ad.active_days}</span></div>
+        <span class="ref-status ${statusCls}">${ad.status === 'ACTIVE' ? L.active : L.inactive}</span>
       </div>
     </div>`;
   }).join('');
@@ -190,16 +179,25 @@ function renderRefAds(h) {
 function renderHypothesis() {
   const h = hypotheses[current];
   const priorityClass = h.priority === 'high' ? 'badge-high' : 'badge-medium';
+  const tested = getTestedSet().has(h.id);
 
   const visualBlock = h.visual_prompt ? `
     <div class="visual-prompt-block">
-      <div class="section-label">${t('visual_prompt')}</div>
+      <div class="section-label">${L.visual_prompt}</div>
       <div class="visual-prompt-text">${esc(h.visual_prompt)}</div>
       <div class="visual-prompt-footer">${copyBtn(h.visual_prompt)}</div>
     </div>` : '';
 
+  const checkSvg = `<svg class="tested-check-icon" viewBox="0 0 10 8" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1,4 4,7 9,1"/></svg>`;
+
   centerEl.innerHTML = `
-    <div class="hypo-wrap">
+    <div class="hypo-wrap" style="position:relative">
+      <label class="tested-label${tested ? ' is-tested' : ''}" title="Mark as tested">
+        <input type="checkbox" class="tested-cb"${tested ? ' checked' : ''} />
+        <span class="tested-check-box">${checkSvg}</span>
+        Tested
+      </label>
+
       <div class="badges">
         <span class="badge ${priorityClass}">● ${h.priority}</span>
         <span class="badge badge-format">${esc(h.creative_format ?? 'image')}</span>
@@ -208,17 +206,17 @@ function renderHypothesis() {
       <div class="hypo-title">${esc(h.title)}</div>
 
       <div class="section">
-        <div class="section-label" data-i18n="hypothesis">${t('hypothesis')}</div>
+        <div class="section-label">${L.hypothesis}</div>
         <div class="section-text">${esc(h.hypothesis)}</div>
       </div>
 
       <div class="section">
-        <div class="section-label" data-i18n="what_to_test">${t('what_to_test')}</div>
+        <div class="section-label">${L.what_to_test}</div>
         <div class="section-text">${esc(h.what_to_test)}</div>
       </div>
 
       <div class="section">
-        <div class="section-label" data-i18n="why_it_works">${t('why_it_works')}</div>
+        <div class="section-label">${L.why_it_works}</div>
         <div class="section-text">${esc(h.why_it_works)}</div>
       </div>
 
@@ -228,6 +226,16 @@ function renderHypothesis() {
     </div>`;
 
   wireCopyButtons(centerEl);
+
+  // Wire tested checkbox
+  const cb = centerEl.querySelector('.tested-cb');
+  cb?.addEventListener('change', () => {
+    const set = getTestedSet();
+    if (cb.checked) set.add(h.id); else set.delete(h.id);
+    saveTestedSet(set);
+    cb.closest('.tested-label').classList.toggle('is-tested', cb.checked);
+    renderNavPills();
+  });
 }
 
 // ── Render all ────────────────────────────────────────────────────────────────
@@ -260,42 +268,6 @@ async function loadData(url = 'data/hypotheses.json', refsUrl = 'data/ads-refs.j
   return data;
 }
 
-// ── History selector ──────────────────────────────────────────────────────────
-async function buildHistorySelect() {
-  const res = await fetch('data/history-index.json').catch(() => null);
-  if (!res?.ok) return;
-  const files = await res.json();
-  if (!files.length) return;
-
-  const wrap = document.createElement('div');
-  wrap.style.cssText = 'display:flex;align-items:center;gap:6px';
-
-  const label = document.createElement('span');
-  label.style.cssText = 'font-size:11px;color:var(--muted)';
-  label.textContent = t('history') + ':';
-
-  const sel = document.createElement('select');
-  sel.className = 'history-select';
-  sel.innerHTML = `<option value="">${t('latest')}</option>` +
-    files.map(f => {
-      // hypotheses-2026-03-23_10-00-00.json → readable date
-      const m = f.match(/hypotheses-(\d{4}-\d{2}-\d{2})_(\d{2}-\d{2})/);
-      const label = m ? `${m[1]} ${m[2].replace('-', ':')}` : f;
-      return `<option value="data/history/${f}">${label}</option>`;
-    }).join('');
-
-  sel.addEventListener('change', async () => {
-    if (!sel.value) {
-      await loadData();
-    } else {
-      await loadData(sel.value, 'data/ads-refs.json');
-    }
-  });
-
-  wrap.appendChild(label);
-  wrap.appendChild(sel);
-  document.querySelector('.header-actions').prepend(wrap);
-}
 
 // ── Error modal ───────────────────────────────────────────────────────────────
 function showError(msg) {
@@ -328,7 +300,7 @@ function setButtonLoading(on, logMsg) {
     btnGenerate.innerHTML = msg;
   } else {
     btnGenerate.disabled = false;
-    btnGenerate.textContent = t('generate');
+    btnGenerate.textContent = L.generate;
   }
 }
 
@@ -376,9 +348,7 @@ btnGenerate.addEventListener('click', async () => {
           break outer;
         }
         if (eventType === 'done') {
-          document.querySelector('.history-select')?.parentElement?.remove();
           await loadData();
-          await buildHistorySelect();
           break outer;
         }
       }
@@ -390,14 +360,6 @@ btnGenerate.addEventListener('click', async () => {
     generating = false;
     setButtonLoading(false);
   }
-});
-
-// ── Language toggle ───────────────────────────────────────────────────────────
-langToggle.addEventListener('click', () => {
-  lang = lang === 'en' ? 'ua' : 'en';
-  langToggle.textContent = lang === 'en' ? 'UA' : 'EN';
-  btnGenerate.textContent = t('generate');
-  if (hypotheses.length) renderAll();
 });
 
 // ── Init ──────────────────────────────────────────────────────────────────────
@@ -412,7 +374,6 @@ async function init() {
 
   try {
     await loadData();
-    await buildHistorySelect();
   } catch(e) {
     console.error(e);
   }
