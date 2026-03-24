@@ -6,7 +6,6 @@ const RAW_FILE    = 'data/ads-raw.json';
 const SCORED_FILE = 'data/ads-scored.json';
 const NICHE_FILE  = 'config/niche.json';
 
-const TEXT_BATCH = 100; // analyze text in batches of 100
 const IMG_PARALLEL = 5; // analyze images 5 at a time
 
 const client = new Anthropic();
@@ -43,49 +42,7 @@ function scoreAd(ad) {
   return (reach / 1000) * Math.log10(days + 2) * activeBoost;
 }
 
-// ── 4. Текстовий аналіз (батчами) ────────────────────────────────────────────
-async function analyzeTextBatch(ads, offset) {
-  const list = ads.map((ad, i) =>
-    `#${offset + i + 1}: ${clean(ad.Body ?? '—').slice(0, 200)}`
-  ).join('\n\n');
-
-  const msg = await client.messages.create({
-    model:      'claude-opus-4-6',
-    max_tokens: 4096,
-    messages: [{
-      role: 'user',
-      content: `Classify text patterns for ${ads.length} health/fitness Facebook ads (Women 40+, weight loss, Tai Chi, printable plans).
-
-For each ad return its index (1-based, starting from ${offset + 1}) and:
-- hook_type: "age_specific"|"ugc_dialog"|"direct_offer"|"pattern_interrupt"|"challenge_date"|"before_after"|"question"
-- body_structure: "numbered_list"|"story"|"transformation_timeline"|"bullets"|"simple_offer"|"social_proof"
-- cta_type: "get_printable"|"start_challenge"|"take_quiz"|"download"|"buy"|"learn_more"
-- emotional_trigger: "fear_aging"|"aspiration_youth"|"identity"|"social_proof"|"urgency"|"authority"
-
-ADS:
-${list}
-
-Return ONLY JSON array with exactly ${ads.length} objects:
-[{"index":${offset + 1},"hook_type":"...","body_structure":"...","cta_type":"...","emotional_trigger":"..."}]`
-    }]
-  });
-
-  const match = msg.content[0].text.match(/\[[\s\S]*\]/);
-  return match ? JSON.parse(match[0]) : [];
-}
-
-async function analyzeAllTextPatterns(ads) {
-  const all = [];
-  for (let i = 0; i < ads.length; i += TEXT_BATCH) {
-    const batch = ads.slice(i, i + TEXT_BATCH);
-    console.log(`  text batch ${Math.floor(i / TEXT_BATCH) + 1}/${Math.ceil(ads.length / TEXT_BATCH)} (${i + 1}–${i + batch.length})`);
-    const patterns = await analyzeTextBatch(batch, i);
-    all.push(...patterns);
-  }
-  return all;
-}
-
-// ── 5. Аналіз зображень (паралельно по 5) ────────────────────────────────────
+// ── 4. Аналіз картинки + класифікація патернів (один запит) ──────────────────
 async function analyzeImage(imageUrl, niche) {
   try {
     const res = await fetch(imageUrl);
@@ -95,16 +52,29 @@ async function analyzeImage(imageUrl, niche) {
 
     const msg = await client.messages.create({
       model:      'claude-opus-4-6',
-      max_tokens: 256,
+      max_tokens: 400,
       messages: [{
         role: 'user',
         content: [
           { type: 'image', source: { type: 'base64', media_type: mime, data: base64 } },
           {
             type: 'text',
-            text: `Niche: ${niche.direction}. Target audience: Women 40-80, postmenopause, wants to lose weight and feel younger.
-Analyze this Facebook ad image. Return JSON only:
-{"visual_subject":"what is shown","style":"photo|illustration|ugc|text_heavy","emotion":"dominant emotion","has_text_overlay":true,"text_on_image":"text if visible","fits_niche":true}`
+            text: `Niche: ${niche.direction}. Target: Women 40-80, postmenopause, weight loss, Tai Chi.
+
+Analyze this Facebook ad image. The most important text is what's ON the image itself (hook, body, CTA).
+
+Return JSON only:
+{
+  "visual_subject": "what is shown",
+  "style": "photo|illustration|ugc|text_heavy",
+  "emotion": "dominant emotion conveyed",
+  "text_on_image": "all text visible on the image",
+  "hook_type": "age_specific|ugc_dialog|direct_offer|pattern_interrupt|challenge_date|before_after|question|none",
+  "body_structure": "numbered_list|story|transformation_timeline|bullets|simple_offer|social_proof|none",
+  "cta_type": "get_printable|start_challenge|take_quiz|download|buy|learn_more|none",
+  "emotional_trigger": "fear_aging|aspiration_youth|identity|social_proof|urgency|authority|none",
+  "fits_niche": true
+}`
           }
         ]
       }]
@@ -162,17 +132,21 @@ async function run() {
   }, {});
   console.log(`Behavior breakdown:`, behaviors);
 
-  // Text pattern analysis — ALL ads
-  console.log(`[1/2] Text pattern analysis for ALL ${enriched.length} ads...`);
-  const patterns = await analyzeAllTextPatterns(enriched);
-  patterns.forEach(p => {
-    const ad = enriched[p.index - 1];
-    if (ad) ad._text_pattern = p;
-  });
-  console.log(`      ✓ ${patterns.length} patterns classified`);
-
-  // Image analysis — ALL image ads, parallel
+  // Image analysis — ALL ads with images, parallel
+  // Patterns (hook_type, body_structure etc.) extracted from image text, not Body field
   await analyzeAllImages(enriched, niche);
+
+  // Copy image analysis patterns into _text_pattern for compatibility with 3-generate.js
+  enriched.forEach(ad => {
+    if (ad._image_analysis) {
+      ad._text_pattern = {
+        hook_type:        ad._image_analysis.hook_type,
+        body_structure:   ad._image_analysis.body_structure,
+        cta_type:         ad._image_analysis.cta_type,
+        emotional_trigger: ad._image_analysis.emotional_trigger,
+      };
+    }
+  });
 
   fs.mkdirSync('data', { recursive: true });
   fs.writeFileSync(SCORED_FILE, JSON.stringify(enriched, null, 2));
