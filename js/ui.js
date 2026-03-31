@@ -224,6 +224,7 @@ function renderHypothesis() {
       <div class="badges">
         <span class="badge ${priorityClass}">● ${h.priority}</span>
         <span class="badge badge-format">${esc(h.creative_format ?? 'image')}</span>
+        <button class="btn-share" title="Copy link" data-dbid="${h._db_id}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button>
       </div>
 
       <div class="hypo-title">${esc(h.title)}</div>
@@ -249,6 +250,13 @@ function renderHypothesis() {
     </div>`;
 
   wireCopyButtons(centerEl);
+
+  // Wire share button
+  const shareBtnEl = centerEl.querySelector('.btn-share');
+  shareBtnEl?.addEventListener('click', () => {
+    const url = `${location.origin}${location.pathname}?h=${h._db_id}`;
+    navigator.clipboard.writeText(url).then(() => showToast('Copied', shareBtnEl));
+  });
 
   // Wire tested checkbox
   const cb = centerEl.querySelector('.tested-cb');
@@ -309,7 +317,18 @@ async function loadData() {
   const date = new Date(data.generated_at).toLocaleDateString('en-GB');
   metaEl.textContent = `${data.direction} · ${data.based_on_ads} ads · ${date}`;
 
-  current = 0;
+  // Restore from URL ?h= param
+  const targetId = parseInt(new URLSearchParams(location.search).get('h'));
+  if (targetId) {
+    // Search across all batches
+    for (let bi = 0; bi < batches.length; bi++) {
+      const idx = batches[bi].hypotheses.findIndex(x => x._db_id === targetId);
+      if (idx !== -1) { hypotheses = batches[bi].hypotheses; current = idx; break; }
+    }
+  } else {
+    current = 0;
+  }
+
   emptyEl?.remove();
   renderAll();
   buildHistorySelect();
@@ -347,6 +366,23 @@ function buildHistorySelect() {
   document.querySelector('.header-actions').prepend(wrap);
 }
 
+// ── Toast ─────────────────────────────────────────────────────────────────────
+function showToast(msg, anchor) {
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  if (anchor) {
+    const r = anchor.getBoundingClientRect();
+    t.style.left = `${r.left + r.width / 2 + window.scrollX}px`;
+    t.style.top  = `${r.top - 8 + window.scrollY}px`;
+    t.style.transform = 'translateX(-50%) translateY(-100%)';
+    t.style.bottom = 'auto';
+  }
+  setTimeout(() => t.classList.add('toast-show'), 10);
+  setTimeout(() => { t.classList.remove('toast-show'); setTimeout(() => t.remove(), 300); }, 1500);
+}
+
 // ── Error modal ───────────────────────────────────────────────────────────────
 function showError(msg) {
   const el = document.createElement('div');
@@ -373,25 +409,32 @@ let generating = false;
 let progressTimer = null;
 let progressPct = 0;
 
+let btnLabelEl = null;
+
+function setBtnGenerating() {
+  btnGenerate.innerHTML = `<span class="btn-spinner"></span><span class="btn-label">Cooking... 0%</span>`;
+  btnLabelEl = btnGenerate.querySelector('.btn-label');
+}
+
 function setProgress(pct) {
   progressPct = Math.min(pct, 99);
-  btnGenerate.innerHTML = `<span class="btn-spinner"></span>Cooking... ${Math.round(progressPct)}%`;
+  if (btnLabelEl) btnLabelEl.textContent = `Cooking... ${Math.round(progressPct)}%`;
 }
 
 function startProgressAnimation() {
   progressPct = 0;
-  // Animate: fast to 40%, slow to 85%, then stall until done
+  setBtnGenerating();
   progressTimer = setInterval(() => {
     if (progressPct < 40)      progressPct += 2.5;
     else if (progressPct < 85) progressPct += 0.4;
     else clearInterval(progressTimer);
-    btnGenerate.innerHTML = `<span class="btn-spinner"></span>Cooking... ${Math.round(progressPct)}%`;
+    if (btnLabelEl) btnLabelEl.textContent = `Cooking... ${Math.round(progressPct)}%`;
   }, 200);
 }
 
 function finishProgress() {
   clearInterval(progressTimer);
-  btnGenerate.innerHTML = `<span class="btn-spinner"></span>Cooking... 100%`;
+  if (btnLabelEl) btnLabelEl.textContent = 'Cooking... 100%';
 }
 
 function resetButton() {

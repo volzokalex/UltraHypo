@@ -44,8 +44,7 @@ body {
   gap: 0;
 }
 
-.header-left { display: flex; align-items: center; gap: 12px; flex: 1; }
-.header-meta { font-size: 12px; color: var(--muted); }
+.header-left   { display: flex; align-items: center; gap: 12px; flex: 1; }
 .header-actions { display: flex; align-items: center; gap: 8px; }
 
 
@@ -64,8 +63,6 @@ body {
   color: var(--muted);
   text-align: center;
 }
-
-.header-actions { display: flex; align-items: center; gap: 8px; }
 
 .btn-generate {
   background: var(--accent);
@@ -86,15 +83,17 @@ body {
 .btn-generate:disabled { opacity: 0.6; cursor: default; }
 
 .btn-generate .btn-spinner {
-  width: 12px;
-  height: 12px;
-  border: 2px solid rgba(255,255,255,0.35);
-  border-top-color: #fff;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  animation: spin 0.65s linear infinite;
+  background: #fff;
   flex-shrink: 0;
+  animation: pulse-dot 1.2s ease-in-out infinite;
 }
-@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.3; transform: scale(0.5); }
+}
 
 .lang-toggle {
   background: transparent;
@@ -112,16 +111,16 @@ body {
 /* ── Layout ──────────────────────────────────────────── */
 .layout {
   display: grid;
-  grid-template-columns: 240px minmax(0, 660px) 200px;
+  grid-template-columns: minmax(0, 1fr) 220px;
   align-items: start;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   width: 100%;
 }
 
-.panel-left  { border-right: 1px solid var(--border); padding: 16px; }
-.panel-right { border-left:  1px solid var(--border); padding: 16px; position: sticky; top: var(--header-h); min-width: 220px; }
-.panel-center { padding: 28px 32px; }
+.panel-left  { display: none; }
+.panel-right { border-left: 1px solid var(--border); padding: 16px; position: sticky; top: var(--header-h); }
+.panel-center { padding: 28px 40px; }
 
 .panel-label {
   font-size: 10px;
@@ -230,6 +229,35 @@ body {
   align-items: center;
   gap: 10px;
 }
+
+.btn-share {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.15s;
+}
+.btn-share:hover { color: var(--text); }
+
+.toast {
+  position: absolute;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+  pointer-events: none;
+  z-index: 9999;
+  white-space: nowrap;
+}
+.toast.toast-show { opacity: 1; }
 
 .btn-asana {
   background: transparent;
