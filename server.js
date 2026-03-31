@@ -250,11 +250,12 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  if (req.method === 'GET'  && req.url === '/api/hypotheses')      { handleHypotheses(req, res).catch(e => { res.writeHead(500); res.end(e.message); }); return; }
-  if (req.method === 'POST' && req.url === '/api/tested')         { handleTestedToggle(req, res); return; }
-  if (req.method === 'GET'  && req.url === '/api/asana/project') { handleAsanaProject(res); return; }
-  if (req.method === 'POST' && req.url === '/api/asana')          { handleAsanaCreate(req, res); return; }
-  if (req.method === 'POST' && req.url === '/api/generate')       { handleGenerate(res); return; }
+  const urlPath = req.url.split('?')[0];
+  if (req.method === 'GET'  && urlPath === '/api/hypotheses')      { handleHypotheses(req, res).catch(e => { res.writeHead(500); res.end(e.message); }); return; }
+  if (req.method === 'POST' && urlPath === '/api/tested')         { handleTestedToggle(req, res); return; }
+  if (req.method === 'GET'  && urlPath === '/api/asana/project') { handleAsanaProject(res); return; }
+  if (req.method === 'POST' && urlPath === '/api/asana')          { handleAsanaCreate(req, res); return; }
+  if (req.method === 'POST' && urlPath === '/api/generate')       { handleGenerate(res); return; }
 
   serveStatic(req, res);
 });
