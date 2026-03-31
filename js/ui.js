@@ -299,7 +299,7 @@ function renderAll() {
 // ── Load hypothesis data ──────────────────────────────────────────────────────
 async function loadData() {
   const res = await fetch('/api/hypotheses');
-  if (!res.ok) throw new Error('Failed to load hypotheses');
+  if (!res.ok) throw new Error(`HTTP ${res.status} – Failed to load hypotheses`);
 
   const data = await res.json();
   batches    = data.batches ?? [];
