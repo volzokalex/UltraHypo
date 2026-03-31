@@ -478,6 +478,10 @@ async function init() {
     await loadData();
   } catch(e) {
     console.error(e);
+    const msg = document.createElement('div');
+    msg.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#3a1a1a;color:#f87171;border:1px solid #7f1d1d;padding:12px 20px;border-radius:8px;font-size:13px;max-width:480px;text-align:center;z-index:9999';
+    msg.textContent = 'Failed to load: ' + e.message;
+    document.body.appendChild(msg);
   }
 }
 
