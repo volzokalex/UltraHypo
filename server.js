@@ -21,7 +21,8 @@ const MIME = {
 
 // ── Static file server ────────────────────────────────────────────────────────
 function serveStatic(req, res) {
-  let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
+  const cleanUrl = req.url.split('?')[0];
+  let filePath = path.join(__dirname, cleanUrl === '/' ? 'index.html' : cleanUrl);
   // Prevent directory traversal
   if (!filePath.startsWith(__dirname)) {
     res.writeHead(403); res.end(); return;

@@ -173,7 +173,7 @@ function renderRefAds(h) {
     const ad = adsRefs[num];
     const statusCls = ad.status === 'ACTIVE' ? 'active' : 'inactive';
     return `<div class="ref-card" data-img="${esc(ad.image_url)}">
-      <img src="${esc(ad.image_url)}" alt="Ad ${esc(ad.ad_id)}" loading="lazy" />
+      <img src="${esc(ad.image_url)}" alt="Ad ${esc(ad.ad_id)}" loading="lazy" onerror="this.outerHTML='<div style=\'height:160px;background:#1a1a2e;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#555\'>Image expired</div>'" />
       <div class="ref-card-body">
         <div class="ref-card-stat"><span>${L.reach}</span><span>${fmtReach(ad.reach)}</span></div>
         <div class="ref-card-stat"><span>${L.days}</span><span>${ad.active_days}</span></div>
