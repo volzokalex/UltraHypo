@@ -298,7 +298,7 @@ function renderAll() {
 
 // ── Load hypothesis data ──────────────────────────────────────────────────────
 async function loadData() {
-  const res = await fetch('/api/hypotheses');
+  const res = await fetch('/api/hypotheses', { cache: 'no-store' });
   if (!res.ok) throw new Error(`HTTP ${res.status} – Failed to load hypotheses`);
 
   const data = await res.json();
