@@ -251,6 +251,7 @@ const server = http.createServer((req, res) => {
   }
 
   const urlPath = req.url.split('?')[0];
+  if (req.method === 'GET'  && urlPath === '/api/ping') { res.writeHead(200, {'Content-Type':'application/json'}); res.end(JSON.stringify({ok:true,url:req.url})); return; }
   if (req.method === 'GET'  && urlPath === '/api/hypotheses')      { handleHypotheses(req, res).catch(e => { res.writeHead(500); res.end(e.message); }); return; }
   if (req.method === 'POST' && urlPath === '/api/tested')         { handleTestedToggle(req, res); return; }
   if (req.method === 'GET'  && urlPath === '/api/asana/project') { handleAsanaProject(res); return; }
