@@ -211,6 +211,7 @@ async function handleAsanaCreate(req, res) {
     const bodies = (h.top_body_texts ?? []).map((b, i) => `_${i + 1}. ${b.text}_`).join('\n\n');
 
     const notes = [
+      h.share_url     ? `🔗 ${h.share_url}`                      : '',
       h.hypothesis    ? `**Hypothesis:**\n${h.hypothesis}`       : '',
       h.what_to_test  ? `**What to test:**\n${h.what_to_test}`   : '',
       h.why_it_works  ? `**Why it works:**\n${h.why_it_works}`   : '',

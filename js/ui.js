@@ -276,7 +276,7 @@ function renderHypothesis() {
       const res = await fetch('/api/asana', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify(h),
+        body:    JSON.stringify({ ...h, share_url: `${location.origin}${location.pathname}?h=${h._db_id}` }),
       });
       const data = await res.json();
       if (data.task_url) {
